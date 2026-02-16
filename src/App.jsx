@@ -15,7 +15,7 @@ import PageNotFound from './components/lib/PageNotFound';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/OB-React">
       <Layout>
         <Routes>
           {/* Home */}
