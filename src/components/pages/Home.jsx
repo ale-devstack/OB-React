@@ -7,10 +7,10 @@ import CTASection from '../landing/CTASection';
 export default function Home() {
   return (
     <main>
-    <Hero />
-    <Services />
-    <WhyOrangeBee /> 
-    <CTASection />
+      <Hero />
+      <Services />
+      <WhyOrangeBee />
+      <CTASection />
     </main>
   );
 }

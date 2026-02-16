@@ -1,16 +1,23 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-neutral-950 relative overflow-hidden">
-      {/* Background elements */}
-     <div className="absolute inset-0">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/25 rounded-full blur-[120px]" />
-    </div>
+    <section className="py-24 bg-neutral-900 relative overflow-hidden">
+      {/* Destello superior centrado */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[120px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             ¿Listo para Recuperar tu
             <span className="text-orange-500"> Cartera Vencida</span>?
@@ -22,7 +29,13 @@ export default function CTASection() {
           </p>
 
           {/* CTA Button */}
-          <div className="flex justify-center mb-16">
+          <motion.div
+            className="flex justify-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <a
               href="#contacto"
               className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-lg shadow-orange-500/25 transition-colors"
@@ -30,10 +43,16 @@ export default function CTASection() {
               Solicitar Consulta Gratis
               <ArrowRight className="h-5 w-5" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Contact info */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <motion.div
+            className="flex flex-col sm:flex-row gap-8 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <a
               href="tel:+525555555555"
               className="flex items-center gap-3 text-slate-300 hover:text-orange-500 transition-colors"
@@ -65,8 +84,8 @@ export default function CTASection() {
                 </div>
               </div>
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

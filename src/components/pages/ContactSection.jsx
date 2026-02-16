@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -64,17 +65,28 @@ export default function ContactSection() {
   return (
     <section id="contacto">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24">  <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="text-orange-500 font-semibold text-sm uppercase">
-            Contacto
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            Hablemos de tu Cartera
-          </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Agenda una consulta gratuita y descubre cómo OrangeBee puede
-            ayudarte a recuperar tu cartera vencida.
-          </p>
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-10 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+              Contacto
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+              Hablemos de tu Cartera
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Agenda una consulta gratuita y descubre cómo OrangeBee puede
+              ayudarte a recuperar tu cartera vencida.
+            </p>
+          </motion.div>
         </div>
       </div>
 
@@ -82,7 +94,13 @@ export default function ContactSection() {
       <div className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           {/* Form */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm border">
+          <motion.div
+            className="bg-white rounded-3xl p-8 shadow-sm border"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
               Envíanos un Mensaje
             </h3>
@@ -91,9 +109,14 @@ export default function ContactSection() {
             </p>
 
             {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-10 h-10 text-orange-600" />
+              <motion.div
+                className="text-center py-12"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <div className="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="w-10 h-10 text-orange-500" />
                 </div>
                 <h4 className="text-xl font-bold text-slate-900 mb-2">
                   ¡Mensaje Enviado!
@@ -101,14 +124,14 @@ export default function ContactSection() {
                 <p className="text-slate-500">
                   Un asesor se comunicará contigo pronto.
                 </p>
-              </div>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <input
                     required
                     placeholder="Nombre completo"
-                    className="w-full rounded-xl border p-3"
+                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -118,7 +141,7 @@ export default function ContactSection() {
                     required
                     type="email"
                     placeholder="Correo electrónico"
-                    className="w-full rounded-xl border p-3"
+                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -129,7 +152,7 @@ export default function ContactSection() {
                 <div className="grid sm:grid-cols-2 gap-6">
                   <input
                     placeholder="Teléfono"
-                    className="w-full rounded-xl border p-3"
+                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -137,7 +160,7 @@ export default function ContactSection() {
                   />
                   <input
                     placeholder="Empresa"
-                    className="w-full rounded-xl border p-3"
+                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                     value={formData.company}
                     onChange={(e) =>
                       setFormData({ ...formData, company: e.target.value })
@@ -146,7 +169,7 @@ export default function ContactSection() {
                 </div>
 
                 <select
-                  className="w-full rounded-xl border p-3"
+                  className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                   value={formData.serviceType}
                   onChange={(e) =>
                     setFormData({
@@ -166,7 +189,7 @@ export default function ContactSection() {
                   required
                   rows={5}
                   placeholder="Cuéntanos sobre tu cartera..."
-                  className="w-full rounded-xl border p-3 resize-none"
+                  className="w-full rounded-xl border p-3 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({
@@ -178,17 +201,23 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
                   Enviar Mensaje
                   <Send className="w-5 h-5" />
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
 
           {/* Info */}
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">
                 Información de Contacto
@@ -199,10 +228,14 @@ export default function ContactSection() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              {contactInfo.map((item) => (
-                <div
+              {contactInfo.map((item, idx) => (
+                <motion.div
                   key={item.title}
                   className="bg-white rounded-2xl p-6 border"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                 >
                   <item.icon className="w-6 h-6 text-orange-500 mb-4" />
                   <h4 className="font-semibold text-slate-900 mb-2">
@@ -213,17 +246,25 @@ export default function ContactSection() {
                       {line}
                     </p>
                   ))}
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="bg-slate-900 rounded-3xl p-8 text-white">
+            <motion.div
+              className="bg-black rounded-3xl p-8 text-white"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center">
                   <Hexagon className="w-7 h-7 text-white fill-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xl">OrangeBee</h4>
+                  <h4 className="font-bold text-xl">
+                    <span className="text-orange-500">Orange</span><span className="text-white">Bee</span>
+                  </h4>
                   <p className="text-slate-400 text-sm">
                     Cobranza Inteligente
                   </p>
@@ -233,8 +274,8 @@ export default function ContactSection() {
               <p className="text-slate-400 mb-6">
                 Somos tu socio estratégico para la recuperación de cartera.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

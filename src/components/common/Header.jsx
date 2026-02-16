@@ -25,8 +25,8 @@ export default function Header() {
   const linkBase =
     "font-medium transition-colors";
 
-  const linkScrolled =
-    "text-slate-600 hover:text-slate-900";
+  const linkScrolled = 
+  "text-white/80 hover:text-white";
 
   const linkTransparent =
     "text-white/80 hover:text-white";
@@ -37,8 +37,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
+            ? "bg-black/90 backdrop-blur-md shadow-sm py-3"
+            : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -54,7 +54,7 @@ export default function Header() {
             </div>
             <span
               className={`font-bold text-xl ${
-                isScrolled ? "text-slate-900" : "text-white"
+                "text-white"
               }`}
             >
               <span className="text-orange-500">Orange</span>Bee
@@ -96,7 +96,7 @@ export default function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? "text-slate-900" : "text-white"
+              "text-white"
             }`}
             aria-label={
               isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"
@@ -113,7 +113,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-black/95 border-t border-white/10">
           <nav className="max-w-7xl mx-auto px-6 py-6 space-y-4">
             {navLinks.map((link) => (
               <NavLink
@@ -124,7 +124,7 @@ export default function Header() {
                   `block py-2 font-medium ${
                     isActive
                       ? "text-orange-500"
-                      : "text-slate-600 hover:text-orange-500"
+                      : "text-white/70 hover:text-orange-500"
                   }`
                 }
               >

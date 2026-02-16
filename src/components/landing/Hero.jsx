@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Shield,
@@ -14,25 +15,49 @@ export default function Hero() {
       className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
       {/* Background */}
-     <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black">   <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-600/10 rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
+<div className="absolute bottom-20 right-10 w-96 h-96 bg-white/3 rounded-full blur-[150px]" />
         </div>
 
-        {/* Hexagon pattern */}
+        {/* Hexagon pattern 
         <div
-          className="absolute inset-0 opacity-[0.06]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E")`,
             backgroundSize: "60px 60px",
           }}
-        />
+        /> */}
+
+        {/* Background image */}
+                <div
+        className="absolute inset-0 opacity-20 hidden md:block"
+        style={{
+          backgroundImage: `url("/hero-desktop.webp")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      <div
+        className="absolute inset-0 opacity-20 block md:hidden"
+        style={{
+          backgroundImage: `url("/hero-mobile.webp")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
             <div className="inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8">
               <Hexagon className="w-4 h-4 text-orange-500 fill-orange-500" />
               <span className="text-white/80 text-sm font-medium">
@@ -71,30 +96,41 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Stats */}
+            {/* Stats 
             <div className="grid grid-cols-3 gap-8">
               {[
                 { value: "98%", label: "Efectividad" },
                 { value: "+200", label: "Empresas" },
                 { value: "+$100M", label: "Recuperados" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center sm:text-left">
+              ].map((stat, idx) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center sm:text-left"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + idx * 0.15 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold text-orange-500">
                     {stat.value}
                   </div>
                   <div className="text-slate-500 text-sm mt-1">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </div>*/}
+          </motion.div>
 
           {/* Right content */}
-          <div className="hidden lg:block">
+          <motion.div
+            className="hidden lg:block"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <div className="relative">
-              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-8 shadow-2xl">   
-              <div className="space-y-6">
+              <div className="bg-white/10 border border-white/15 rounded-3xl p-8 shadow-2xl">
+                <div className="space-y-6">
                   {[
                     {
                       icon: Shield,
@@ -111,10 +147,13 @@ export default function Hero() {
                       title: "Equipo Especializado",
                       desc: "Profesionales certificados en gestión de cobranza",
                     },
-                  ].map((item) => (
-                    <div
+                  ].map((item, idx) => (
+                    <motion.div
                       key={item.title}
                       className="flex gap-4 items-start p-4 rounded-2xl hover:bg-white/10 transition-colors"
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.4 + idx * 0.15 }}
                     >
                       <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-orange-500" />
@@ -127,18 +166,23 @@ export default function Hero() {
                           {item.desc}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-orange-500 rounded-2xl p-4 shadow-xl shadow-orange-500/25">
+              <motion.div
+                className="absolute -bottom-6 -left-6 bg-orange-500 rounded-2xl p-4 shadow-xl shadow-orange-500/25"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+              >
                 <div className="text-white font-bold text-lg">15+</div>
                 <div className="text-white/80 text-xs">Años</div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
