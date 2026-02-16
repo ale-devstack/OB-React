@@ -1,16 +1,17 @@
 {
-  "name": "orangebee-react",
+  "name": "orangebe-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ale-devstack.github.io/OB-React/",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build && cp dist/index.html dist/404.html",
-  "deploy": "gh-pages -d dist"
-},
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build && cp dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "framer-motion": "^12.34.0",
     "lucide-react": "^0.564.0",
