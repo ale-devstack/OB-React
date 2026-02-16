@@ -54,7 +54,7 @@ export default function WhyOrangeBee() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl overflow-hidden relative">
+            <div className="aspect-square bg-black rounded-3xl overflow-hidden relative">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-8">
                   <div className="text-7xl font-bold mb-4">98%</div>
@@ -98,7 +98,7 @@ export default function WhyOrangeBee() {
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">
-                    Certificados
+                    Cumplimiento
                   </div>
                   <div className="text-slate-500 text-sm">CONDUSEF</div>
                 </div>

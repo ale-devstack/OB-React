@@ -10,17 +10,17 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white">
+    <footer className="bg-black text-white border-t border-white/20">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center">
-                <Hexagon className="w-5 h-5 text-white fill-white" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center">
+                <img src="/logo-abeja.png" alt="OrangeBee" className="w-10 h-10" />
               </div>
               <span className="font-bold text-xl">
-                Orange<span className="text-orange-500">Bee</span>
+                <span className="text-orange-500">Orange</span>Bee
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">

@@ -47,10 +47,10 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="pt-24">
+    <section id="nosotros" >
+      {/*className="pt-24"*/}
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24 relative overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">  <div className="absolute inset-0">
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
         </div>
 

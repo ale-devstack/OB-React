@@ -62,10 +62,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="pt-24">
+    <section id="contacto">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24">  <div className="max-w-7xl mx-auto px-6 text-center">
           <span className="text-orange-500 font-semibold text-sm uppercase">
             Contacto
           </span>

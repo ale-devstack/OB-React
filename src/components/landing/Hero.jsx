@@ -14,15 +14,14 @@ export default function Hero() {
       className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-        <div className="absolute inset-0">
+     <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black">   <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-[120px]" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-600/10 rounded-full blur-[150px]" />
         </div>
 
         {/* Hexagon pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E")`,
             backgroundSize: "60px 60px",
@@ -66,7 +65,7 @@ export default function Hero() {
 
               <a
                 href="#servicios"
-                className="inline-flex items-center justify-center border border-slate-700 text-white hover:bg-slate-800 px-8 py-4 text-lg rounded-xl transition-colors"
+                className="inline-flex items-center justify-center bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 text-lg rounded-xl font-semibold transition-colors"
               >
                 Conocer Servicios
               </a>
@@ -94,8 +93,8 @@ export default function Hero() {
           {/* Right content */}
           <div className="hidden lg:block">
             <div className="relative">
-              <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 shadow-2xl">
-                <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-8 shadow-2xl">   
+              <div className="space-y-6">
                   {[
                     {
                       icon: Shield,
@@ -115,7 +114,7 @@ export default function Hero() {
                   ].map((item) => (
                     <div
                       key={item.title}
-                      className="flex gap-4 items-start p-4 rounded-2xl hover:bg-slate-700/30 transition-colors"
+                      className="flex gap-4 items-start p-4 rounded-2xl hover:bg-white/10 transition-colors"
                     >
                       <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-orange-500" />

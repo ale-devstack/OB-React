@@ -3,12 +3,11 @@ import { ArrowRight, Phone, Mail } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+    <section className="py-24 bg-neutral-950 relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/5 rounded-full blur-[150px]" />
-      </div>
+     <div className="absolute inset-0">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/25 rounded-full blur-[120px]" />
+    </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center">

@@ -107,9 +107,9 @@ const process = [
 
 export default function Services() {
   return (
-    <main className="pt-20">
+    <main>
       {/* HERO */}
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
         </div>
