@@ -8,6 +8,9 @@ import {
   Hexagon,
 } from "lucide-react";
 
+import heroDesktop from '/hero-desktop.webp';
+import heroMobile from '/hero-mobile.webp';
+
 export default function Hero() {
   return (
     <section
@@ -34,7 +37,7 @@ export default function Hero() {
                 <div
         className="absolute inset-0 opacity-20 hidden md:block"
         style={{
-          backgroundImage: `url("/hero-desktop.webp")`,
+          backgroundImage: `url(${heroDesktop})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -43,7 +46,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-20 block md:hidden"
         style={{
-          backgroundImage: `url("/hero-mobile.webp")`,
+          backgroundImage: `url(${heroMobile})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
