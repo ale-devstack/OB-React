@@ -23,17 +23,24 @@ const imagesToPreload = [heroDesktop, heroMobile, logoAbeja];
 function App() {
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const promises = imagesToPreload.map((src) => {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = resolve;
-        img.onerror = resolve;
-      });
+useEffect(() => {
+  // 1. Esperar a que las imágenes se precarguen
+  const imagePromises = imagesToPreload.map((src) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = resolve;
+      img.onerror = resolve;
     });
+  });
 
-    Promise.all(promises).then(() => {
+  // 2. Esperar a que todas las fuentes estén listas
+  const fontsReady = document.fonts.ready;
+
+  // 3. Esperar ambas cosas
+  Promise.all([...imagePromises, fontsReady]).then(() => {
+    // Pequeño delay para que React termine de pintar todo
+    requestAnimationFrame(() => {
       setTimeout(() => {
         const loader = document.getElementById('loader');
         if (loader) {
@@ -41,9 +48,10 @@ function App() {
           setTimeout(() => loader.remove(), 500);
         }
         setLoaded(true);
-      }, 300);
+      }, 500);
     });
-  }, []);
+  });
+}, []);
 
   return (
     <BrowserRouter basename="/OB-React">
