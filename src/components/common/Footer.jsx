@@ -8,6 +8,8 @@ import {
   Hexagon,
 } from "lucide-react";
 
+import logoAbeja from '/logo-abeja.png';
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white border-t border-white/20">
@@ -17,7 +19,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-                <img src="/logo-abeja.png" alt="OrangeBee" className="w-10 h-10" />
+                <img src={logoAbeja} />
               </div>
               <span className="font-bold text-xl">
                 <span className="text-orange-500">Orange</span>Bee

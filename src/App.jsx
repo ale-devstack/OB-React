@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Layout
@@ -13,23 +13,56 @@ import AboutSection from './components/pages/AboutSection';
 import ContactSection from './components/pages/ContactSection';
 import PageNotFound from './components/lib/PageNotFound';
 
+// Imágenes a precargar
+import heroDesktop from '/hero-desktop.webp';
+import heroMobile from '/hero-mobile.webp';
+import logoAbeja from '/logo-abeja.png';
+
+const imagesToPreload = [heroDesktop, heroMobile, logoAbeja];
+
 function App() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const promises = imagesToPreload.map((src) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    });
+
+    Promise.all(promises).then(() => {
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.classList.add('fade-out');
+          setTimeout(() => loader.remove(), 500);
+        }
+        setLoaded(true);
+      }, 300);
+    });
+  }, []);
+
   return (
     <BrowserRouter basename="/OB-React">
-      <Layout>
-        <Routes>
-          {/* Home */}
-          <Route path="/" element={<Home />} />
+      <div style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+        <Layout>
+          <Routes>
+            {/* Home */}
+            <Route path="/" element={<Home />} />
 
-          {/* Pages */}
-          <Route path="/servicios" element={<ServicesPage />} />
-          <Route path="/nosotros" element={<AboutSection />} />
-          <Route path="/contacto" element={<ContactSection />} />
+            {/* Pages */}
+            <Route path="/servicios" element={<ServicesPage />} />
+            <Route path="/nosotros" element={<AboutSection />} />
+            <Route path="/contacto" element={<ContactSection />} />
 
-          {/* 404 */}
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Layout>
+            {/* 404 */}
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Layout>
+      </div>
     </BrowserRouter>
   );
 }

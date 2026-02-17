@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, Hexagon } from "lucide-react";
 
+import logoAbeja from '/logo-abeja.png';
 
 const navLinks = [
   { name: "Inicio", to: "/" },
@@ -50,7 +51,7 @@ export default function Header() {
             className="flex items-center gap-2"
           >
             <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-              <img src="/logo-abeja.png" alt="OrangeBee" className="w-10 h-10" />
+              <img src={logoAbeja} />
             </div>
             <span
               className={`font-bold text-xl ${
