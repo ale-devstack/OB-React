@@ -4,8 +4,8 @@ import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
 
-const inputClass = "w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all";
-const labelClass = "block text-sm font-medium text-slate-700 mb-1";
+const inputClass = "w-full rounded-xl border border-neutral-300 p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
+const labelClass = "block text-sm font-medium text-neutral-700 mb-1";
 
 export default function ContactSection() {
   usePageTitle('Contacto');
@@ -33,7 +33,7 @@ export default function ContactSection() {
   return (
     <section id="contacto">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">
+      <div className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
         </div>
@@ -46,7 +46,7 @@ export default function ContactSection() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
               Hablemos de tu Cartera
             </h1>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
               Agenda una consulta gratuita y descubre cómo OrangeBee puede
               ayudarte a recuperar tu cartera vencida.
             </p>
@@ -60,12 +60,12 @@ export default function ContactSection() {
           {/* Form */}
           <div
             ref={formRef}
-            className={`ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border ${formInView ? 'visible' : ''}`}
+            className={`ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border border-neutral-200 ${formInView ? 'visible' : ''}`}
           >
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+            <h2 className="text-2xl font-bold text-neutral-900 mb-2">
               Envíanos un Mensaje
             </h2>
-            <p className="text-slate-500 mb-8">
+            <p className="text-neutral-500 mb-8">
               Te contactaremos en menos de 24 horas.
             </p>
 
@@ -74,10 +74,10 @@ export default function ContactSection() {
                 <div className="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10 text-orange-500" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-xl font-bold text-neutral-900 mb-2">
                   ¡Mensaje Enviado!
                 </h3>
-                <p className="text-slate-500">
+                <p className="text-neutral-500">
                   Un asesor se comunicará contigo pronto.
                 </p>
               </div>
@@ -188,10 +188,10 @@ export default function ContactSection() {
             className={`ob-anim ob-fade-right space-y-8 ${infoInView ? 'visible' : ''}`}
           >
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              <h2 className="text-2xl font-bold text-neutral-900 mb-2">
                 Información de Contacto
               </h2>
-              <p className="text-slate-500">
+              <p className="text-neutral-500">
                 Estamos disponibles para atenderte.
               </p>
             </div>
@@ -203,14 +203,14 @@ export default function ContactSection() {
               {CONTACT_ITEMS.map((item) => (
                 <div
                   key={item.title}
-                  className="bg-white rounded-2xl p-6 border"
+                  className="bg-white rounded-2xl p-6 border border-neutral-200"
                 >
                   <item.icon className="w-6 h-6 text-orange-500 mb-4" />
-                  <h3 className="font-semibold text-slate-900 mb-2">
+                  <h3 className="font-semibold text-neutral-900 mb-2">
                     {item.title}
                   </h3>
                   {item.lines.map((line) => (
-                    <p key={line} className="text-slate-500 text-sm">
+                    <p key={line} className="text-neutral-500 text-sm">
                       {line}
                     </p>
                   ))}
@@ -227,13 +227,13 @@ export default function ContactSection() {
                   <h3 className="font-bold text-xl">
                     <span className="text-orange-500">Orange</span><span className="text-white">Bee</span>
                   </h3>
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-neutral-300 text-sm">
                     Cobranza Inteligente
                   </p>
                 </div>
               </div>
 
-              <p className="text-slate-400 mb-6">
+              <p className="text-neutral-300 mb-6">
                 Somos tu socio estratégico para la recuperación de cartera.
               </p>
             </div>

@@ -25,7 +25,7 @@ export default function Footer() {
                 <span className="text-orange-500">Orange</span>Bee
               </span>
             </Link>
-            <p className="text-slate-300/90 text-sm leading-relaxed mb-6">
+            <p className="text-neutral-300/90 text-sm leading-relaxed mb-6">
               Despacho de cobranza profesional especializado en empresas, financieras y fintechs.
               Recuperación efectiva con ética y transparencia.
             </p>
@@ -34,7 +34,7 @@ export default function Footer() {
                 href={CONTACT.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -43,7 +43,7 @@ export default function Footer() {
                 href={CONTACT.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -52,7 +52,7 @@ export default function Footer() {
                 href={CONTACT.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map(({ name, to }) => (
                 <li key={name}>
-                  <Link to={to} className="text-slate-300 hover:text-orange-400 transition-colors text-sm">
+                  <Link to={to} className="text-neutral-300 hover:text-orange-400 transition-colors text-sm">
                     {name}
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {SERVICES.map(({ id, title }) => (
                 <li key={id}>
-                  <Link to="/servicios" className="text-slate-300 hover:text-orange-400 transition-colors text-sm">
+                  <Link to="/servicios" className="text-neutral-300 hover:text-orange-400 transition-colors text-sm">
                     {title}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export default function Footer() {
               {CONTACT_ITEMS.map(({ icon: Icon, title, lines }) => (
                 <li key={title} className="flex gap-3">
                   <Icon className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-400 text-sm">{lines[0]}</span>
+                  <span className="text-neutral-400 text-sm">{lines[0]}</span>
                 </li>
               ))}
             </ul>
@@ -103,15 +103,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 text-sm">
+        <div className="border-t border-orange-500/15 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-neutral-400 text-sm">
             © {new Date().getFullYear()} OrangeBee. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/nosotros" className="text-slate-400 hover:text-white transition-colors">
+            <Link to="/nosotros" className="text-neutral-400 hover:text-white transition-colors">
               Aviso de Privacidad
             </Link>
-            <Link to="/nosotros" className="text-slate-400 hover:text-white transition-colors">
+            <Link to="/nosotros" className="text-neutral-400 hover:text-white transition-colors">
               Términos y Condiciones
             </Link>
           </div>
