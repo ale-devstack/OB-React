@@ -1,69 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Building2, Landmark, Scale, FileText, ArrowRight,
-  CheckCircle2, Phone, TrendingUp, Users, FileSearch, Gavel,
+  ArrowRight, CheckCircle2, Phone,
+  TrendingUp, Users, FileSearch, Gavel,
 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
-
-const services = [
-  {
-    icon: Building2,
-    title: "Cobranza Comercial",
-    description:
-      "Recuperación especializada de cartera para el sector comercial e industrial, con estrategias diseñadas para preservar las relaciones comerciales.",
-    features: [
-      "Gestión preventiva y recordatorios",
-      "Cobranza extrajudicial amistosa",
-      "Negociación de convenios de pago",
-      "Visitas domiciliarias",
-      "Seguimiento personalizado",
-      "Reportes de gestión detallados",
-    ],
-  },
-  {
-    icon: Landmark,
-    title: "Cobranza Financiera",
-    description:
-      "Especialistas en recuperación de créditos para bancos, financieras y fintechs con estricto apego a la normatividad CONDUSEF.",
-    features: [
-      "Créditos personales y nómina",
-      "Tarjetas de crédito",
-      "Préstamos digitales",
-      "Créditos automotrices",
-      "Líneas de crédito empresarial",
-      "Reestructuración de deudas",
-    ],
-  },
-  {
-    icon: Scale,
-    title: "Cobranza Judicial",
-    description:
-      "Representación legal integral para la recuperación de adeudos mediante procedimientos judiciales y ejecución de garantías.",
-    features: [
-      "Demandas mercantiles",
-      "Juicios ejecutivos",
-      "Embargo de bienes",
-      "Ejecución de garantías",
-      "Recuperación de activos",
-      "Procedimientos concursales",
-    ],
-  },
-  {
-    icon: FileText,
-    title: "Consultoría en Cobranza",
-    description:
-      "Asesoría estratégica para optimizar políticas de crédito y procesos de cobranza internos de tu empresa.",
-    features: [
-      "Diagnóstico de cartera",
-      "Diseño de políticas de crédito",
-      "Capacitación de equipos",
-      "Optimización de procesos",
-      "Implementación de sistemas",
-      "Mejores prácticas del sector",
-    ],
-  },
-];
+import { usePageTitle } from "../../hooks/usePageTitle";
+import { SERVICES } from "../../data/services";
 
 const process = [
   {
@@ -109,8 +51,8 @@ function ServiceRow({ service, isEven }) {
         </div>
         <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.description}</p>
         <ul className="grid sm:grid-cols-2 gap-4 mb-8">
-          {service.features.map((feature, fidx) => (
-            <li key={fidx} className="flex items-center gap-3">
+          {service.features.map((feature) => (
+            <li key={feature} className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0" />
               <span className="text-slate-600">{feature}</span>
             </li>
@@ -130,8 +72,8 @@ function ServiceRow({ service, isEven }) {
         <div className="aspect-[4/3] bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl overflow-hidden relative">
           <service.icon className="absolute inset-0 m-auto w-32 h-32 text-orange-500/10" />
           <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
-            <div className="text-3xl font-bold text-white mb-1">+200</div>
-            <div className="text-white/70 text-sm">Clientes satisfechos</div>
+            <div className="text-3xl font-bold text-white mb-1">{service.stat.value}</div>
+            <div className="text-white/70 text-sm">{service.stat.label}</div>
           </div>
         </div>
       </div>
@@ -140,6 +82,8 @@ function ServiceRow({ service, isEven }) {
 }
 
 export default function ServicesPage() {
+  usePageTitle('Servicios');
+
   const [processHeaderRef, processHeaderInView] = useInView();
   const [processGridRef, processGridInView] = useInView();
   const [ctaRef, ctaInView] = useInView();
@@ -163,8 +107,8 @@ export default function ServicesPage() {
       {/* SERVICES DETAIL */}
       <section className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 space-y-32">
-          {services.map((service, idx) => (
-            <ServiceRow key={idx} service={service} isEven={idx % 2 === 0} />
+          {SERVICES.map((service, idx) => (
+            <ServiceRow key={service.id} service={service} isEven={idx % 2 === 0} />
           ))}
         </div>
       </section>
@@ -187,8 +131,8 @@ export default function ServicesPage() {
             ref={processGridRef}
             className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-8 ${processGridInView ? 'visible' : ''}`}
           >
-            {process.map((step, idx) => (
-              <div key={idx} className="bg-slate-50 rounded-2xl p-8 relative">
+            {process.map((step) => (
+              <div key={step.step} className="bg-slate-50 rounded-2xl p-8 relative">
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}
                 </div>

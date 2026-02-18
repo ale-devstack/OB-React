@@ -1,68 +1,32 @@
-import React, { useState } from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  CheckCircle2,
-  Hexagon,
-} from "lucide-react";
+import { useState } from "react";
+import { Send, CheckCircle2, Hexagon } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
+import { usePageTitle } from "../../hooks/usePageTitle";
+import { CONTACT_ITEMS } from "../../data/contact";
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: "Ubicación",
-    lines: ["Ciudad de México, México"],
-  },
-  {
-    icon: Phone,
-    title: "Teléfono",
-    lines: ["+52 (55) 5555-5555"],
-  },
-  {
-    icon: Mail,
-    title: "Correo Electrónico",
-    lines: ["contacto@orangebee.mx"],
-  },
-  {
-    icon: Clock,
-    title: "Horario",
-    lines: ["Lunes a Viernes: 9:00 - 18:00"],
-  },
-];
+const inputClass = "w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all";
+const labelClass = "block text-sm font-medium text-slate-700 mb-1";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    serviceType: "",
-    message: "",
-  });
+  usePageTitle('Contacto');
 
+  const [formData, setFormData] = useState({
+    name: "", email: "", phone: "", company: "", serviceType: "", message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formRef, formInView] = useInView();
   const [infoRef, infoInView] = useInView();
   const [cardsRef, cardsInView] = useInView();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
+    setIsSubmitting(true);
+    await new Promise((r) => setTimeout(r, 800));
+    setIsSubmitting(false);
     setSubmitted(true);
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      serviceType: "",
-      message: "",
-    });
-
+    setFormData({ name: "", email: "", phone: "", company: "", serviceType: "", message: "" });
     setTimeout(() => setSubmitted(false), 4000);
   };
 
@@ -79,9 +43,9 @@ export default function ContactSection() {
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
               Contacto
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
               Hablemos de tu Cartera
-            </h2>
+            </h1>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Agenda una consulta gratuita y descubre cómo OrangeBee puede
               ayudarte a recuperar tu cartera vencida.
@@ -98,9 +62,9 @@ export default function ContactSection() {
             ref={formRef}
             className={`ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border ${formInView ? 'visible' : ''}`}
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
               Envíanos un Mensaje
-            </h3>
+            </h2>
             <p className="text-slate-500 mb-8">
               Te contactaremos en menos de 24 horas.
             </p>
@@ -110,93 +74,109 @@ export default function ContactSection() {
                 <div className="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10 text-orange-500" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   ¡Mensaje Enviado!
-                </h4>
+                </h3>
                 <p className="text-slate-500">
                   Un asesor se comunicará contigo pronto.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <input
-                    required
-                    placeholder="Nombre completo"
-                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                  />
-                  <input
-                    required
-                    type="email"
-                    placeholder="Correo electrónico"
-                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                  />
+                  <div>
+                    <label htmlFor="contact-name" className={labelClass}>Nombre completo</label>
+                    <input
+                      id="contact-name"
+                      required
+                      placeholder="Juan García"
+                      className={inputClass}
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className={labelClass}>Correo electrónico</label>
+                    <input
+                      id="contact-email"
+                      required
+                      type="email"
+                      placeholder="juan@empresa.com"
+                      className={inputClass}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <input
-                    placeholder="Teléfono"
-                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                  />
-                  <input
-                    placeholder="Empresa"
-                    className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                    value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
-                  />
+                  <div>
+                    <label htmlFor="contact-phone" className={labelClass}>Teléfono</label>
+                    <input
+                      id="contact-phone"
+                      placeholder="+52 55 1234 5678"
+                      className={inputClass}
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-company" className={labelClass}>Empresa</label>
+                    <input
+                      id="contact-company"
+                      placeholder="Mi Empresa S.A."
+                      className={inputClass}
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    />
+                  </div>
                 </div>
 
-                <select
-                  className="w-full rounded-xl border p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                  value={formData.serviceType}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      serviceType: e.target.value,
-                    })
-                  }
-                >
-                  <option value="">Tipo de empresa</option>
-                  <option>Empresa Comercial</option>
-                  <option>Banco / Financiera</option>
-                  <option>Fintech</option>
-                  <option>Otro</option>
-                </select>
+                <div>
+                  <label htmlFor="contact-service" className={labelClass}>Tipo de empresa</label>
+                  <select
+                    id="contact-service"
+                    className={inputClass}
+                    value={formData.serviceType}
+                    onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option>Empresa Comercial</option>
+                    <option>Banco / Financiera</option>
+                    <option>Fintech</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
 
-                <textarea
-                  required
-                  rows={5}
-                  placeholder="Cuéntanos sobre tu cartera..."
-                  className="w-full rounded-xl border p-3 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      message: e.target.value,
-                    })
-                  }
-                />
+                <div>
+                  <label htmlFor="contact-message" className={labelClass}>Mensaje</label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    rows={5}
+                    placeholder="Cuéntanos sobre tu cartera..."
+                    className={`${inputClass} resize-none`}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  />
+                </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-70 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
-                  Enviar Mensaje
-                  <Send className="w-5 h-5" />
+                  {isSubmitting ? (
+                    <>
+                      <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      Enviar Mensaje
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -208,9 +188,9 @@ export default function ContactSection() {
             className={`ob-anim ob-fade-right space-y-8 ${infoInView ? 'visible' : ''}`}
           >
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">
                 Información de Contacto
-              </h3>
+              </h2>
               <p className="text-slate-500">
                 Estamos disponibles para atenderte.
               </p>
@@ -220,15 +200,15 @@ export default function ContactSection() {
               ref={cardsRef}
               className={`ob-stagger grid sm:grid-cols-2 gap-6 ${cardsInView ? 'visible' : ''}`}
             >
-              {contactInfo.map((item) => (
+              {CONTACT_ITEMS.map((item) => (
                 <div
                   key={item.title}
                   className="bg-white rounded-2xl p-6 border"
                 >
                   <item.icon className="w-6 h-6 text-orange-500 mb-4" />
-                  <h4 className="font-semibold text-slate-900 mb-2">
+                  <h3 className="font-semibold text-slate-900 mb-2">
                     {item.title}
-                  </h4>
+                  </h3>
                   {item.lines.map((line) => (
                     <p key={line} className="text-slate-500 text-sm">
                       {line}
@@ -244,9 +224,9 @@ export default function ContactSection() {
                   <Hexagon className="w-7 h-7 text-white fill-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xl">
+                  <h3 className="font-bold text-xl">
                     <span className="text-orange-500">Orange</span><span className="text-white">Bee</span>
-                  </h4>
+                  </h3>
                   <p className="text-slate-400 text-sm">
                     Cobranza Inteligente
                   </p>

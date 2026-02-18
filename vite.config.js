@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/OB-React/',
   build: {
-    target: 'es2020',
+    target: 'es2022',
     cssCodeSplit: true,
     modulePreload: {
       polyfill: true,
@@ -14,7 +14,6 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('react-router-dom')) return 'router'
-          if (id.includes('framer-motion')) return 'motion'
           if (id.includes('lucide-react')) return 'icons'
         },
       },

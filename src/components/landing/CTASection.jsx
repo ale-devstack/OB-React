@@ -1,7 +1,7 @@
-import React from "react";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInView } from "../../hooks/useInView";
+import { CONTACT } from "../../data/contact";
 
 export default function CTASection() {
   const [sectionRef, sectionInView] = useInView();
@@ -35,7 +35,7 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <a
-              href="tel:+525555555555"
+              href={CONTACT.phoneHref}
               className="flex items-center gap-3 text-slate-700 hover:text-orange-500 transition-colors"
             >
               <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
@@ -43,16 +43,14 @@ export default function CTASection() {
               </div>
               <div className="text-left">
                 <div className="text-sm text-slate-500">Llámanos</div>
-                <div className="font-semibold text-slate-900">
-                  +52 (55) 5555-5555
-                </div>
+                <div className="font-semibold text-slate-900">{CONTACT.phone}</div>
               </div>
             </a>
 
             <div className="hidden sm:block w-px h-12 bg-slate-300" />
 
             <a
-              href="mailto:contacto@orangebee.mx"
+              href={CONTACT.emailHref}
               className="flex items-center gap-3 text-slate-700 hover:text-orange-500 transition-colors"
             >
               <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm">
@@ -60,9 +58,7 @@ export default function CTASection() {
               </div>
               <div className="text-left">
                 <div className="text-sm text-slate-500">Escríbenos</div>
-                <div className="font-semibold text-slate-900">
-                  contacto@orangebee.mx
-                </div>
+                <div className="font-semibold text-slate-900">{CONTACT.email}</div>
               </div>
             </a>
           </div>

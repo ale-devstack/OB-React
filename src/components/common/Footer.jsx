@@ -1,29 +1,15 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, Linkedin, Facebook, MessageCircle } from "lucide-react";
+import { Linkedin, Facebook, MessageCircle } from "lucide-react";
 
 import logoAbeja from '/logo-abeja.png';
+import { SERVICES } from '../../data/services';
+import { CONTACT, CONTACT_ITEMS } from '../../data/contact';
 
 const quickLinks = [
   { name: "Inicio",    to: "/" },
   { name: "Servicios", to: "/servicios" },
   { name: "Nosotros",  to: "/nosotros" },
   { name: "Contacto",  to: "/contacto" },
-];
-
-const serviceLinks = [
-  "Cobranza Comercial",
-  "Cobranza Financiera",
-  "Cobranza Judicial",
-  "Consultoría",
-  "Gestión Preventiva",
-];
-
-const contactItems = [
-  { icon: MapPin,  text: "Ciudad de México, México" },
-  { icon: Phone,   text: "+52 (55) 5555-5555" },
-  { icon: Mail,    text: "contacto@orangebee.mx" },
-  { icon: Clock,   text: "Lun - Vie: 9:00 - 18:00" },
 ];
 
 export default function Footer() {
@@ -45,7 +31,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://linkedin.com"
+                href={CONTACT.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
@@ -54,7 +40,7 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href={CONTACT.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
@@ -63,7 +49,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://wa.me/525555555555"
+                href={CONTACT.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
@@ -92,10 +78,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-6">Servicios</h4>
             <ul className="space-y-3">
-              {serviceLinks.map((service) => (
-                <li key={service}>
+              {SERVICES.map(({ id, title }) => (
+                <li key={id}>
                   <Link to="/servicios" className="text-slate-300 hover:text-orange-400 transition-colors text-sm">
-                    {service}
+                    {title}
                   </Link>
                 </li>
               ))}
@@ -106,10 +92,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-6">Contacto</h4>
             <ul className="space-y-4">
-              {contactItems.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex gap-3">
+              {CONTACT_ITEMS.map(({ icon: Icon, title, lines }) => (
+                <li key={title} className="flex gap-3">
                   <Icon className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-400 text-sm">{text}</span>
+                  <span className="text-slate-400 text-sm">{lines[0]}</span>
                 </li>
               ))}
             </ul>

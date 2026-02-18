@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   Target,
@@ -12,6 +11,7 @@ import {
   Hexagon,
 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 const values = [
   {
@@ -48,6 +48,8 @@ const stats = [
 ];
 
 export default function AboutSection() {
+  usePageTitle('Nosotros');
+
   const [statsRef, statsInView] = useInView();
   const [historyLeftRef, historyLeftInView] = useInView();
   const [historyRightRef, historyRightInView] = useInView();
@@ -69,9 +71,9 @@ export default function AboutSection() {
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Sobre Nosotros
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
               Conoce a OrangeBee
-            </h2>
+            </h1>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Despacho de cobranza profesional especializado en empresas,
               financieras y fintechs en México.
