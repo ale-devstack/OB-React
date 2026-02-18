@@ -15,7 +15,7 @@ import CTASection from '../landing/CTASection';
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
