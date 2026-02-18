@@ -13,17 +13,41 @@ function App() {
   const [isLoaderFading, setIsLoaderFading] = useState(false);
 
   useEffect(() => {
-    setIsLoaderFading(true);
-    const loaderTimer = setTimeout(() => {
-      setIsLoaderVisible(false);
-    }, 200);
+    const isHomePath = /^\/OB-React\/?$/.test(window.location.pathname) || /^\/$/.test(window.location.pathname);
 
+    const closeLoader = () => {
+      setIsLoaderFading(true);
+      setTimeout(() => setIsLoaderVisible(false), 220);
+    };
+
+    let homeReadyTimeout;
+
+    if (isHomePath) {
+      const onHomeReady = () => {
+        clearTimeout(homeReadyTimeout);
+        closeLoader();
+      };
+
+      window.addEventListener('orangebee:home-ready', onHomeReady, { once: true });
+      homeReadyTimeout = setTimeout(closeLoader, 2000);
+
+      return () => {
+        window.removeEventListener('orangebee:home-ready', onHomeReady);
+        clearTimeout(homeReadyTimeout);
+      };
+    }
+
+    const loaderTimer = setTimeout(closeLoader, 250);
+    return () => clearTimeout(loaderTimer);
+  }, []);
+
+  useEffect(() => {
     // Prefetch other routes after the page is idle
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const shouldPrefetch = !(connection?.saveData || /2g/.test(connection?.effectiveType || ''));
 
     if (!shouldPrefetch) {
-      return () => clearTimeout(loaderTimer);
+      return undefined;
     }
 
     const prefetch = () => {
@@ -42,7 +66,6 @@ function App() {
     }
 
     return () => {
-      clearTimeout(loaderTimer);
       if (prefetchTimer) clearTimeout(prefetchTimer);
       if (idleId && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
     };
@@ -60,11 +83,11 @@ function App() {
         <Suspense fallback={null}>
           <Layout>
             <Routes>
-              <Route path="/"          element={<Home />}           />
-              <Route path="/servicios" element={<ServicesPage />}   />
-              <Route path="/nosotros"  element={<AboutSection />}   />
-              <Route path="/contacto"  element={<ContactSection />} />
-              <Route path="*"          element={<PageNotFound />}   />
+              <Route path="/" element={<Home />} />
+              <Route path="/servicios" element={<ServicesPage />} />
+              <Route path="/nosotros" element={<AboutSection />} />
+              <Route path="/contacto" element={<ContactSection />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Layout>
         </Suspense>

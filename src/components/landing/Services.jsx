@@ -106,7 +106,7 @@ export default function ServicesPreview() {
         >
           <Link
             to="/servicios"
-            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-black hover:bg-neutral-900 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
           >
             Ver Todos los Servicios
             <ArrowRight className="h-5 w-5" />
