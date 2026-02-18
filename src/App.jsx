@@ -17,6 +17,13 @@ function App() {
     }
 
     // Prefetch other routes after the page is idle
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const shouldPrefetch = !(connection?.saveData || /2g/.test(connection?.effectiveType || ''));
+
+    if (!shouldPrefetch) {
+      return;
+    }
+
     const prefetch = () => {
       import('./components/pages/ServicesPage');
       import('./components/pages/AboutSection');
