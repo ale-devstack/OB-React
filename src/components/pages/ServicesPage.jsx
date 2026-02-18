@@ -6,6 +6,7 @@ import {
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { SERVICES } from "../../data/services";
+import { CONTACT } from "../../data/contact";
 
 const process = [
   {
@@ -149,8 +150,8 @@ export default function ServicesPage() {
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}
                 </div>
-                <div className="w-14 h-14 rounded-xl bg-neutral-900/10 flex items-center justify-center mb-6 mt-4">
-                  <step.icon className="w-7 h-7 text-neutral-700" />
+                <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6 mt-4">
+                  <step.icon className="w-7 h-7 text-orange-500" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900 mb-3">{step.title}</h3>
                 <p className="text-neutral-600 text-sm">{step.description}</p>
@@ -179,7 +180,7 @@ export default function ServicesPage() {
                 Solicitar Consulta <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="tel:+525555555555"
+                href={CONTACT.phoneHref}
                 className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/5 px-8 py-4 rounded-xl font-medium transition-colors"
               >
                 <Phone className="h-5 w-5" /> Llamar Ahora

@@ -4,12 +4,13 @@
 
 @layer base {
   * {
-    @apply border-slate-200;
+    @apply border-neutral-200;
   }
 
   html {
     font-size: 16px;
     overflow-x: hidden;
+    touch-action: manipulation;
   }
 
   body {
@@ -63,7 +64,7 @@ body {
 
 /* Warm neutral — contrasts with dark sections without the cold blue tint */
 .ob-section-soft {
-  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f5 100%);
+  background: linear-gradient(180deg, #fafaf8 0%, #f5f3f0 100%);
 }
 
 .ob-dark-hero {
@@ -73,7 +74,13 @@ body {
 
 .content-auto {
   content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
+  contain-intrinsic-size: auto 600px;
+}
+
+@media (min-width: 768px) {
+  .content-auto {
+    contain-intrinsic-size: auto 800px;
+  }
 }
 
 a:focus-visible,

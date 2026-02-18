@@ -14,18 +14,18 @@ export default function PageNotFound() {
 
           {/* 404 */}
           <div className="space-y-2">
-            <h1 className="text-7xl font-light text-slate-400">404</h1>
-            <div className="h-0.5 w-16 bg-slate-200 mx-auto"></div>
+            <h1 className="text-7xl font-light text-neutral-400">404</h1>
+            <div className="h-0.5 w-16 bg-neutral-200 mx-auto"></div>
           </div>
 
           {/* Message */}
           <div className="space-y-3">
-            <h2 className="text-2xl font-medium text-slate-900">
+            <h2 className="text-2xl font-medium text-neutral-900">
               Página no encontrada
             </h2>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-neutral-600 leading-relaxed">
               La página{' '}
-              <span className="font-medium text-slate-700">
+              <span className="font-medium text-neutral-700">
                 "{pageName}"
               </span>{' '}
               no existe o fue movida.
@@ -36,7 +36,7 @@ export default function PageNotFound() {
           <div className="pt-6">
             <Link
               to="/"
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
+              className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-orange-500 rounded-xl hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               <svg
                 className="w-4 h-4 mr-2"
