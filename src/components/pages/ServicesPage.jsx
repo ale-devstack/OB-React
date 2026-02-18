@@ -110,7 +110,7 @@ export default function ServicesPage() {
       </section>
 
       {/* SERVICES DETAIL */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 space-y-32">
           {services.map((service, idx) => {
             const isEven = idx % 2 === 0;

@@ -90,3 +90,81 @@
     overflow-x: hidden;
   }
 }
+
+#app-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.2s ease;
+}
+
+#app-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255,85,0,0.2);
+  border-top-color: #ff5500;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+:root {
+  --ob-black: #0b0b0c;
+  --ob-surface: #111214;
+  --ob-surface-soft: #17191d;
+  --ob-text: #f5f7fa;
+  --ob-muted: #c0c6d4;
+  --ob-orange: #ff6a1a;
+  --ob-orange-strong: #f15500;
+  --ob-border: rgba(255, 255, 255, 0.09);
+}
+
+body {
+  background: radial-gradient(1200px 500px at 70% -10%, rgba(255, 106, 26, 0.16), transparent 60%), var(--ob-black);
+  color: var(--ob-text);
+}
+
+.ob-glass {
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--ob-border);
+  backdrop-filter: blur(8px);
+}
+
+.ob-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.07);
+}
+
+.ob-section-soft {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ob-orange) 65%, white);
+  outline-offset: 2px;
+}
