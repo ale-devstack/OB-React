@@ -26,7 +26,7 @@ export default function WhyOrangeBee() {
             ref={leftRef}
             className={`ob-anim ob-fade-left relative ${leftInView ? 'visible' : ''}`}
           >
-            <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-white/[0.06]">
+            <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-orange-500/20">
               {/* Orange top accent line */}
               <div className="absolute inset-x-0 top-0 h-1 bg-orange-500" />
 
@@ -52,14 +52,14 @@ export default function WhyOrangeBee() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
+            <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
-                  <div className="font-bold text-slate-900">Cumplimiento</div>
-                  <div className="text-slate-500 text-sm">CONDUSEF</div>
+                  <div className="font-bold text-neutral-900">Cumplimiento</div>
+                  <div className="text-neutral-500 text-sm">CONDUSEF</div>
                 </div>
               </div>
             </div>
@@ -71,10 +71,10 @@ export default function WhyOrangeBee() {
             className={`ob-anim ob-fade-right ${rightInView ? 'visible' : ''}`}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">¿Por Qué OrangeBee?</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
               La Diferencia de Trabajar con Profesionales
             </h2>
-            <p className="text-slate-600 mb-10 leading-relaxed">
+            <p className="text-neutral-600 mb-10 leading-relaxed">
               En OrangeBee combinamos tecnología, experiencia y ética para ofrecer soluciones de cobranza
               que generan resultados reales y protegen la reputación de tu empresa.
             </p>
@@ -88,8 +88,8 @@ export default function WhyOrangeBee() {
                     <reason.icon className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">{reason.title}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">{reason.description}</p>
+                    <h4 className="font-semibold text-neutral-900 mb-1">{reason.title}</h4>
+                    <p className="text-neutral-500 text-sm leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
               ))}

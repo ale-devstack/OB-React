@@ -19,10 +19,10 @@ export default function ServicesPreview() {
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-950 mt-3 mb-4">
             Soluciones Integrales de Cobranza
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-neutral-600 max-w-2xl mx-auto">
             Servicios especializados para empresas, financieras y fintechs.
             Resultados efectivos con total transparencia.
           </p>
@@ -36,17 +36,17 @@ export default function ServicesPreview() {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-orange-200"
+              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200/70 hover:border-orange-200"
             >
-              <div className="w-14 h-14 rounded-xl bg-slate-900/5 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-                <service.icon className="w-7 h-7 text-slate-700 group-hover:text-white transition-colors" />
+              <div className="w-14 h-14 rounded-xl bg-neutral-900/5 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
+                <service.icon className="w-7 h-7 text-neutral-700 group-hover:text-white transition-colors" />
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
                 {service.title}
               </h3>
 
-              <p className="text-slate-600 text-sm mb-5 leading-relaxed">
+              <p className="text-neutral-600 text-sm mb-5 leading-relaxed">
                 {service.descriptionShort}
               </p>
 
@@ -54,7 +54,7 @@ export default function ServicesPreview() {
                 {service.featuresPreview.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-center gap-2 text-sm text-slate-500"
+                    className="flex items-center gap-2 text-sm text-neutral-500"
                   >
                     <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                     {feature}
@@ -72,7 +72,7 @@ export default function ServicesPreview() {
         >
           <Link
             to="/servicios"
-            className="inline-flex items-center gap-2 bg-black hover:bg-neutral-900 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+            className="inline-flex items-center gap-2 bg-black hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
           >
             Ver Todos los Servicios
             <ArrowRight className="h-5 w-5" />
