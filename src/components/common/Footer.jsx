@@ -1,14 +1,30 @@
 import React from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Linkedin,
-  Hexagon,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { MapPin, Phone, Mail, Clock, Linkedin } from "lucide-react";
 
 import logoAbeja from '/logo-abeja.png';
+
+const quickLinks = [
+  { name: "Inicio",    to: "/" },
+  { name: "Servicios", to: "/servicios" },
+  { name: "Nosotros",  to: "/nosotros" },
+  { name: "Contacto",  to: "/contacto" },
+];
+
+const serviceLinks = [
+  "Cobranza Comercial",
+  "Cobranza Financiera",
+  "Cobranza Judicial",
+  "Consultoría",
+  "Gestión Preventiva",
+];
+
+const contactItems = [
+  { icon: MapPin,  text: "Ciudad de México, México" },
+  { icon: Phone,   text: "+52 (55) 5555-5555" },
+  { icon: Mail,    text: "contacto@orangebee.mx" },
+  { icon: Clock,   text: "Lun - Vie: 9:00 - 18:00" },
+];
 
 export default function Footer() {
   return (
@@ -17,42 +33,36 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-                <img src={logoAbeja} />
-              </div>
+            <Link to="/" className="flex items-center gap-2 mb-6">
+              <img src={logoAbeja} alt="OrangeBee" width={40} height={40} className="w-10 h-10" />
               <span className="font-bold text-xl">
                 <span className="text-orange-500">Orange</span>Bee
               </span>
-            </div>
+            </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Despacho de cobranza profesional especializado en empresas,
-              financieras y fintechs. Recuperación efectiva con ética y
-              transparencia.
+              Despacho de cobranza profesional especializado en empresas, financieras y fintechs.
+              Recuperación efectiva con ética y transparencia.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-lg mb-6">Enlaces</h4>
             <ul className="space-y-3">
-              {["Inicio", "Servicios", "Nosotros", "Contacto"].map((name) => (
+              {quickLinks.map(({ name, to }) => (
                 <li key={name}>
-                  <a
-                    href="#"
-                    className="text-slate-400 hover:text-orange-500 transition-colors text-sm"
-                  >
+                  <Link to={to} className="text-slate-400 hover:text-orange-500 transition-colors text-sm">
                     {name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,20 +72,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-6">Servicios</h4>
             <ul className="space-y-3">
-              {[
-                "Cobranza Comercial",
-                "Cobranza Financiera",
-                "Cobranza Judicial",
-                "Consultoría",
-                "Gestión Preventiva",
-              ].map((service) => (
+              {serviceLinks.map((service) => (
                 <li key={service}>
-                  <a
-                    href="#"
-                    className="text-slate-400 hover:text-orange-500 transition-colors text-sm"
-                  >
+                  <Link to="/servicios" className="text-slate-400 hover:text-orange-500 transition-colors text-sm">
                     {service}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -85,30 +86,12 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-6">Contacto</h4>
             <ul className="space-y-4">
-              <li className="flex gap-3">
-                <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-400 text-sm">
-                  Ciudad de México, México
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">
-                  +52 (55) 5555-5555
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">
-                  contacto@orangebee.mx
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Clock className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">
-                  Lun - Vie: 9:00 - 18:00
-                </span>
-              </li>
+              {contactItems.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex gap-3">
+                  <Icon className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-400 text-sm">{text}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -119,18 +102,12 @@ export default function Footer() {
             © {new Date().getFullYear()} OrangeBee. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
-            <a
-              href="#"
-              className="text-slate-500 hover:text-white transition-colors"
-            >
+            <Link to="/nosotros" className="text-slate-500 hover:text-white transition-colors">
               Aviso de Privacidad
-            </a>
-            <a
-              href="#"
-              className="text-slate-500 hover:text-white transition-colors"
-            >
+            </Link>
+            <Link to="/nosotros" className="text-slate-500 hover:text-white transition-colors">
               Términos y Condiciones
-            </a>
+            </Link>
           </div>
         </div>
       </div>

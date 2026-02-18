@@ -15,6 +15,19 @@ function App() {
       loader.classList.add('fade-out');
       setTimeout(() => loader.remove(), 200);
     }
+
+    // Prefetch other routes after the page is idle
+    const prefetch = () => {
+      import('./components/pages/ServicesPage');
+      import('./components/pages/AboutSection');
+      import('./components/pages/ContactSection');
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(prefetch, { timeout: 3000 });
+    } else {
+      setTimeout(prefetch, 2000);
+    }
   }, []);
 
   return (
