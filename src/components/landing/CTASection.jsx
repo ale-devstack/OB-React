@@ -35,7 +35,7 @@ export default function CTASection() {
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
             ¿Listo para recuperar tu
-            <span className="block text-orange-500">cartera vencida</span>?
+            <span className="text-orange-500">cartera vencida</span>?
           </h2>
 
           {/* Subtitle */}
