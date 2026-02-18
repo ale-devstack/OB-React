@@ -240,7 +240,7 @@ export default function ContactSection() {
 
             <div className="bg-black rounded-3xl p-8 text-white">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center">
                   <img
                     src={logoAbeja}
                     alt="Logo OrangeBee"
