@@ -1,18 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Shield, TrendingUp, Users, Hexagon,
-  Phone, Mail,
 } from 'lucide-react';
 
 import heroDesktop from '/hero-desktop.webp';
 import heroMobile from '/hero-mobile.webp';
-
-// Lazy-load below-the-fold sections
-const Services    = lazy(() => import('../landing/Services'));
-const WhyOrangeBee = lazy(() => import('../landing/WhyOrangeBee'));
-const CTASection  = lazy(() => import('../landing/CTASection'));
+import Services from '../landing/Services';
+import WhyOrangeBee from '../landing/WhyOrangeBee';
+import CTASection from '../landing/CTASection';
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -27,14 +24,14 @@ function Hero() {
           alt=""
           fetchpriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 hidden md:block"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 hidden md:block"
         />
         <img
           src={heroMobile}
           alt=""
           fetchpriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 block md:hidden"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 block md:hidden"
         />
       </div>
 
@@ -106,18 +103,17 @@ function Hero() {
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
+  useEffect(() => {
+    const notifyReady = () => window.dispatchEvent(new Event('orangebee:home-ready'));
+    requestAnimationFrame(() => requestAnimationFrame(notifyReady));
+  }, []);
+
   return (
-    <main>
+    <main className="bg-black">
       <Hero />
-      <Suspense fallback={<div className="py-24 bg-slate-50" />}>
-        <Services />
-      </Suspense>
-      <Suspense fallback={<div className="py-24 bg-white" />}>
-        <WhyOrangeBee />
-      </Suspense>
-      <Suspense fallback={<div className="py-24 bg-neutral-900" />}>
-        <CTASection />
-      </Suspense>
+      <div className="content-auto"><Services /></div>
+      <div className="content-auto"><WhyOrangeBee /></div>
+      <div className="content-auto"><CTASection /></div>
     </main>
   );
 }
