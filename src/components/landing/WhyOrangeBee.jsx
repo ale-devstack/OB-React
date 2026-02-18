@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CheckCircle2, Award, Clock, Headphones, BarChart3, Lock,
 } from "lucide-react";
@@ -27,34 +26,40 @@ export default function WhyOrangeBee() {
             ref={leftRef}
             className={`ob-anim ob-fade-left relative ${leftInView ? 'visible' : ''}`}
           >
-            <div className="aspect-square bg-neutral-900 rounded-3xl overflow-hidden relative">
+            <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-white/[0.06]">
+              {/* Orange top accent line */}
+              <div className="absolute inset-x-0 top-0 h-1 bg-orange-500" />
+
+              {/* Subtle orange glow */}
+              <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-orange-500/[0.07] to-transparent pointer-events-none" />
+
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-8">
-                  <div className="text-7xl font-bold mb-4">98%</div>
-                  <div className="text-xl text-white/80">Tasa de Recuperación</div>
-                  <div className="mt-8 pt-8 border-t border-white/20 grid grid-cols-2 gap-8">
+                  <div className="text-7xl font-bold mb-2 text-orange-500">98%</div>
+                  <div className="text-xl text-white/70">Tasa de Recuperación</div>
+                  <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
                     <div>
                       <div className="text-3xl font-bold text-orange-500">+200</div>
-                      <div className="text-white/60 text-sm">Clientes Activos</div>
+                      <div className="text-white/50 text-sm mt-1">Clientes Activos</div>
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-orange-500">24h</div>
-                      <div className="text-white/60 text-sm">Tiempo de Respuesta</div>
+                      <div className="text-white/50 text-sm mt-1">Tiempo de Respuesta</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating card */}
+            {/* Floating badge */}
             <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
-                  <div className="font-bold text-black">Cumplimiento</div>
-                  <div className="text-black/60 text-sm">CONDUSEF</div>
+                  <div className="font-bold text-slate-900">Cumplimiento</div>
+                  <div className="text-slate-500 text-sm">CONDUSEF</div>
                 </div>
               </div>
             </div>
@@ -80,11 +85,11 @@ export default function WhyOrangeBee() {
               {reasons.map((reason) => (
                 <div key={reason.title} className="flex gap-4">
                   <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                    <reason.icon className="w-5 h-5 text-orange-600" />
+                    <reason.icon className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900 mb-1">{reason.title}</h4>
-                    <p className="text-slate-600 text-sm">{reason.description}</p>
+                    <p className="text-slate-500 text-sm leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
               ))}
