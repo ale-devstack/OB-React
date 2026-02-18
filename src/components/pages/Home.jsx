@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Shield, TrendingUp, Users, Hexagon,
@@ -9,6 +9,7 @@ import heroMobile from '/hero-mobile.webp';
 import Services from '../landing/Services';
 import WhyOrangeBee from '../landing/WhyOrangeBee';
 import CTASection from '../landing/CTASection';
+import { usePageTitle } from '../../hooks/usePageTitle';
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -18,20 +19,17 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
-        <img
-          src={heroDesktop}
-          alt=""
-          fetchpriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 hidden md:block"
-        />
-        <img
-          src={heroMobile}
-          alt=""
-          fetchpriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-25 block md:hidden"
-        />
+        {/* <picture> fixes double-download: only the matching source is fetched */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet={heroDesktop} />
+          <img
+            src={heroMobile}
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover opacity-25"
+          />
+        </picture>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
@@ -102,6 +100,8 @@ function Hero() {
 // ─── Home ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
+  usePageTitle();
+
   useEffect(() => {
     const notifyReady = () => window.dispatchEvent(new Event('orangebee:home-ready'));
     requestAnimationFrame(() => requestAnimationFrame(notifyReady));

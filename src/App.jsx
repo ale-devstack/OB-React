@@ -1,6 +1,7 @@
-import React, { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './Layout';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 const Home           = lazy(() => import('./components/pages/Home'));
 const ServicesPage   = lazy(() => import('./components/pages/ServicesPage'));
@@ -89,20 +90,22 @@ function App() {
         </div>
       )}
 
-      <BrowserRouter basename="/OB-React">
-        <ScrollToTop />
-        <Suspense fallback={null}>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/servicios" element={<ServicesPage />} />
-              <Route path="/nosotros" element={<AboutSection />} />
-              <Route path="/contacto" element={<ContactSection />} />
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </Layout>
-        </Suspense>
-      </BrowserRouter>
+      <ErrorBoundary>
+        <BrowserRouter basename="/OB-React">
+          <ScrollToTop />
+          <Suspense fallback={null}>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/servicios" element={<ServicesPage />} />
+                <Route path="/nosotros" element={<AboutSection />} />
+                <Route path="/contacto" element={<ContactSection />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </Layout>
+          </Suspense>
+        </BrowserRouter>
+      </ErrorBoundary>
     </>
   );
 }

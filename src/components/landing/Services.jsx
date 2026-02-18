@@ -1,38 +1,7 @@
-import React from 'react';
-import { Building2, Landmark, Scale, FileText, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useInView } from '../../hooks/useInView';
-
-const services = [
-  {
-    icon: Building2,
-    title: 'Cobranza Comercial',
-    description:
-      'Recuperación de cartera para empresas comerciales e industriales con enfoque en preservar relaciones.',
-    features: ['Gestión preventiva', 'Cobranza extrajudicial', 'Negociación de pagos'],
-  },
-  {
-    icon: Landmark,
-    title: 'Cobranza Financiera',
-    description:
-      'Especialistas en recuperación para bancos, financieras y fintechs con altos estándares.',
-    features: ['Créditos personales', 'Tarjetas de crédito', 'Préstamos digitales'],
-  },
-  {
-    icon: Scale,
-    title: 'Cobranza Judicial',
-    description:
-      'Representación legal para la recuperación de adeudos a través de procesos judiciales.',
-    features: ['Demandas mercantiles', 'Embargos', 'Ejecución de garantías'],
-  },
-  {
-    icon: FileText,
-    title: 'Consultoría',
-    description:
-      'Asesoría integral para optimizar políticas de crédito y procesos de cobranza internos.',
-    features: ['Diagnóstico de cartera', 'Capacitación', 'Mejora de procesos'],
-  },
-];
+import { SERVICES } from '../../data/services';
 
 export default function ServicesPreview() {
   const [headerRef, headerInView] = useInView();
@@ -64,9 +33,9 @@ export default function ServicesPreview() {
           ref={gridRef}
           className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 ${gridInView ? 'visible' : ''}`}
         >
-          {services.map((service, idx) => (
+          {SERVICES.map((service) => (
             <div
-              key={idx}
+              key={service.id}
               className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-orange-200"
             >
               <div className="w-14 h-14 rounded-xl bg-slate-900/5 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
@@ -78,13 +47,13 @@ export default function ServicesPreview() {
               </h3>
 
               <p className="text-slate-600 text-sm mb-5 leading-relaxed">
-                {service.description}
+                {service.descriptionShort}
               </p>
 
               <ul className="space-y-2">
-                {service.features.map((feature, fidx) => (
+                {service.featuresPreview.map((feature) => (
                   <li
-                    key={fidx}
+                    key={feature}
                     className="flex items-center gap-2 text-sm text-slate-500"
                   >
                     <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />

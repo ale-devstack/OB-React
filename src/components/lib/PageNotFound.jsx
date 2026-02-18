@@ -1,7 +1,9 @@
-import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { usePageTitle } from '../../hooks/usePageTitle';
 
 export default function PageNotFound() {
+  usePageTitle('Página no encontrada');
+
   const location = useLocation();
   const pageName = location.pathname.replace('/', '') || 'inicio';
 
@@ -9,7 +11,7 @@ export default function PageNotFound() {
     <div className="min-h-screen flex items-center justify-center p-6 ob-section-soft">
       <div className="max-w-md w-full">
         <div className="text-center space-y-6">
-          
+
           {/* 404 */}
           <div className="space-y-2">
             <h1 className="text-7xl font-light text-slate-400">404</h1>
