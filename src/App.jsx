@@ -32,13 +32,20 @@ function App() {
       import('./components/pages/ContactSection');
     };
 
+    let idleId;
+    let prefetchTimer;
+
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(prefetch, { timeout: 3000 });
+      idleId = window.requestIdleCallback(prefetch, { timeout: 3000 });
     } else {
-      setTimeout(prefetch, 2000);
+      prefetchTimer = setTimeout(prefetch, 2000);
     }
 
-    return () => clearTimeout(loaderTimer);
+    return () => {
+      clearTimeout(loaderTimer);
+      if (prefetchTimer) clearTimeout(prefetchTimer);
+      if (idleId && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+    };
   }, []);
 
   return (

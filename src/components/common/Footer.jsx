@@ -28,18 +28,18 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white border-t border-white/20">
+    <footer className="bg-[#080808] text-white border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logoAbeja} alt="OrangeBee" width={40} height={40} className="w-10 h-10" />
+              <img src={logoAbeja} alt="OrangeBee" width={40} height={40} loading="lazy" decoding="async" className="w-10 h-10" />
               <span className="font-bold text-xl">
                 <span className="text-orange-500">Orange</span>Bee
               </span>
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-300/90 text-sm leading-relaxed mb-6">
               Despacho de cobranza profesional especializado en empresas, financieras y fintechs.
               Recuperación efectiva con ética y transparencia.
             </p>
@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map(({ name, to }) => (
                 <li key={name}>
-                  <Link to={to} className="text-slate-400 hover:text-orange-500 transition-colors text-sm">
+                  <Link to={to} className="text-slate-300 hover:text-orange-400 transition-colors text-sm">
                     {name}
                   </Link>
                 </li>
@@ -74,7 +74,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {serviceLinks.map((service) => (
                 <li key={service}>
-                  <Link to="/servicios" className="text-slate-400 hover:text-orange-500 transition-colors text-sm">
+                  <Link to="/servicios" className="text-slate-300 hover:text-orange-400 transition-colors text-sm">
                     {service}
                   </Link>
                 </li>
@@ -98,14 +98,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-400 text-sm">
             © {new Date().getFullYear()} OrangeBee. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/nosotros" className="text-slate-500 hover:text-white transition-colors">
+            <Link to="/nosotros" className="text-slate-400 hover:text-white transition-colors">
               Aviso de Privacidad
             </Link>
-            <Link to="/nosotros" className="text-slate-500 hover:text-white transition-colors">
+            <Link to="/nosotros" className="text-slate-400 hover:text-white transition-colors">
               Términos y Condiciones
             </Link>
           </div>
