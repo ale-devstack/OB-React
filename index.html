@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/OB-React/logo-abeja.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preload" as="image" href="/OB-React/hero-desktop.webp" media="(min-width: 768px)">
-    <link rel="preload" as="image" href="/OB-React/hero-mobile.webp"  media="(max-width: 767px)">
+
+    <!-- Critical images: preload based on viewport -->
+    <link rel="preload" as="image" href="/OB-React/hero-desktop.webp" media="(min-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/OB-React/hero-mobile.webp"  media="(max-width: 767px)"  fetchpriority="high">
     <link rel="preload" as="image" href="/OB-React/logo-abeja.png">
 
     <title>OrangeBee - Cobranza Inteligente</title>
     <style>
+      /* Inline critical CSS to avoid FOUC */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: #000; overflow-x: hidden; }
+
       #loader {
         position: fixed;
         inset: 0;
@@ -37,8 +42,8 @@
         to { transform: rotate(360deg); }
       }
     </style>
-    <script type="module" crossorigin src="/OB-React/assets/index-BlkQLOYj.js"></script>
-    <link rel="stylesheet" crossorigin href="/OB-React/assets/index-o1IE-R7l.css">
+    <script type="module" crossorigin src="/OB-React/assets/index-BciSydb7.js"></script>
+    <link rel="stylesheet" crossorigin href="/OB-React/assets/index-C2TsF0od.css">
   </head>
   <body>
     <div id="root">
