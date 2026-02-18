@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function CTASection() {
   return (
-    <section className="py-12 ob-section-soft">
+    <section className="py-24 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center px-8 py-14 md:px-16"

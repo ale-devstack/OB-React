@@ -1,5 +1,5 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 
 const Home           = lazy(() => import('./components/pages/Home'));
@@ -7,6 +7,17 @@ const ServicesPage   = lazy(() => import('./components/pages/ServicesPage'));
 const AboutSection   = lazy(() => import('./components/pages/AboutSection'));
 const ContactSection = lazy(() => import('./components/pages/ContactSection'));
 const PageNotFound   = lazy(() => import('./components/lib/PageNotFound'));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
@@ -80,6 +91,7 @@ function App() {
       )}
 
       <BrowserRouter basename="/OB-React">
+        <ScrollToTop />
         <Suspense fallback={null}>
           <Layout>
             <Routes>
