@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Header from './components/common/Header';
-import Footer from './components/common/Footer';
+
+const Footer = lazy(() => import('./components/common/Footer'));
 
 export default function Layout({ children }) {
   return (
@@ -9,7 +10,9 @@ export default function Layout({ children }) {
       <div className="flex-1">
         {children}
       </div>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
