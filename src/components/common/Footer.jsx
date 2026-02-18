@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Facebook, MessageCircle } from "lucide-react";
 
-import logoAbeja from '/logo-abeja.png';
+import logoAbeja from '/logo-abeja.webp';
 import { SERVICES } from '../../data/services';
 import { CONTACT, CONTACT_ITEMS } from '../../data/contact';
 

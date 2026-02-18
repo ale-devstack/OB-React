@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-import logoAbeja from '/logo-abeja.png';
+import logoAbeja from '/logo-abeja.webp';
 
 const navLinks = [
   { name: "Inicio",    to: "/",          chunk: null },
