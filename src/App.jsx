@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 
 // Lazy imports
-const Home = lazy(() => import('./components/pages/Home'));
-const ServicesPage = import('./components/pages/ServicesPage');
-const AboutSection = import('./components/pages/AboutSection');
-const ContactSection = import('./components/pages/ContactSection');
-const PageNotFound =  import('./components/lib/PageNotFound');
+// ✅ Correcto
+const Home           = lazy(() => import('./components/pages/Home'));
+const ServicesPage   = lazy(() => import('./components/pages/ServicesPage'));
+const AboutSection   = lazy(() => import('./components/pages/AboutSection'));
+const ContactSection = lazy(() => import('./components/pages/ContactSection'));
+const PageNotFound   = lazy(() => import('./components/lib/PageNotFound'));
 
 // Imágenes a precargar
 import heroDesktop from '/hero-desktop.webp';
