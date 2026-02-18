@@ -5,7 +5,7 @@ import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
 import logoAbeja from '/logo-abeja.webp';
 
-const inputClass = "w-full rounded-xl border border-neutral-300 p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
+const inputClass = "w-full rounded-xl border border-neutral-300 p-3 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
 const labelClass = "block text-sm font-medium text-neutral-700 mb-1";
 
 export default function ContactSection() {
@@ -21,10 +21,29 @@ export default function ContactSection() {
   const [infoRef, infoInView] = useInView();
   const [cardsRef, cardsInView] = useInView();
 
+  const buildMailtoLink = () => {
+    const subject = `Nuevo contacto desde OrangeBee - ${formData.name || 'Sin nombre'}`;
+    const body = [
+      'Se recibió una nueva solicitud desde el formulario de contacto de OrangeBee.',
+      '',
+      `Nombre: ${formData.name || 'No proporcionado'}`,
+      `Correo: ${formData.email || 'No proporcionado'}`,
+      `Teléfono: ${formData.phone || 'No proporcionado'}`,
+      `Empresa: ${formData.company || 'No proporcionado'}`,
+      `Tipo de empresa: ${formData.serviceType || 'No proporcionado'}`,
+      '',
+      'Mensaje:',
+      formData.message || 'No proporcionado',
+    ].join('\n');
+
+    return `mailto:conecta@orangebee.com.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 800));
+    window.location.href = buildMailtoLink();
+    await new Promise((r) => setTimeout(r, 300));
     setIsSubmitting(false);
     setSubmitted(true);
     setFormData({ name: "", email: "", phone: "", company: "", serviceType: "", message: "" });
