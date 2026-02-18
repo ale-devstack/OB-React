@@ -172,7 +172,7 @@ export default function AboutSection() {
           ref={missionRef}
           className={`ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 ${missionInView ? 'visible' : ''}`}
         >
-          <div className="bg-neutral-800 rounded-3xl p-10 border border-neutral-700">
+          <div className="bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06]">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
             </div>
@@ -188,7 +188,7 @@ export default function AboutSection() {
 
           <div className="bg-neutral-100 rounded-3xl p-10 border border-neutral-200">
             <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
-              <Eye className="w-7 h-7 text-orange-600" />
+              <Eye className="w-7 h-7 text-orange-500" />
             </div>
             <h3 className="text-2xl font-bold text-neutral-900 mb-4">
               Nuestra Visión

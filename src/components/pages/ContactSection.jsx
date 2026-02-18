@@ -102,7 +102,7 @@ export default function ContactSection() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="contact-name" className={labelClass}>Nombre completo</label>
