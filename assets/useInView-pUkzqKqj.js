@@ -1,1 +1,0 @@
-import{r as t}from"./router-CW_8YVMz.js";function f(s={}){const n=t.useRef(null),[o,c]=t.useState(!1);return t.useEffect(()=>{const r=n.current;if(!r)return;const e=new IntersectionObserver(([i])=>{i.isIntersecting&&(c(!0),e.disconnect())},{threshold:.15,...s});return e.observe(r),()=>e.disconnect()},[]),[n,o]}export{f as u};
