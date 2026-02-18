@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Shield, TrendingUp, Users, Hexagon,
-  Phone, Mail,
 } from 'lucide-react';
 
 import heroDesktop from '/hero-desktop.webp';
