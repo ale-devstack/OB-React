@@ -3,15 +3,15 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 export const CONTACT = {
   phone: '+52 (55) 5555-5555',
   phoneHref: 'tel:+525555555555',
-  email: 'contacto@orangebee.mx',
-  emailHref: 'mailto:contacto@orangebee.mx',
+  email: 'conecta@orangebee.mx',
+  emailHref: 'mailto:conecta@orangebee.mx',
   whatsappHref: 'https://wa.me/525555555555',
-  address: 'Ciudad de México, México',
+  address: 'Av. Manuel Gómez Morín 350 PB, Valle Campestre. C.P. 66265, San Pedro Garza García, Nuevo León',
   hours: 'Lunes a Viernes: 9:00 - 18:00',
   hoursShort: 'Lun - Vie: 9:00 - 18:00',
   social: {
-    linkedin: 'https://linkedin.com/company/orangebee',
-    facebook: 'https://facebook.com/orangebee',
+    linkedin: 'https://www.linkedin.com/company/108113067',
+    facebook: 'https://www.facebook.com/share/1C9zKLAWFf/?mibextid=wwXIfr',
   },
 };
 
