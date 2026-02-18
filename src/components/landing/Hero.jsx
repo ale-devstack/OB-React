@@ -150,13 +150,10 @@ export default function Hero() {
                       title: "Equipo Especializado",
                       desc: "Profesionales certificados en gestión de cobranza",
                     },
-                  ].map((item, idx) => (
-                    <motion.div
+                  ].map((item) => (
+                    <div
                       key={item.title}
                       className="flex gap-4 items-start p-4 rounded-2xl hover:bg-white/10 transition-colors"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.4 + idx * 0.15 }}
                     >
                       <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-6 h-6 text-orange-500" />
@@ -169,21 +166,18 @@ export default function Hero() {
                           {item.desc}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Floating badge */}
-             <motion.div
-  className="absolute -bottom-6 -left-6 bg-orange-500 rounded-2xl px-4 py-4 shadow-xl shadow-orange-500/25 flex items-center gap-3"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
+                <div
+                  className="absolute -bottom-6 -left-6 bg-orange-500 rounded-2xl px-8 py-4 shadow-xl shadow-orange-500/25 flex items-center gap-3"
+                >
                 <div className="text-white font-bold text-lg">15+</div>
                 <div className="text-white/80 text-xs">Años</div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
