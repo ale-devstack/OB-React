@@ -8,7 +8,7 @@ export default function CTASection() {
     <section className="py-24 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center"
+          className="text-center px-8 py-14 md:px-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -16,7 +16,7 @@ export default function CTASection() {
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             ¿Listo para Recuperar tu
-            <span className="text-orange-500"> Cartera Vencida</span>?
+            <span className="text-orange-600"> Cartera Vencida</span>?
           </h2>
 
           <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
@@ -25,7 +25,7 @@ export default function CTASection() {
           </p>
 
           <motion.div
-            className="flex justify-center mb-16"
+            className="flex justify-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
