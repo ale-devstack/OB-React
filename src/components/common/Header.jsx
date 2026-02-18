@@ -87,7 +87,7 @@ export default function Header() {
               <NavLink
                 to="/contacto"
                 onMouseEnter={() => import('../pages/ContactSection')}
-                className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(241,85,0,0.35)] text-white font-medium transition-colors"
+                className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(255,85,0,0.35)] text-white font-medium transition-colors"
               >
                 Consulta Gratis
               </NavLink>
@@ -125,7 +125,7 @@ export default function Header() {
             ))}
             <NavLink
               to="/contacto"
-              className="block text-center bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(241,85,0,0.35)] text-white rounded-xl py-3 font-medium mt-4 transition-colors"
+              className="block text-center bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(255,85,0,0.35)] text-white rounded-xl py-3 font-medium mt-4 transition-colors"
             >
               Consulta Gratis
             </NavLink>
