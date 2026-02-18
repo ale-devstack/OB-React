@@ -1,11 +1,11 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export const CONTACT = {
-  phone: '+52 (55) 5555-5555',
-  phoneHref: 'tel:+525555555555',
+  phone: '+52 (81) 3267-7226',
+  phoneHref: 'tel:+528132677226',
   email: 'conecta@orangebee.mx',
   emailHref: 'mailto:conecta@orangebee.mx',
-  whatsappHref: 'https://wa.me/525555555555',
+  whatsappHref: 'https://wa.me/528132677226',
   address: 'Av. Manuel Gómez Morín 350 PB, Valle Campestre. C.P. 66265, San Pedro Garza García, Nuevo León',
   hours: 'Lunes a Viernes: 9:00 - 18:00',
   hoursShort: 'Lun - Vie: 9:00 - 18:00',
