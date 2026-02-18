@@ -13,7 +13,7 @@ export default function CTASection() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          className="text-center"
+          className="text-center bg-white/85 backdrop-blur-md border border-orange-100 rounded-3xl px-8 py-14 md:px-16 shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,7 +21,7 @@ export default function CTASection() {
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             ¿Listo para Recuperar tu
-            <span className="text-orange-500"> Cartera Vencida</span>?
+            <span className="text-orange-600"> Cartera Vencida</span>?
           </h2>
 
           <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10">
