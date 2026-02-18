@@ -5,13 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function CTASection() {
   return (
-    <section className="py-24 relative overflow-hidden ob-section-soft">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 right-[-120px] w-[360px] h-[360px] bg-orange-300/25 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-24 left-[-120px] w-[360px] h-[360px] bg-orange-200/20 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-24 ob-section-soft">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center bg-white/85 backdrop-blur-md border border-orange-100 rounded-3xl px-8 py-14 md:px-16 shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
           initial={{ opacity: 0, y: 30 }}
