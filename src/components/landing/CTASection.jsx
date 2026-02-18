@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function CTASection() {
   return (
-    <section className="py-24 ob-section-soft">
+    <section className="py-12 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center bg-white/85 backdrop-blur-md border border-orange-100 rounded-3xl px-8 py-14 md:px-16 shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
+          className="text-center px-8 py-14 md:px-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,7 +25,7 @@ export default function CTASection() {
           </p>
 
           <motion.div
-            className="flex justify-center mb-16"
+            className="flex justify-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
