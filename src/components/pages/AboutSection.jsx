@@ -8,10 +8,10 @@ import {
   Users,
   Shield,
   CheckCircle2,
-  Hexagon,
 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import logoAbeja from '/logo-abeja.webp';
 
 const values = [
   {
@@ -139,7 +139,13 @@ export default function AboutSection() {
           >
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
-                <Hexagon className="w-20 h-20 text-orange-500 fill-orange-500/20 mx-auto mb-6" />
+                <img
+                  src={logoAbeja}
+                  alt="Logo OrangeBee"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 h-20 mx-auto mb-6"
+                />
                 <div className="text-5xl font-bold mb-2">
                   <span className="text-orange-500">Orange</span><span className="text-white">Bee</span>
                 </div>
@@ -147,12 +153,12 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 bg-black rounded-2xl p-6 shadow-xl border border-white/10">
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-orange-500" />
                 <div>
-                  <div className="font-bold text-white">Cumplimiento</div>
-                  <div className="text-white/60 text-sm">CONDUSEF</div>
+                  <div className="font-bold text-neutral-900">Cumplimiento</div>
+                  <div className="text-neutral-500 text-sm">CONDUSEF</div>
                 </div>
               </div>
             </div>
@@ -166,7 +172,7 @@ export default function AboutSection() {
           ref={missionRef}
           className={`ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 ${missionInView ? 'visible' : ''}`}
         >
-          <div className="bg-black rounded-3xl p-10 border border-orange-500/20">
+          <div className="bg-neutral-800 rounded-3xl p-10 border border-neutral-700">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
             </div>

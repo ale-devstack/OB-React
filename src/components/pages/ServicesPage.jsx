@@ -34,6 +34,13 @@ const process = [
   },
 ];
 
+const SERVICE_STOCK_IMAGES = {
+  comercial: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80',
+  financiera: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
+  judicial: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80',
+  consultoria: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
+};
+
 function ServiceRow({ service, isEven }) {
   const [ref, inView] = useInView();
   return (
@@ -70,7 +77,13 @@ function ServiceRow({ service, isEven }) {
       {/* CARD */}
       <div className={`order-2 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
         <div className="aspect-[4/3] bg-gradient-to-br from-neutral-950 to-neutral-800 rounded-3xl overflow-hidden relative border border-orange-500/20">
-          <service.icon className="absolute inset-0 m-auto w-32 h-32 text-orange-500/10" />
+          <img
+            src={SERVICE_STOCK_IMAGES[service.id]}
+            alt={service.title}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-70"
+          />
           <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
             <div className="text-3xl font-bold text-white mb-1">{service.stat.value}</div>
             <div className="text-white/70 text-sm">{service.stat.label}</div>

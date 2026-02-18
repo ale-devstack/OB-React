@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import { useInView } from '../../hooks/useInView';
 import { SERVICES } from '../../data/services';
 
+const SERVICE_STOCK_IMAGES = {
+  comercial: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+  financiera: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
+  judicial: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80',
+  consultoria: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+};
+
 export default function ServicesPreview() {
   const [headerRef, headerInView] = useInView();
   const [gridRef, gridInView] = useInView();
@@ -38,8 +45,14 @@ export default function ServicesPreview() {
               key={service.id}
               className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200/70 hover:border-orange-200"
             >
-              <div className="w-14 h-14 rounded-xl bg-neutral-900/5 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-                <service.icon className="w-7 h-7 text-neutral-700 group-hover:text-white transition-colors" />
+              <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200">
+                <img
+                  src={SERVICE_STOCK_IMAGES[service.id]}
+                  alt={service.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
 
               <h3 className="text-xl font-bold text-neutral-900 mb-3">

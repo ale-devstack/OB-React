@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Send, CheckCircle2, Hexagon } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
+import logoAbeja from '/logo-abeja.webp';
 
 const inputClass = "w-full rounded-xl border border-neutral-300 p-3 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
 const labelClass = "block text-sm font-medium text-neutral-700 mb-1";
@@ -221,7 +222,13 @@ export default function ContactSection() {
             <div className="bg-black rounded-3xl p-8 text-white">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center">
-                  <Hexagon className="w-7 h-7 text-white fill-white" />
+                  <img
+                    src={logoAbeja}
+                    alt="Logo OrangeBee"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-10 h-10"
+                  />
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">
