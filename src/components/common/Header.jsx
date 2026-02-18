@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const linkBase   = "font-medium transition-colors";
-const linkMuted  = "text-white/80 hover:text-white";
+const linkMuted  = "text-white/80 hover:text-orange-400";
 const linkActive = "text-orange-500";
 
 export default function Header() {
@@ -51,7 +51,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black/75 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)] py-3"
+            ? "bg-black/75 backdrop-blur-xl border-b border-orange-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.35)] py-3"
             : "bg-transparent py-5"
         }`}
       >

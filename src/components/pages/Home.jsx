@@ -16,7 +16,7 @@ import { usePageTitle } from '../../hooks/usePageTitle';
 function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950">
+      <div className="absolute inset-0 ob-dark-hero">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
         {/* <picture> fixes double-download: only the matching source is fetched */}
@@ -44,7 +44,7 @@ function Hero() {
               Recuperamos tu
               <span className="block text-orange-500">cartera vencida</span>
             </h1>
-            <p className="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg text-neutral-300 mb-10 max-w-xl leading-relaxed">
               Soluciones profesionales de cobranza para empresas, financieras y fintechs. Maximizamos la recuperación con ética, transparencia y tecnología de punta.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -56,7 +56,7 @@ function Hero() {
               </Link>
               <Link
                 to="/servicios"
-                className="inline-flex items-center justify-center bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 text-lg rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center justify-center bg-white text-neutral-900 hover:bg-neutral-100 px-8 py-4 text-lg rounded-xl font-semibold transition-colors"
               >
                 Conocer Servicios
               </Link>
@@ -79,7 +79,7 @@ function Hero() {
                       </div>
                       <div>
                         <h3 className="text-white font-semibold mb-1">{item.title}</h3>
-                        <p className="text-slate-400 text-sm">{item.desc}</p>
+                        <p className="text-neutral-300 text-sm">{item.desc}</p>
                       </div>
                     </div>
                   ))}

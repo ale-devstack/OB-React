@@ -14,7 +14,7 @@ export default function CTASection() {
   const [sectionRef, sectionInView] = useInView();
 
   return (
-    <section className="py-28 bg-[#0b0b0c] relative overflow-hidden">
+    <section className="py-28 bg-[#0b0b0c] relative overflow-hidden border-t border-orange-500/15">
       {/* Orange atmospheric glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-orange-500/[0.11] rounded-full blur-[100px]" />
@@ -39,7 +39,7 @@ export default function CTASection() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Agenda una consulta gratuita con nuestros especialistas y descubre
             cómo OrangeBee puede mejorar tu flujo de efectivo desde el primer día.
           </p>
