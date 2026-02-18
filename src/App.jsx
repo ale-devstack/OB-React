@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 
@@ -9,19 +9,21 @@ const ContactSection = lazy(() => import('./components/pages/ContactSection'));
 const PageNotFound   = lazy(() => import('./components/lib/PageNotFound'));
 
 function App() {
+  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  const [isLoaderFading, setIsLoaderFading] = useState(false);
+
   useEffect(() => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.classList.add('fade-out');
-      setTimeout(() => loader.remove(), 200);
-    }
+    setIsLoaderFading(true);
+    const loaderTimer = setTimeout(() => {
+      setIsLoaderVisible(false);
+    }, 200);
 
     // Prefetch other routes after the page is idle
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const shouldPrefetch = !(connection?.saveData || /2g/.test(connection?.effectiveType || ''));
 
     if (!shouldPrefetch) {
-      return;
+      return () => clearTimeout(loaderTimer);
     }
 
     const prefetch = () => {
@@ -35,22 +37,32 @@ function App() {
     } else {
       setTimeout(prefetch, 2000);
     }
+
+    return () => clearTimeout(loaderTimer);
   }, []);
 
   return (
-    <BrowserRouter basename="/OB-React">
-      <Suspense fallback={null}>
-        <Layout>
-          <Routes>
-            <Route path="/"          element={<Home />}           />
-            <Route path="/servicios" element={<ServicesPage />}   />
-            <Route path="/nosotros"  element={<AboutSection />}   />
-            <Route path="/contacto"  element={<ContactSection />} />
-            <Route path="*"          element={<PageNotFound />}   />
-          </Routes>
-        </Layout>
-      </Suspense>
-    </BrowserRouter>
+    <>
+      {isLoaderVisible && (
+        <div id="app-loader" className={isLoaderFading ? 'fade-out' : ''}>
+          <div className="spinner" />
+        </div>
+      )}
+
+      <BrowserRouter basename="/OB-React">
+        <Suspense fallback={null}>
+          <Layout>
+            <Routes>
+              <Route path="/"          element={<Home />}           />
+              <Route path="/servicios" element={<ServicesPage />}   />
+              <Route path="/nosotros"  element={<AboutSection />}   />
+              <Route path="/contacto"  element={<ContactSection />} />
+              <Route path="*"          element={<PageNotFound />}   />
+            </Routes>
+          </Layout>
+        </Suspense>
+      </BrowserRouter>
+    </>
   );
 }
 
