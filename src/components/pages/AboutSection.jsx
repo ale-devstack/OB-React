@@ -99,7 +99,7 @@ export default function AboutSection() {
       </div>
 
       {/* History */}
-      <div className="py-24 bg-slate-50">
+      <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -217,7 +217,7 @@ export default function AboutSection() {
       </div>
 
       {/* Values */}
-      <div className="py-24 bg-slate-50">
+      <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-16"

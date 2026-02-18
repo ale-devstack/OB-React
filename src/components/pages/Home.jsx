@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Shield, TrendingUp, Users, Hexagon,
-  Phone, Mail,
 } from 'lucide-react';
 
 import heroDesktop from '/hero-desktop.webp';
@@ -27,14 +26,14 @@ function Hero() {
           alt=""
           fetchpriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 hidden md:block"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 hidden md:block"
         />
         <img
           src={heroMobile}
           alt=""
           fetchpriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 block md:hidden"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 block md:hidden"
         />
       </div>
 
@@ -107,16 +106,16 @@ function Hero() {
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black">
       <Hero />
       <Suspense fallback={<div className="py-24 bg-slate-50" />}>
-        <Services />
+        <div className="content-auto"><Services /></div>
       </Suspense>
       <Suspense fallback={<div className="py-24 bg-white" />}>
-        <WhyOrangeBee />
+        <div className="content-auto"><WhyOrangeBee /></div>
       </Suspense>
       <Suspense fallback={<div className="py-24 bg-neutral-900" />}>
-        <CTASection />
+        <div className="content-auto"><CTASection /></div>
       </Suspense>
     </main>
   );
