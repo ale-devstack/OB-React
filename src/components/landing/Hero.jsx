@@ -34,23 +34,20 @@ export default function Hero() {
         /> */}
 
         {/* Background image */}
-                <div
-        className="absolute inset-0 opacity-20 hidden md:block"
-        style={{
-          backgroundImage: `url(${heroDesktop})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 opacity-20 block md:hidden"
-        style={{
-          backgroundImage: `url(${heroMobile})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+        <img
+          src={heroDesktop}
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 hidden md:block"
+        />
+        <img
+          src={heroMobile}
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 block md:hidden"
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
