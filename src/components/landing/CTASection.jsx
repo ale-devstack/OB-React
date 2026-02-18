@@ -1,18 +1,17 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useInView } from "../../hooks/useInView";
 
 export default function CTASection() {
+  const [sectionRef, sectionInView] = useInView();
+
   return (
     <section className="py-24 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          className="text-center px-8 py-14 md:px-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          ref={sectionRef}
+          className={`ob-anim ob-fade-up text-center px-8 py-14 md:px-16 ${sectionInView ? 'visible' : ''}`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             ¿Listo para Recuperar tu
@@ -24,13 +23,7 @@ export default function CTASection() {
             cómo OrangeBee puede mejorar tu flujo de efectivo.
           </p>
 
-          <motion.div
-            className="flex justify-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <div className="flex justify-center mb-8">
             <Link
               to="/contacto"
               className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-[0_14px_34px_rgba(234,88,12,0.28)] transition-all"
@@ -38,15 +31,9 @@ export default function CTASection() {
               Solicitar Consulta Gratis
               <ArrowRight className="h-5 w-5" />
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-8 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <a
               href="tel:+525555555555"
               className="flex items-center gap-3 text-slate-700 hover:text-orange-500 transition-colors"
@@ -78,8 +65,8 @@ export default function CTASection() {
                 </div>
               </div>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

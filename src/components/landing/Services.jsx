@@ -1,7 +1,7 @@
 import React from 'react';
 import { Building2, Landmark, Scale, FileText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useInView } from '../../hooks/useInView';
 
 const services = [
   {
@@ -35,16 +35,17 @@ const services = [
 ];
 
 export default function ServicesPreview() {
+  const [headerRef, headerInView] = useInView();
+  const [gridRef, gridInView] = useInView();
+  const [ctaRef, ctaInView] = useInView();
+
   return (
     <section className="py-24 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+        <div
+          ref={headerRef}
+          className={`ob-anim ob-fade-up text-center mb-16 ${headerInView ? 'visible' : ''}`}
         >
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
             Nuestros Servicios
@@ -56,17 +57,16 @@ export default function ServicesPreview() {
             Servicios especializados para empresas, financieras y fintechs.
             Resultados efectivos con total transparencia.
           </p>
-        </motion.div>
+        </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div
+          ref={gridRef}
+          className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 ${gridInView ? 'visible' : ''}`}
+        >
           {services.map((service, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-orange-200"
             >
               <div className="w-14 h-14 rounded-xl bg-slate-900/5 flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
@@ -92,17 +92,14 @@ export default function ServicesPreview() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+        <div
+          ref={ctaRef}
+          className={`ob-anim ob-fade-up text-center ${ctaInView ? 'visible' : ''}`}
         >
           <Link
             to="/servicios"
@@ -111,7 +108,7 @@ export default function ServicesPreview() {
             Ver Todos los Servicios
             <ArrowRight className="h-5 w-5" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

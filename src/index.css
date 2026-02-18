@@ -168,3 +168,64 @@ textarea:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--ob-orange) 65%, white);
   outline-offset: 2px;
 }
+
+/* ─── Scroll animations (replaces framer-motion) ─────────────────────────── */
+
+/* Single-element animations */
+.ob-anim {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ob-anim.visible.ob-fade-up    { animation: ob-fade-up    0.6s ease forwards; }
+  .ob-anim.visible.ob-fade-left  { animation: ob-fade-left  0.7s ease forwards; }
+  .ob-anim.visible.ob-fade-right { animation: ob-fade-right 0.7s ease forwards; }
+  .ob-anim.visible.ob-fade-scale { animation: ob-fade-scale 0.5s ease forwards; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob-anim { opacity: 1; }
+}
+
+/* Staggered grid children */
+.ob-stagger > * { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ob-stagger.visible > * {
+    animation: ob-fade-up 0.5s ease both;
+  }
+  .ob-stagger.visible > *:nth-child(1) { animation-delay: 0s;   }
+  .ob-stagger.visible > *:nth-child(2) { animation-delay: 0.1s; }
+  .ob-stagger.visible > *:nth-child(3) { animation-delay: 0.2s; }
+  .ob-stagger.visible > *:nth-child(4) { animation-delay: 0.3s; }
+  .ob-stagger.visible > *:nth-child(5) { animation-delay: 0.4s; }
+  .ob-stagger.visible > *:nth-child(6) { animation-delay: 0.5s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob-stagger > * { opacity: 1; }
+}
+
+/* Hero mount animations (play immediately, no IntersectionObserver needed) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-fade-left  { animation: ob-fade-left  0.7s ease both; }
+  .hero-fade-right { animation: ob-fade-right 0.7s ease 0.2s both; }
+  .hero-fade-up    { animation: ob-fade-up    0.6s ease both; }
+}
+
+@keyframes ob-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes ob-fade-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes ob-fade-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes ob-fade-scale {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1);   }
+}
