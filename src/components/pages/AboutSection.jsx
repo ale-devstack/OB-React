@@ -83,7 +83,7 @@ export default function AboutSection() {
       </div>
 
       {/* Stats */}
-      <div className="py-12 bg-white border-b border-orange-100">
+      <div className="py-12 bg-white border-b border-neutral-200">
         <div
           ref={statsRef}
           className={`ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center ${statsInView ? 'visible' : ''}`}
@@ -180,7 +180,7 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="bg-[#fff8f2] rounded-3xl p-10 border border-orange-100/70">
+          <div className="bg-neutral-100 rounded-3xl p-10 border border-neutral-200">
             <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
               <Eye className="w-7 h-7 text-orange-600" />
             </div>

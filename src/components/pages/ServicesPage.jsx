@@ -132,7 +132,7 @@ export default function ServicesPage() {
             className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-8 ${processGridInView ? 'visible' : ''}`}
           >
             {process.map((step) => (
-              <div key={step.step} className="bg-[#fff8f2] rounded-2xl p-8 relative border border-orange-100/70">
+              <div key={step.step} className="bg-neutral-100 rounded-2xl p-8 relative border border-neutral-200">
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}
                 </div>

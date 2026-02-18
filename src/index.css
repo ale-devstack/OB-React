@@ -63,7 +63,7 @@ body {
 
 /* Warm neutral — contrasts with dark sections without the cold blue tint */
 .ob-section-soft {
-  background: linear-gradient(180deg, #fffaf6 0%, #f5f2ee 100%);
+  background: linear-gradient(180deg, #f8f9fb 0%, #f1f3f5 100%);
 }
 
 .ob-dark-hero {
