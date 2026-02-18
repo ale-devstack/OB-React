@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -9,6 +8,7 @@ import {
   CheckCircle2,
   Hexagon,
 } from "lucide-react";
+import { useInView } from "../../hooks/useInView";
 
 const contactInfo = [
   {
@@ -45,6 +45,10 @@ export default function ContactSection() {
 
   const [submitted, setSubmitted] = useState(false);
 
+  const [formRef, formInView] = useInView();
+  const [infoRef, infoInView] = useInView();
+  const [cardsRef, cardsInView] = useInView();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Formulario enviado:", formData);
@@ -71,11 +75,7 @@ export default function ContactSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="hero-fade-up">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
               Contacto
             </span>
@@ -86,7 +86,7 @@ export default function ContactSection() {
               Agenda una consulta gratuita y descubre cómo OrangeBee puede
               ayudarte a recuperar tu cartera vencida.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -94,12 +94,9 @@ export default function ContactSection() {
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           {/* Form */}
-          <motion.div
-            className="bg-white rounded-3xl p-8 shadow-sm border"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+            ref={formRef}
+            className={`ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border ${formInView ? 'visible' : ''}`}
           >
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
               Envíanos un Mensaje
@@ -109,12 +106,7 @@ export default function ContactSection() {
             </p>
 
             {submitted ? (
-              <motion.div
-                className="text-center py-12"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-              >
+              <div className="text-center py-12">
                 <div className="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10 text-orange-500" />
                 </div>
@@ -124,7 +116,7 @@ export default function ContactSection() {
                 <p className="text-slate-500">
                   Un asesor se comunicará contigo pronto.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -208,15 +200,12 @@ export default function ContactSection() {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
 
           {/* Info */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+            ref={infoRef}
+            className={`ob-anim ob-fade-right space-y-8 ${infoInView ? 'visible' : ''}`}
           >
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -227,15 +216,14 @@ export default function ContactSection() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {contactInfo.map((item, idx) => (
-                <motion.div
+            <div
+              ref={cardsRef}
+              className={`ob-stagger grid sm:grid-cols-2 gap-6 ${cardsInView ? 'visible' : ''}`}
+            >
+              {contactInfo.map((item) => (
+                <div
                   key={item.title}
                   className="bg-white rounded-2xl p-6 border"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                 >
                   <item.icon className="w-6 h-6 text-orange-500 mb-4" />
                   <h4 className="font-semibold text-slate-900 mb-2">
@@ -246,17 +234,11 @@ export default function ContactSection() {
                       {line}
                     </p>
                   ))}
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              className="bg-black rounded-3xl p-8 text-white"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            <div className="bg-black rounded-3xl p-8 text-white">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center">
                   <Hexagon className="w-7 h-7 text-white fill-white" />
@@ -274,8 +256,8 @@ export default function ContactSection() {
               <p className="text-slate-400 mb-6">
                 Somos tu socio estratégico para la recuperación de cartera.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Shield, TrendingUp, Users, Hexagon,
@@ -38,7 +37,7 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+          <div className="hero-fade-left">
             <div className="inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8">
               <Hexagon className="w-4 h-4 text-orange-500 fill-orange-500" />
               <span className="text-white/80 text-sm font-medium">Cobranza inteligente y efectiva</span>
@@ -64,10 +63,10 @@ function Hero() {
                 Conocer Servicios
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right */}
-          <motion.div className="hidden lg:block" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+          <div className="hidden lg:block hero-fade-right">
             <div className="relative">
               <div className="bg-white/10 border border-white/15 rounded-3xl p-8 shadow-2xl">
                 <div className="space-y-6">
@@ -93,7 +92,7 @@ function Hero() {
                 <div className="text-white/80 text-xs">Años</div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

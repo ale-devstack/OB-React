@@ -4,7 +4,7 @@ import {
   Building2, Landmark, Scale, FileText, ArrowRight,
   CheckCircle2, Phone, TrendingUp, Users, FileSearch, Gavel,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { useInView } from "../../hooks/useInView";
 
 const services = [
   {
@@ -92,106 +92,103 @@ const process = [
   },
 ];
 
+function ServiceRow({ service, isEven }) {
+  const [ref, inView] = useInView();
+  return (
+    <div
+      ref={ref}
+      className={`ob-anim ob-fade-up grid lg:grid-cols-2 gap-16 items-center ${inView ? 'visible' : ''}`}
+    >
+      {/* TEXT */}
+      <div className={`order-1 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center flex-shrink-0">
+            <service.icon className="w-8 h-8 text-orange-500" />
+          </div>
+          <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
+        </div>
+        <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.description}</p>
+        <ul className="grid sm:grid-cols-2 gap-4 mb-8">
+          {service.features.map((feature, fidx) => (
+            <li key={fidx} className="flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0" />
+              <span className="text-slate-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <Link
+          to="/contacto"
+          className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-6 py-3 font-medium transition-colors"
+        >
+          Solicitar Información
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+
+      {/* CARD */}
+      <div className={`order-2 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+        <div className="aspect-[4/3] bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl overflow-hidden relative">
+          <service.icon className="absolute inset-0 m-auto w-32 h-32 text-orange-500/10" />
+          <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
+            <div className="text-3xl font-bold text-white mb-1">+200</div>
+            <div className="text-white/70 text-sm">Clientes satisfechos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesPage() {
+  const [processHeaderRef, processHeaderInView] = useInView();
+  const [processGridRef, processGridInView] = useInView();
+  const [ctaRef, ctaInView] = useInView();
+
   return (
     <main>
       {/* HERO */}
       <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">
         <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div className="hero-fade-up">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones Integrales de Cobranza</h1>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Portafolio completo de servicios de recuperación de cartera para empresas, financieras y fintechs en México.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* SERVICES DETAIL */}
       <section className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 space-y-32">
-          {services.map((service, idx) => {
-            const isEven = idx % 2 === 0;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="grid lg:grid-cols-2 gap-16 items-center"
-              >
-                {/* TEXT */}
-                <div className={`order-1 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-slate-900 flex items-center justify-center flex-shrink-0">
-                      <service.icon className="w-8 h-8 text-orange-500" />
-                    </div>
-                    <h2 className="text-3xl font-bold text-slate-900">{service.title}</h2>
-                  </div>
-                  <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.description}</p>
-                  <ul className="grid sm:grid-cols-2 gap-4 mb-8">
-                    {service.features.map((feature, fidx) => (
-                      <li key={fidx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                        <span className="text-slate-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/contacto"
-                    className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-6 py-3 font-medium transition-colors"
-                  >
-                    Solicitar Información
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-
-                {/* CARD */}
-                <div className={`order-2 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                  <div className="aspect-[4/3] bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl overflow-hidden relative">
-                    <service.icon className="absolute inset-0 m-auto w-32 h-32 text-orange-500/10" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 to-transparent">
-                      <div className="text-3xl font-bold text-white mb-1">+200</div>
-                      <div className="text-white/70 text-sm">Clientes satisfechos</div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {services.map((service, idx) => (
+            <ServiceRow key={idx} service={service} isEven={idx % 2 === 0} />
+          ))}
         </div>
       </section>
 
       {/* PROCESS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+          <div
+            ref={processHeaderRef}
+            className={`ob-anim ob-fade-up text-center mb-16 ${processHeaderInView ? 'visible' : ''}`}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestro Proceso</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-4">Metodología de Trabajo</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
               Proceso estructurado que garantiza la máxima efectividad en la recuperación de tu cartera vencida.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            ref={processGridRef}
+            className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-8 ${processGridInView ? 'visible' : ''}`}
+          >
             {process.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50 rounded-2xl p-8 relative"
-              >
+              <div key={idx} className="bg-slate-50 rounded-2xl p-8 relative">
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}
                 </div>
@@ -200,7 +197,7 @@ export default function ServicesPage() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
                 <p className="text-slate-600 text-sm">{step.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -209,11 +206,9 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            ref={ctaRef}
+            className={`ob-anim ob-fade-up ${ctaInView ? 'visible' : ''}`}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas Recuperar tu Cartera Vencida?</h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
@@ -233,7 +228,7 @@ export default function ServicesPage() {
                 <Phone className="h-5 w-5" /> Llamar Ahora
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

@@ -13,7 +13,6 @@ function ScrollToTop() {
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
   }, [pathname]);
 
   return null;
@@ -40,7 +39,7 @@ function App() {
       };
 
       window.addEventListener('orangebee:home-ready', onHomeReady, { once: true });
-      homeReadyTimeout = setTimeout(closeLoader, 2000);
+      homeReadyTimeout = setTimeout(closeLoader, 600);
 
       return () => {
         window.removeEventListener('orangebee:home-ready', onHomeReady);

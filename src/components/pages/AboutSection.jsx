@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Target,
@@ -12,6 +11,7 @@ import {
   CheckCircle2,
   Hexagon,
 } from "lucide-react";
+import { useInView } from "../../hooks/useInView";
 
 const values = [
   {
@@ -48,6 +48,14 @@ const stats = [
 ];
 
 export default function AboutSection() {
+  const [statsRef, statsInView] = useInView();
+  const [historyLeftRef, historyLeftInView] = useInView();
+  const [historyRightRef, historyRightInView] = useInView();
+  const [missionRef, missionInView] = useInView();
+  const [valuesHeaderRef, valuesHeaderInView] = useInView();
+  const [valuesGridRef, valuesGridInView] = useInView();
+  const [ctaRef, ctaInView] = useInView();
+
   return (
     <section id="nosotros">
       {/* Hero */}
@@ -57,11 +65,7 @@ export default function AboutSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="hero-fade-up">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Sobre Nosotros
             </span>
@@ -72,28 +76,25 @@ export default function AboutSection() {
               Despacho de cobranza profesional especializado en empresas,
               financieras y fintechs en México.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Stats */}
       <div className="py-12 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-            >
+        <div
+          ref={statsRef}
+          className={`ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center ${statsInView ? 'visible' : ''}`}
+        >
+          {stats.map((stat) => (
+            <div key={stat.label}>
               <div className="text-3xl md:text-4xl font-bold text-slate-900">
                 {stat.value}
               </div>
               <div className="text-slate-500 text-sm mt-1">
                 {stat.label}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -101,11 +102,9 @@ export default function AboutSection() {
       {/* History */}
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+            ref={historyLeftRef}
+            className={`ob-anim ob-fade-left ${historyLeftInView ? 'visible' : ''}`}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestra Historia
@@ -130,14 +129,11 @@ export default function AboutSection() {
                 prácticas internacionales.
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+            ref={historyRightRef}
+            className={`ob-anim ob-fade-right relative ${historyRightInView ? 'visible' : ''}`}
           >
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
@@ -149,39 +145,26 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <motion.div
-              className="absolute -bottom-6 -left-6 bg-black rounded-2xl p-6 shadow-xl border border-white/10"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            <div className="absolute -bottom-6 -left-6 bg-black rounded-2xl p-6 shadow-xl border border-white/10">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-orange-500" />
                 <div>
-                  <div className="font-bold text-white">
-                    Cumplimiento
-                  </div>
-                  <div className="text-white/60 text-sm">
-                    CONDUSEF
-                  </div>
+                  <div className="font-bold text-white">Cumplimiento</div>
+                  <div className="text-white/60 text-sm">CONDUSEF</div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Mission & Vision */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-          <motion.div
-            className="bg-black rounded-3xl p-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+        <div
+          ref={missionRef}
+          className={`ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 ${missionInView ? 'visible' : ''}`}
+        >
+          <div className="bg-black rounded-3xl p-10">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
             </div>
@@ -193,15 +176,9 @@ export default function AboutSection() {
               maximicen la recuperación de cartera utilizando tecnología y
               procesos transparentes.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-slate-50 rounded-3xl p-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
+          <div className="bg-slate-50 rounded-3xl p-10">
             <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
               <Eye className="w-7 h-7 text-orange-600" />
             </div>
@@ -212,19 +189,16 @@ export default function AboutSection() {
               Ser el despacho de cobranza más innovador y confiable de México,
               reconocido por nuestra efectividad y compromiso ético.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Values */}
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            ref={valuesHeaderRef}
+            className={`ob-anim ob-fade-up text-center mb-16 ${valuesHeaderInView ? 'visible' : ''}`}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestros Valores
@@ -232,17 +206,16 @@ export default function AboutSection() {
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3">
               Principios que nos Definen
             </h3>
-          </motion.div>
+          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, idx) => (
-              <motion.div
+          <div
+            ref={valuesGridRef}
+            className={`ob-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-8 ${valuesGridInView ? 'visible' : ''}`}
+          >
+            {values.map((value) => (
+              <div
                 key={value.title}
                 className="bg-white rounded-2xl p-8 text-center shadow-sm border border-slate-100"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
                 <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-orange-600" />
@@ -253,7 +226,7 @@ export default function AboutSection() {
                 <p className="text-slate-600 text-sm">
                   {value.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -265,12 +238,9 @@ export default function AboutSection() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[120px]" />
         </div>
 
-        <motion.div
-          className="relative z-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          ref={ctaRef}
+          className={`ob-anim ob-fade-up relative z-10 ${ctaInView ? 'visible' : ''}`}
         >
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para Trabajar con Nosotros?
@@ -286,7 +256,7 @@ export default function AboutSection() {
             Contáctanos Hoy
             <ArrowRight className="h-5 w-5" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
