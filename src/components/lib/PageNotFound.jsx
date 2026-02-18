@@ -6,19 +6,19 @@ export default function PageNotFound() {
   const pageName = location.pathname.replace('/', '') || 'inicio';
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
+    <div className="min-h-screen flex items-center justify-center p-6 ob-section-soft">
       <div className="max-w-md w-full">
         <div className="text-center space-y-6">
           
           {/* 404 */}
           <div className="space-y-2">
-            <h1 className="text-7xl font-light text-slate-300">404</h1>
+            <h1 className="text-7xl font-light text-slate-400">404</h1>
             <div className="h-0.5 w-16 bg-slate-200 mx-auto"></div>
           </div>
 
           {/* Message */}
           <div className="space-y-3">
-            <h2 className="text-2xl font-medium text-slate-800">
+            <h2 className="text-2xl font-medium text-slate-900">
               Página no encontrada
             </h2>
             <p className="text-slate-600 leading-relaxed">
