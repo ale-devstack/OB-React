@@ -8,10 +8,10 @@ import {
   Users,
   Shield,
   CheckCircle2,
-  Hexagon,
 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import logoAbeja from '/logo-abeja.webp';
 
 const values = [
   {
@@ -61,7 +61,7 @@ export default function AboutSection() {
   return (
     <section id="nosotros">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-24 relative overflow-hidden">
+      <div className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
         </div>
@@ -74,7 +74,7 @@ export default function AboutSection() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
               Conoce a OrangeBee
             </h1>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
               Despacho de cobranza profesional especializado en empresas,
               financieras y fintechs en México.
             </p>
@@ -83,17 +83,17 @@ export default function AboutSection() {
       </div>
 
       {/* Stats */}
-      <div className="py-12 bg-white border-b">
+      <div className="py-12 bg-white border-b border-neutral-200">
         <div
           ref={statsRef}
           className={`ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center ${statsInView ? 'visible' : ''}`}
         >
           {stats.map((stat) => (
             <div key={stat.label}>
-              <div className="text-3xl md:text-4xl font-bold text-slate-900">
+              <div className="text-3xl md:text-4xl font-bold text-neutral-900">
                 {stat.value}
               </div>
-              <div className="text-slate-500 text-sm mt-1">
+              <div className="text-neutral-500 text-sm mt-1">
                 {stat.label}
               </div>
             </div>
@@ -111,11 +111,11 @@ export default function AboutSection() {
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestra Historia
             </span>
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-6">
+            <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
               Innovación en la Gestión de Cobranza
             </h3>
 
-            <div className="space-y-4 text-slate-600 leading-relaxed">
+            <div className="space-y-4 text-neutral-600 leading-relaxed">
               <p>
                 OrangeBee surge de la necesidad de transformar la industria de
                 la cobranza en México. Fundada por profesionales con amplia
@@ -139,20 +139,26 @@ export default function AboutSection() {
           >
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
-                <Hexagon className="w-20 h-20 text-orange-500 fill-orange-500/20 mx-auto mb-6" />
+                <img
+                  src={logoAbeja}
+                  alt="Logo OrangeBee"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 h-20 mx-auto mb-6"
+                />
                 <div className="text-5xl font-bold mb-2">
                   <span className="text-orange-500">Orange</span><span className="text-white">Bee</span>
                 </div>
-                <div className="text-slate-400">Cobranza Inteligente</div>
+                <div className="text-neutral-300">Cobranza Inteligente</div>
               </div>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 bg-black rounded-2xl p-6 shadow-xl border border-white/10">
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-orange-500" />
                 <div>
-                  <div className="font-bold text-white">Cumplimiento</div>
-                  <div className="text-white/60 text-sm">CONDUSEF</div>
+                  <div className="font-bold text-neutral-900">Cumplimiento</div>
+                  <div className="text-neutral-500 text-sm">CONDUSEF</div>
                 </div>
               </div>
             </div>
@@ -166,28 +172,28 @@ export default function AboutSection() {
           ref={missionRef}
           className={`ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 ${missionInView ? 'visible' : ''}`}
         >
-          <div className="bg-black rounded-3xl p-10">
+          <div className="bg-neutral-800 rounded-3xl p-10 border border-neutral-700">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">
               Nuestra Misión
             </h3>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-neutral-300 leading-relaxed">
               Proporcionar soluciones de cobranza efectivas y éticas que
               maximicen la recuperación de cartera utilizando tecnología y
               procesos transparentes.
             </p>
           </div>
 
-          <div className="bg-slate-50 rounded-3xl p-10">
+          <div className="bg-neutral-100 rounded-3xl p-10 border border-neutral-200">
             <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
               <Eye className="w-7 h-7 text-orange-600" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-4">
               Nuestra Visión
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-neutral-600 leading-relaxed">
               Ser el despacho de cobranza más innovador y confiable de México,
               reconocido por nuestra efectividad y compromiso ético.
             </p>
@@ -205,7 +211,7 @@ export default function AboutSection() {
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestros Valores
             </span>
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3">
+            <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3">
               Principios que nos Definen
             </h3>
           </div>
@@ -217,15 +223,15 @@ export default function AboutSection() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="bg-white rounded-2xl p-8 text-center shadow-sm border border-slate-100"
+                className="bg-white rounded-2xl p-8 text-center shadow-sm border border-neutral-200/70"
               >
                 <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-orange-600" />
+                  <value.icon className="w-8 h-8 text-orange-500" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">
+                <h4 className="text-xl font-bold text-neutral-900 mb-3">
                   {value.title}
                 </h4>
-                <p className="text-slate-600 text-sm">
+                <p className="text-neutral-600 text-sm">
                   {value.description}
                 </p>
               </div>
@@ -247,7 +253,7 @@ export default function AboutSection() {
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para Trabajar con Nosotros?
           </h3>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
             Descubre cómo OrangeBee puede ayudarte a recuperar tu cartera
             vencida de manera efectiva y profesional.
           </p>
