@@ -110,9 +110,9 @@ export default function Home() {
   return (
     <main className="bg-black">
       <Hero />
-      <div className="content-auto"><Services /></div>
-      <div className="content-auto"><WhyOrangeBee /></div>
-      <div className="content-auto"><CTASection /></div>
+      <Services />
+      <WhyOrangeBee />
+      <CTASection />
     </main>
   );
 }
