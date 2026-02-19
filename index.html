@@ -1,63 +1,16 @@
-<!doctype html>
-<html lang="es-MX">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0b0c" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="OrangeBee" />
-    <meta name="description" content="OrangeBee es un despacho de cobranza profesional en México. Recuperamos cartera vencida con estrategias éticas, tecnología y alta efectividad para empresas, financieras y fintechs." />
-    <meta name="keywords" content="despacho de cobranza, cobranza profesional, recuperación de cartera, cobranza para fintech, cobranza financiera, cobranza comercial, México" />
-
-    <link rel="canonical" href="https://ale-devstack.github.io/OB-React/" />
-    <link rel="icon" type="image/avif" href="/orangebee.avif" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:site_name" content="OrangeBee" />
-    <meta property="og:title" content="OrangeBee | Cobranza Inteligente y Recuperación de Cartera" />
-    <meta property="og:description" content="Recuperamos cartera vencida para empresas, financieras y fintechs con procesos éticos y alta efectividad." />
-    <meta property="og:url" content="https://ale-devstack.github.io/OB-React/" />
-    <meta property="og:image" content="https://ale-devstack.github.io/OB-React/logo-abeja.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OrangeBee | Cobranza Inteligente" />
-    <meta name="twitter:description" content="Despacho de cobranza profesional en México para empresas, financieras y fintechs." />
-    <meta name="twitter:image" content="https://ale-devstack.github.io/OB-React/logo-abeja.png" />
-
-    <!-- Critical images: preload based on viewport -->
-    <link rel="preload" as="image" href="/hero-desktop.webp" media="(min-width: 768px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
-
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
-    <title>OrangeBee | Cobranza Inteligente y Recuperación de Cartera</title>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FinancialService",
-        "name": "OrangeBee",
-        "url": "https://ale-devstack.github.io/OB-React/",
-        "logo": "https://ale-devstack.github.io/OB-React/logo-abeja.png",
-        "description": "Despacho de cobranza profesional especializado en recuperación de cartera para empresas, financieras y fintechs.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Nuevo León",
-          "addressCountry": "MX"
-        },
-        "areaServed": "México"
-      }
-    </script>
-
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { background: #0b0b0c; overflow-x: hidden; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<!doctype html><html lang='es'><head><meta charset='UTF-8'/><meta name='viewport' content='width=device-width, initial-scale=1.0'/><title>OrangeBee | Cobranza Inteligente y Recuperación de Cartera</title><link rel='stylesheet' href='styles.css'/></head><body data-page='inicio' class='min-h-screen flex flex-col bg-white'>
+<div id='app-loader'><div class='spinner'></div></div><a href='#main-content' class='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium'>Saltar al contenido</a>
+<div id='menu-backdrop' class='fixed inset-0 z-40 bg-black/60 md:hidden hidden'></div>
+<header id='site-header' class='fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5'><div class='max-w-7xl mx-auto px-6'><div class='flex items-center justify-between'><a href='index.html' class='flex items-center gap-2'><img src='public/logo-abeja.webp' class='w-10 h-10'><span class='font-bold text-xl text-white'><span class='text-orange-500'>Orange</span>Bee</span></a><nav class='hidden md:flex items-center gap-8'><a data-nav='inicio' href='index.html' class='font-medium transition-colors'>Inicio</a><a data-nav='servicios' href='servicios.html' class='font-medium transition-colors hover:text-orange-400'>Servicios</a><a data-nav='nosotros' href='nosotros.html' class='font-medium transition-colors hover:text-orange-400'>Nosotros</a><a data-nav='contacto' href='contacto.html' class='font-medium transition-colors hover:text-orange-400'>Contacto</a></nav><div class='hidden md:block'><a href='contacto.html' class='inline-flex items-center justify-center rounded-xl px-6 py-2.5 bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(255,85,0,0.35)] text-white font-medium transition-colors'>Consulta Gratis</a></div><button id='mobile-menu-btn' class='md:hidden p-2 rounded-lg text-white'><i data-lucide='menu' class='w-6 h-6'></i></button></div></div><div id='mobile-menu' class='md:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 bg-black/95 border-t border-white/10'><nav class='max-w-7xl mx-auto px-6 py-6 space-y-4'><a data-nav='inicio' href='index.html' class='block py-2 font-medium'>Inicio</a><a data-nav='servicios' href='servicios.html' class='block py-2 font-medium text-white/70 hover:text-orange-500'>Servicios</a><a data-nav='nosotros' href='nosotros.html' class='block py-2 font-medium text-white/70 hover:text-orange-500'>Nosotros</a><a data-nav='contacto' href='contacto.html' class='block py-2 font-medium text-white/70 hover:text-orange-500'>Contacto</a><a href='contacto.html' class='block text-center bg-orange-500 hover:bg-orange-600 shadow-[0_10px_30px_rgba(255,85,0,0.35)] text-white rounded-xl py-3 font-medium mt-4 transition-colors'>Consulta Gratis</a></nav></div></header>
+<main id='main-content' class='bg-black'>
+<section class='relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden'><div class='absolute inset-0 ob-dark-hero'><picture><source media='(min-width: 768px)' srcset='public/hero-desktop.webp'><img src='public/hero-mobile.webp' class='absolute inset-0 w-full h-full object-cover opacity-25'></picture></div><div class='relative z-10 max-w-7xl mx-auto px-6 py-20 w-full'><div class='grid lg:grid-cols-2 gap-16 items-center'><div class='hero-fade-left'><div class='inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8'><i data-lucide='hexagon' class='w-4 h-4 text-orange-500 fill-orange-500'></i><span class='text-white/80 text-sm font-medium'>Cobranza inteligente y efectiva</span></div><h1 class='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6'>Recuperamos tu<span class='block text-orange-500'>cartera vencida</span></h1><p class='text-lg text-neutral-300 mb-10 max-w-xl leading-relaxed'>Soluciones profesionales de cobranza para empresas, financieras y fintechs. Maximizamos la recuperación con ética, transparencia y tecnología de punta.</p><div class='flex flex-col sm:flex-row gap-4'><a href='contacto.html' class='inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-xl'>Solicitar Consulta <i data-lucide='arrow-right' class='h-5 w-5'></i></a><a href='servicios.html' class='inline-flex items-center justify-center bg-white text-neutral-900 hover:bg-neutral-100 px-8 py-4 text-lg rounded-xl font-semibold'>Conocer Servicios</a></div></div></div></div></section>
+<section class='py-24 ob-section-soft'><div class='max-w-7xl mx-auto px-6'><div class='ob-anim ob-fade-up text-center mb-16'><span class='text-orange-500 font-semibold text-sm tracking-wider uppercase'>Nuestros Servicios</span><h2 class='text-3xl md:text-4xl font-bold text-neutral-950 mt-3 mb-4'>Soluciones Integrales de Cobranza</h2></div><div class='ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'>
+<div class='group bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/70'><div class='w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200'><img src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80' class='w-full h-full object-cover'></div><h3 class='text-xl font-bold text-neutral-900 mb-3'>Cobranza Comercial</h3><p class='text-neutral-600 text-sm mb-5'>Recuperación de cartera para empresas comerciales e industriales con enfoque en preservar relaciones.</p></div>
+<div class='group bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/70'><div class='w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200'><img src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80' class='w-full h-full object-cover'></div><h3 class='text-xl font-bold text-neutral-900 mb-3'>Cobranza Financiera</h3><p class='text-neutral-600 text-sm mb-5'>Especialistas en recuperación para bancos, financieras y fintechs con altos estándares.</p></div>
+<div class='group bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/70'><div class='w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200'><img src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80' class='w-full h-full object-cover'></div><h3 class='text-xl font-bold text-neutral-900 mb-3'>Cobranza Judicial</h3><p class='text-neutral-600 text-sm mb-5'>Representación legal para la recuperación de adeudos a través de procesos judiciales.</p></div>
+<div class='group bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/70'><div class='w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200'><img src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80' class='w-full h-full object-cover'></div><h3 class='text-xl font-bold text-neutral-900 mb-3'>Consultoría</h3><p class='text-neutral-600 text-sm mb-5'>Asesoría integral para optimizar políticas de crédito y procesos de cobranza internos.</p></div>
+</div><div class='text-center'><a href='servicios.html' class='inline-flex items-center gap-2 bg-black hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium'>Ver Todos los Servicios <i data-lucide='arrow-right' class='h-5 w-5'></i></a></div></div></section>
+</main>
+<footer class='bg-[#080808] text-white border-t border-white/10'><div class='max-w-7xl mx-auto px-6 py-16'><div class='grid md:grid-cols-2 lg:grid-cols-4 gap-12'><div><a href='index.html' class='flex items-center gap-2 mb-6'><img src='public/logo-abeja.webp' class='w-10 h-10'><span class='font-bold text-xl'><span class='text-orange-500'>Orange</span>Bee</span></a><p class='text-neutral-300/90 text-sm leading-relaxed mb-6'>Despacho de cobranza profesional especializado en empresas, financieras y fintechs. Recuperación efectiva con ética y transparencia.</p></div><div><h4 class='font-semibold text-lg mb-6'>Enlaces</h4><ul class='space-y-3 text-sm'><li><a href='index.html' class='text-neutral-300'>Inicio</a></li><li><a href='servicios.html' class='text-neutral-300'>Servicios</a></li><li><a href='nosotros.html' class='text-neutral-300'>Nosotros</a></li><li><a href='contacto.html' class='text-neutral-300'>Contacto</a></li></ul></div><div><h4 class='font-semibold text-lg mb-6'>Servicios</h4><ul class='space-y-3 text-sm'><li class='text-neutral-300'>Cobranza Comercial</li><li class='text-neutral-300'>Cobranza Financiera</li><li class='text-neutral-300'>Cobranza Judicial</li><li class='text-neutral-300'>Consultoría</li></ul></div><div><h4 class='font-semibold text-lg mb-6'>Contacto</h4><ul class='space-y-4 text-sm'><li class='text-neutral-400'>Av. Manuel Gómez Morín 350 PB, Valle Campestre. C.P. 66265, San Pedro Garza García, Nuevo León</li><li class='text-neutral-400'>+52 (81) 3267-7226</li><li class='text-neutral-400'>conecta@orangebee.mx</li><li class='text-neutral-400'>Lunes a Viernes: 9:00 - 18:00</li></ul></div></div></div></footer>
+<a href='https://wa.me/528132677226' target='_blank' class='fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg'><i data-lucide='message-circle' size='26'></i></a>
+<script src='https://unpkg.com/lucide@latest'></script><script src='assets/main.js'></script></body></html>

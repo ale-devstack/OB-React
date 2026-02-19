@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-neutral-200; }
+  html { font-size: 16px; overflow-x: hidden; touch-action: manipulation; }
+  body { overflow-x: hidden; }
+}
+
+#app-loader { position: fixed; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity .2s ease; }
+#app-loader.fade-out { opacity: 0; pointer-events: none; }
+.spinner { width: 48px; height: 48px; border: 4px solid rgba(255,85,0,.2); border-top-color: #ff5500; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+:root { --ob-black:#0b0b0c; --ob-orange:#ff5500; --ob-white:#fff; }
+body { background: radial-gradient(1200px 500px at 70% -10%, rgba(255,85,0,.18), transparent 60%), var(--ob-black); color:#f5f4f2; }
+.ob-section-soft { background: linear-gradient(180deg,#fafaf8 0%,#f5f3f0 100%); }
+.ob-dark-hero { background: radial-gradient(900px 380px at 80% 0%, rgba(255,85,0,.18), transparent 60%), linear-gradient(160deg,#070707 0%,#0f0f10 55%,#121212 100%); }
+.content-auto { content-visibility:auto; contain-intrinsic-size:auto 600px; }
+@media (min-width:768px){ .content-auto { contain-intrinsic-size:auto 800px; } }
+
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid color-mix(in srgb, var(--ob-orange) 65%, white); outline-offset:2px; }
+
+.ob-anim { opacity:0; }
+@media (prefers-reduced-motion:no-preference){
+  .ob-anim.visible.ob-fade-up{animation:ob-fade-up .5s ease forwards;}
+  .ob-anim.visible.ob-fade-left{animation:ob-fade-left .55s ease forwards;}
+  .ob-anim.visible.ob-fade-right{animation:ob-fade-right .55s ease forwards;}
+  .ob-anim.visible.ob-fade-scale{animation:ob-fade-scale .4s ease forwards;}
+}
+@media (prefers-reduced-motion:reduce){ .ob-anim{opacity:1;} }
+.ob-stagger > * { opacity:0; }
+@media (prefers-reduced-motion:no-preference){
+  .ob-stagger.visible > * { animation: ob-fade-up .45s ease both; }
+  .ob-stagger.visible > *:nth-child(1){animation-delay:0s;} .ob-stagger.visible > *:nth-child(2){animation-delay:.07s;} .ob-stagger.visible > *:nth-child(3){animation-delay:.14s;} .ob-stagger.visible > *:nth-child(4){animation-delay:.21s;} .ob-stagger.visible > *:nth-child(5){animation-delay:.28s;} .ob-stagger.visible > *:nth-child(6){animation-delay:.35s;}
+}
+@media (prefers-reduced-motion:reduce){ .ob-stagger > * {opacity:1;} }
+@media (prefers-reduced-motion:no-preference){ .hero-fade-left{animation:ob-fade-left .6s ease both;} .hero-fade-right{animation:ob-fade-right .6s ease .1s both;} .hero-fade-up{animation:ob-fade-up .5s ease both;} }
+@media (max-width:767px) and (prefers-reduced-motion:no-preference){
+  .ob-anim.visible.ob-fade-up{animation-duration:.35s;} .ob-anim.visible.ob-fade-left{animation-duration:.4s;} .ob-anim.visible.ob-fade-right{animation-duration:.4s;} .ob-anim.visible.ob-fade-scale{animation-duration:.3s;}
+  .ob-stagger.visible > *{animation-duration:.35s;} .ob-stagger.visible > *:nth-child(4){animation-delay:.15s;} .ob-stagger.visible > *:nth-child(5){animation-delay:.2s;} .ob-stagger.visible > *:nth-child(6){animation-delay:.25s;}
+  .hero-fade-left{animation-duration:.45s;} .hero-fade-right{animation-duration:.45s; animation-delay:.05s;} .hero-fade-up{animation-duration:.4s;}
+}
+@keyframes ob-fade-up { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+@keyframes ob-fade-left { from{opacity:0;transform:translateX(-20px);} to{opacity:1;transform:translateX(0);} }
+@keyframes ob-fade-right { from{opacity:0;transform:translateX(20px);} to{opacity:1;transform:translateX(0);} }
+@keyframes ob-fade-scale { from{opacity:0;transform:scale(.92);} to{opacity:1;transform:scale(1);} }
