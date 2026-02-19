@@ -97,10 +97,10 @@ textarea:focus-visible {
 .ob-anim { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .ob-anim.visible.ob-fade-up    { animation: ob-fade-up    0.6s ease forwards; }
-  .ob-anim.visible.ob-fade-left  { animation: ob-fade-left  0.7s ease forwards; }
-  .ob-anim.visible.ob-fade-right { animation: ob-fade-right 0.7s ease forwards; }
-  .ob-anim.visible.ob-fade-scale { animation: ob-fade-scale 0.5s ease forwards; }
+  .ob-anim.visible.ob-fade-up    { animation: ob-fade-up    0.5s ease forwards; }
+  .ob-anim.visible.ob-fade-left  { animation: ob-fade-left  0.55s ease forwards; }
+  .ob-anim.visible.ob-fade-right { animation: ob-fade-right 0.55s ease forwards; }
+  .ob-anim.visible.ob-fade-scale { animation: ob-fade-scale 0.4s ease forwards; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -111,13 +111,13 @@ textarea:focus-visible {
 .ob-stagger > * { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .ob-stagger.visible > * { animation: ob-fade-up 0.5s ease both; }
-  .ob-stagger.visible > *:nth-child(1) { animation-delay: 0s;   }
-  .ob-stagger.visible > *:nth-child(2) { animation-delay: 0.1s; }
-  .ob-stagger.visible > *:nth-child(3) { animation-delay: 0.2s; }
-  .ob-stagger.visible > *:nth-child(4) { animation-delay: 0.3s; }
-  .ob-stagger.visible > *:nth-child(5) { animation-delay: 0.4s; }
-  .ob-stagger.visible > *:nth-child(6) { animation-delay: 0.5s; }
+  .ob-stagger.visible > * { animation: ob-fade-up 0.45s ease both; }
+  .ob-stagger.visible > *:nth-child(1) { animation-delay: 0s;    }
+  .ob-stagger.visible > *:nth-child(2) { animation-delay: 0.07s; }
+  .ob-stagger.visible > *:nth-child(3) { animation-delay: 0.14s; }
+  .ob-stagger.visible > *:nth-child(4) { animation-delay: 0.21s; }
+  .ob-stagger.visible > *:nth-child(5) { animation-delay: 0.28s; }
+  .ob-stagger.visible > *:nth-child(6) { animation-delay: 0.35s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -126,24 +126,41 @@ textarea:focus-visible {
 
 /* Hero mount animations */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-fade-left  { animation: ob-fade-left  0.7s ease both; }
-  .hero-fade-right { animation: ob-fade-right 0.7s ease 0.2s both; }
-  .hero-fade-up    { animation: ob-fade-up    0.6s ease both; }
+  .hero-fade-left  { animation: ob-fade-left  0.6s ease both; }
+  .hero-fade-right { animation: ob-fade-right 0.6s ease 0.1s both; }
+  .hero-fade-up    { animation: ob-fade-up    0.5s ease both; }
+}
+
+/* Mobile: animaciones más cortas para respuesta inmediata */
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .ob-anim.visible.ob-fade-up    { animation-duration: 0.35s; }
+  .ob-anim.visible.ob-fade-left  { animation-duration: 0.4s;  }
+  .ob-anim.visible.ob-fade-right { animation-duration: 0.4s;  }
+  .ob-anim.visible.ob-fade-scale { animation-duration: 0.3s;  }
+
+  .ob-stagger.visible > *            { animation-duration: 0.35s; }
+  .ob-stagger.visible > *:nth-child(4) { animation-delay: 0.15s; }
+  .ob-stagger.visible > *:nth-child(5) { animation-delay: 0.2s;  }
+  .ob-stagger.visible > *:nth-child(6) { animation-delay: 0.25s; }
+
+  .hero-fade-left  { animation-duration: 0.45s; }
+  .hero-fade-right { animation-duration: 0.45s; animation-delay: 0.05s; }
+  .hero-fade-up    { animation-duration: 0.4s;  }
 }
 
 @keyframes ob-fade-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
 @keyframes ob-fade-left {
-  from { opacity: 0; transform: translateX(-40px); }
+  from { opacity: 0; transform: translateX(-20px); }
   to   { opacity: 1; transform: translateX(0);     }
 }
 @keyframes ob-fade-right {
-  from { opacity: 0; transform: translateX(40px); }
+  from { opacity: 0; transform: translateX(20px); }
   to   { opacity: 1; transform: translateX(0);    }
 }
 @keyframes ob-fade-scale {
-  from { opacity: 0; transform: scale(0.8); }
-  to   { opacity: 1; transform: scale(1);   }
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1);    }
 }
