@@ -1,63 +1,16 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0b0c" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="OrangeBee" />
-    <meta name="description" content="OrangeBee es un despacho de cobranza profesional en México. Recuperamos cartera vencida con estrategias éticas, tecnología y alta efectividad para empresas, financieras y fintechs." />
-    <meta name="keywords" content="despacho de cobranza, cobranza profesional, recuperación de cartera, cobranza para fintech, cobranza financiera, cobranza comercial, México" />
-
-    <link rel="canonical" href="https://ale-devstack.github.io/OB-React/" />
-    <link rel="icon" type="image/avif" href="/orangebee.avif" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:site_name" content="OrangeBee" />
-    <meta property="og:title" content="OrangeBee | Cobranza Inteligente y Recuperación de Cartera" />
-    <meta property="og:description" content="Recuperamos cartera vencida para empresas, financieras y fintechs con procesos éticos y alta efectividad." />
-    <meta property="og:url" content="https://ale-devstack.github.io/OB-React/" />
-    <meta property="og:image" content="https://ale-devstack.github.io/OB-React/logo-abeja.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OrangeBee | Cobranza Inteligente" />
-    <meta name="twitter:description" content="Despacho de cobranza profesional en México para empresas, financieras y fintechs." />
-    <meta name="twitter:image" content="https://ale-devstack.github.io/OB-React/logo-abeja.png" />
-
-    <!-- Critical images: preload based on viewport -->
-    <link rel="preload" as="image" href="/hero-desktop.webp" media="(min-width: 768px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
-
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
-    <title>OrangeBee | Cobranza Inteligente y Recuperación de Cartera</title>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FinancialService",
-        "name": "OrangeBee",
-        "url": "https://ale-devstack.github.io/OB-React/",
-        "logo": "https://ale-devstack.github.io/OB-React/logo-abeja.png",
-        "description": "Despacho de cobranza profesional especializado en recuperación de cartera para empresas, financieras y fintechs.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Nuevo León",
-          "addressCountry": "MX"
-        },
-        "areaServed": "México"
-      }
-    </script>
-
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { background: #0b0b0c; overflow-x: hidden; }
-    </style>
+    <title>OrangeBee</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="app-loader"><div class="spinner"></div></div>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium">Saltar al contenido</a>
+    <div id="app" class="min-h-screen flex flex-col bg-white"></div>
+    <script type="module" src="/src/app.js"></script>
   </body>
 </html>
