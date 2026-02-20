@@ -19,6 +19,9 @@ export const SERVICES = [
       'Reportes de gestión detallados',
     ],
     stat: { value: '80%', label: 'Tasa de recuperación' },
+    // NUEVO: URL de la imagen centralizada aquí
+    // Tip PRO: Cuando descargues las imágenes, cámbialo a algo como '/services/comercial.webp'
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80',
   },
   {
     id: 'financiera',
@@ -38,6 +41,8 @@ export const SERVICES = [
       'Reestructuración de deudas',
     ],
     stat: { value: '+$100M', label: 'Recuperados' },
+    // NUEVO
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
   },
   {
     id: 'judicial',
@@ -57,6 +62,8 @@ export const SERVICES = [
       'Procedimientos concursales',
     ],
     stat: { value: '95%', label: 'Casos resueltos' },
+    // NUEVO
+    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80',
   },
   {
     id: 'consultoria',
@@ -76,5 +83,7 @@ export const SERVICES = [
       'Mejores prácticas del sector',
     ],
     stat: { value: '+100', label: 'Empresas asesoradas' },
+    // NUEVO
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
   },
 ];

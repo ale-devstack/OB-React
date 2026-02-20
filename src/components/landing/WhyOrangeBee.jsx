@@ -22,10 +22,7 @@ export default function WhyOrangeBee() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
-          <div
-            ref={leftRef}
-            className={`ob-anim ob-fade-left relative ${leftInView ? 'visible' : ''}`}
-          >
+          <div ref={sectionRef} className={cn("ob-anim ob-fade-up", sectionInView && "visible")}>
             <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-orange-500/20">
               {/* Orange top accent line */}
               <div className="absolute inset-x-0 top-0 h-1 bg-orange-500" />

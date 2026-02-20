@@ -3,6 +3,7 @@ import { Send, CheckCircle2 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
+import { cn } from "../../utils/cn";
 import logoAbeja from '/logo-abeja.webp';
 
 const inputClass = "w-full rounded-xl border border-neutral-300 p-3 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
@@ -21,33 +22,39 @@ export default function ContactSection() {
   const [infoRef, infoInView] = useInView();
   const [cardsRef, cardsInView] = useInView();
 
-  const buildMailtoLink = () => {
-    const subject = `Nuevo contacto desde OrangeBee - ${formData.name || 'Sin nombre'}`;
-    const body = [
-      'Se recibió una nueva solicitud desde el formulario de contacto de OrangeBee.',
-      '',
-      `Nombre: ${formData.name || 'No proporcionado'}`,
-      `Correo: ${formData.email || 'No proporcionado'}`,
-      `Teléfono: ${formData.phone || 'No proporcionado'}`,
-      `Empresa: ${formData.company || 'No proporcionado'}`,
-      `Tipo de empresa: ${formData.serviceType || 'No proporcionado'}`,
-      '',
-      'Mensaje:',
-      formData.message || 'No proporcionado',
-    ].join('\n');
-
-    return `mailto:conecta@orangebee.com.mx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    window.location.href = buildMailtoLink();
-    await new Promise((r) => setTimeout(r, 300));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", company: "", serviceType: "", message: "" });
-    setTimeout(() => setSubmitted(false), 4000);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE", // Reemplaza con tu Access Key gratuita de Web3Forms
+          subject: `Nuevo Lead: ${formData.company || 'Sin Empresa'} - ${formData.serviceType || 'General'}`,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", company: "", serviceType: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        console.error("Error en la respuesta de la API");
+      }
+    } catch (error) {
+      console.error("Error enviando el formulario", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,7 +87,10 @@ export default function ContactSection() {
           {/* Form */}
           <div
             ref={formRef}
-            className={`ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border border-neutral-200 ${formInView ? 'visible' : ''}`}
+            className={cn(
+              "ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border border-neutral-200",
+              formInView && "visible"
+            )}
           >
             <h2 className="text-2xl font-bold text-neutral-900 mb-2">
               Envíanos un Mensaje
@@ -205,7 +215,7 @@ export default function ContactSection() {
           {/* Info */}
           <div
             ref={infoRef}
-            className={`ob-anim ob-fade-right space-y-8 ${infoInView ? 'visible' : ''}`}
+            className={cn("ob-anim ob-fade-right space-y-8", infoInView && "visible")}
           >
             <div>
               <h2 className="text-2xl font-bold text-neutral-900 mb-2">
@@ -218,7 +228,7 @@ export default function ContactSection() {
 
             <div
               ref={cardsRef}
-              className={`ob-stagger grid sm:grid-cols-2 gap-6 ${cardsInView ? 'visible' : ''}`}
+              className={cn("ob-stagger grid sm:grid-cols-2 gap-6", cardsInView && "visible")}
             >
               {CONTACT_ITEMS.map((item) => (
                 <div

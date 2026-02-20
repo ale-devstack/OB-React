@@ -22,10 +22,7 @@ export default function CTASection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div
-          ref={sectionRef}
-          className={`ob-anim ob-fade-up ${sectionInView ? 'visible' : ''}`}
-        >
+        <div ref={sectionRef} className={cn("ob-anim ob-fade-up", sectionInView && "visible")}>
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />

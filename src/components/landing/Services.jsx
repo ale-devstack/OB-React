@@ -2,13 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useInView } from '../../hooks/useInView';
 import { SERVICES } from '../../data/services';
-
-const SERVICE_STOCK_IMAGES = {
-  comercial: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
-  financiera: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
-  judicial: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=80',
-  consultoria: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
-};
+import { cn } from '../../utils/cn'; // Importamos utilidad
 
 export default function ServicesPreview() {
   const [headerRef, headerInView] = useInView();
@@ -21,7 +15,7 @@ export default function ServicesPreview() {
         {/* Header */}
         <div
           ref={headerRef}
-          className={`ob-anim ob-fade-up text-center mb-16 ${headerInView ? 'visible' : ''}`}
+          className={cn("ob-anim ob-fade-up text-center mb-16", headerInView && "visible")}
         >
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
             Nuestros Servicios
@@ -38,7 +32,7 @@ export default function ServicesPreview() {
         {/* Services Grid */}
         <div
           ref={gridRef}
-          className={`ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 ${gridInView ? 'visible' : ''}`}
+          className={cn("ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12", gridInView && "visible")}
         >
           {SERVICES.map((service) => (
             <div
@@ -47,7 +41,7 @@ export default function ServicesPreview() {
             >
               <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200">
                 <img
-                  src={SERVICE_STOCK_IMAGES[service.id]}
+                  src={service.imageUrl} // <-- Limpio, la URL viene directamente de la data
                   alt={service.title}
                   loading="lazy"
                   decoding="async"
@@ -81,7 +75,7 @@ export default function ServicesPreview() {
         {/* CTA */}
         <div
           ref={ctaRef}
-          className={`ob-anim ob-fade-up text-center ${ctaInView ? 'visible' : ''}`}
+          className={cn("ob-anim ob-fade-up text-center", ctaInView && "visible")}
         >
           <Link
             to="/servicios"

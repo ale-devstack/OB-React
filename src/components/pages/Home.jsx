@@ -1,8 +1,5 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight, Shield, TrendingUp, Users, Hexagon,
-} from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, Users, Hexagon } from 'lucide-react';
 
 import heroDesktop from '/hero-desktop.webp';
 import heroMobile from '/hero-mobile.webp';
@@ -14,20 +11,26 @@ import { usePageTitle } from '../../hooks/usePageTitle';
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
+  const handleHeroImageLoad = () => {
+    // Despachamos el evento de carga exactamente cuando el LCP (Largest Contentful Paint) ha terminado
+    window.dispatchEvent(new Event('orangebee:home-ready'));
+  };
+
   return (
     <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 ob-dark-hero">
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
-        {/* <picture> fixes double-download: only the matching source is fetched */}
+        
         <picture>
           <source media="(min-width: 768px)" srcSet={heroDesktop} />
           <img
             src={heroMobile}
-            alt=""
+            alt="Hero Background"
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover opacity-25"
+            onLoad={handleHeroImageLoad} // <- AQUI ESTÁ LA MAGIA
           />
         </picture>
       </div>
@@ -102,10 +105,8 @@ function Hero() {
 export default function Home() {
   usePageTitle();
 
-  useEffect(() => {
-    const notifyReady = () => window.dispatchEvent(new Event('orangebee:home-ready'));
-    requestAnimationFrame(() => requestAnimationFrame(notifyReady));
-  }, []);
+  // El useEffect de carga fue removido de aquí, 
+  // ahora está delegada su responsabilidad al evento `onLoad` del Hero
 
   return (
     <main className="bg-black">

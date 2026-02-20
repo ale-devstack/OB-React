@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import { cn } from "../../utils/cn";
 import logoAbeja from '/logo-abeja.webp';
 
 const values = [
@@ -86,7 +87,10 @@ export default function AboutSection() {
       <div className="py-12 bg-white border-b border-neutral-200">
         <div
           ref={statsRef}
-          className={`ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center ${statsInView ? 'visible' : ''}`}
+          className={cn(
+            "ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center",
+            statsInView && "visible"
+          )}
         >
           {stats.map((stat) => (
             <div key={stat.label}>
@@ -106,7 +110,7 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div
             ref={historyLeftRef}
-            className={`ob-anim ob-fade-left ${historyLeftInView ? 'visible' : ''}`}
+            className={cn("ob-anim ob-fade-left", historyLeftInView && "visible")}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestra Historia
@@ -135,7 +139,10 @@ export default function AboutSection() {
 
           <div
             ref={historyRightRef}
-            className={`ob-anim ob-fade-right relative ${historyRightInView ? 'visible' : ''}`}
+            className={cn(
+              "ob-anim ob-fade-right relative",
+              historyRightInView && "visible"
+            )}
           >
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
@@ -170,7 +177,10 @@ export default function AboutSection() {
       <div className="py-24 bg-white">
         <div
           ref={missionRef}
-          className={`ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 ${missionInView ? 'visible' : ''}`}
+          className={cn(
+            "ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12",
+            missionInView && "visible"
+          )}
         >
           <div className="bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06]">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
@@ -206,7 +216,10 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto px-6">
           <div
             ref={valuesHeaderRef}
-            className={`ob-anim ob-fade-up text-center mb-16 ${valuesHeaderInView ? 'visible' : ''}`}
+            className={cn(
+              "ob-anim ob-fade-up text-center mb-16",
+              valuesHeaderInView && "visible"
+            )}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestros Valores
@@ -218,7 +231,10 @@ export default function AboutSection() {
 
           <div
             ref={valuesGridRef}
-            className={`ob-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-8 ${valuesGridInView ? 'visible' : ''}`}
+            className={cn(
+              "ob-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-8",
+              valuesGridInView && "visible"
+            )}
           >
             {values.map((value) => (
               <div
@@ -248,7 +264,10 @@ export default function AboutSection() {
 
         <div
           ref={ctaRef}
-          className={`ob-anim ob-fade-up relative z-10 ${ctaInView ? 'visible' : ''}`}
+          className={cn(
+            "ob-anim ob-fade-up relative z-10",
+            ctaInView && "visible"
+          )}
         >
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para Trabajar con Nosotros?
