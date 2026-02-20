@@ -1,28 +1,39 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 import ErrorBoundary from './components/common/ErrorBoundary';
 
+// Carga perezosa (Code Splitting) de rutas
 const Home           = lazy(() => import('./components/pages/Home'));
 const ServicesPage   = lazy(() => import('./components/pages/ServicesPage'));
 const AboutSection   = lazy(() => import('./components/pages/AboutSection'));
 const ContactSection = lazy(() => import('./components/pages/ContactSection'));
 const PageNotFound   = lazy(() => import('./components/lib/PageNotFound'));
 
+// Corrección: Componente para hacer scroll al inicio al cambiar de ruta
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  // Cambiado de useLayoutEffect a useEffect para evitar bloqueo del hilo principal
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return null;
 }
 
+// NUEVO: Fallback visual suave para las transiciones de rutas en lazy load
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
+  </div>
+);
+
 function App() {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
   const [isLoaderFading, setIsLoaderFading] = useState(false);
 
+  // 1. Manejo del Loader Inicial (Sincronizado con Home.jsx)
   useEffect(() => {
     const isHomePath = /^\/OB-React\/?$/.test(window.location.pathname) || /^\/$/.test(window.location.pathname);
 
@@ -39,8 +50,9 @@ function App() {
         closeLoader();
       };
 
+      // Escucha el evento que ahora dispara la imagen del Hero al terminar su LCP
       window.addEventListener('orangebee:home-ready', onHomeReady, { once: true });
-      homeReadyTimeout = setTimeout(closeLoader, 600);
+      homeReadyTimeout = setTimeout(closeLoader, 600); // Contingencia
 
       return () => {
         window.removeEventListener('orangebee:home-ready', onHomeReady);
@@ -52,14 +64,13 @@ function App() {
     return () => clearTimeout(loaderTimer);
   }, []);
 
+  // 2. Prefetching inteligente de rutas en segundo plano
   useEffect(() => {
-    // Prefetch other routes after the page is idle
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    // No precargar si el usuario tiene habilitado el ahorro de datos o una red 2G
     const shouldPrefetch = !(connection?.saveData || /2g/.test(connection?.effectiveType || ''));
 
-    if (!shouldPrefetch) {
-      return undefined;
-    }
+    if (!shouldPrefetch) return undefined;
 
     const prefetch = () => {
       import('./components/pages/ServicesPage');
@@ -70,6 +81,7 @@ function App() {
     let idleId;
     let prefetchTimer;
 
+    // Usar requestIdleCallback para no interrumpir el renderizado principal de React
     if ('requestIdleCallback' in window) {
       idleId = window.requestIdleCallback(prefetch, { timeout: 3000 });
     } else {
@@ -93,7 +105,8 @@ function App() {
       <ErrorBoundary>
         <BrowserRouter basename="/OB-React">
           <ScrollToTop />
-          <Suspense fallback={null}>
+          {/* Corrección: Se agregó el fallback visual para evitar pantallas en blanco */}
+          <Suspense fallback={<PageLoader />}>
             <Layout>
               <Routes>
                 <Route path="/" element={<Home />} />
