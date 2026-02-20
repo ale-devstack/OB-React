@@ -104,7 +104,7 @@ function App() {
       )}
 
       <ErrorBoundary>
-        <BrowserRouter basename="/OB-React">
+        <BrowserRouter>
           <ScrollToTop />
           {/* Corrección: Se agregó el fallback visual para evitar pantallas en blanco */}
           <Suspense fallback={<PageLoader />}>

@@ -7,32 +7,32 @@ import { cn } from "../../utils/cn"; // Importamos la utilidad
 const reasons = [
   { 
     icon: Award,        
-    title: "Equipo Especializado", 
-    description: "Profesionales con experiencia en recuperación para financieras y fintechs." 
+    title: "Equipo especializado", 
+    description: "Profesionales con más de 10 años de experiencia en recuperación." 
   },
   { 
     icon: BarChart3,    
-    title: "Resultados Medibles",    
-    description: "Dashboard con métricas claras y seguimiento continuo de recuperación." 
+    title: "Resultados medibles",    
+    description: "Dashboards con métricas claras y seguimiento continuo de recuperación." 
   },
   { 
     icon: Lock,         
-    title: "Confidencialidad y Cumplimiento", 
+    title: "Confidencialidad y cumplimiento", 
     description: "Protección de datos conforme a LFPDPPP y lineamientos regulatorios." 
   },
   { 
     icon: Headphones,   
-    title: "Atención Dedicada",      
+    title: "Atención dedicada",      
     description: "Ejecutivo de cuenta asignado y seguimiento estructurado." 
   },
   { 
     icon: Clock,        
-    title: "Inicio Ágil de Gestión",    
+    title: "Inicio ágil de gestión",    
     description: "Activación operativa en menos de 24 horas tras la asignación." 
   },
   { 
     icon: CheckCircle2, 
-    title: "Gestión Ética y Profesional",         
+    title: "Gestión ética y profesional",         
     description: "Comunicación responsable alineada a normativas y mejores prácticas." 
   },
 ];

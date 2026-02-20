@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/OB-React/',
+  base: '/',
   build: {
     target: 'es2022',
     cssCodeSplit: true,
