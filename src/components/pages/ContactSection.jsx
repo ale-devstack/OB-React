@@ -71,10 +71,10 @@ export default function ContactSection() {
               Contacto
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-              Hablemos de tu Cartera
+              Hablemos de tu cartera
             </h1>
             <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Agenda una consulta gratuita y descubre cómo OrangeBee puede
+              Agenda una llamada y descubre cómo OrangeBee puede
               ayudarte a recuperar tu cartera vencida.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function ContactSection() {
             )}
           >
             <h2 className="text-2xl font-bold text-neutral-900 mb-2">
-              Envíanos un Mensaje
+              Envíanos un mensaje
             </h2>
             <p className="text-neutral-500 mb-8">
               Te contactaremos en menos de 24 horas.
@@ -105,7 +105,7 @@ export default function ContactSection() {
                   <CheckCircle2 className="w-10 h-10 text-orange-500" />
                 </div>
                 <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  ¡Mensaje Enviado!
+                  ¡Mensaje enviado!
                 </h3>
                 <p className="text-neutral-500">
                   Un asesor se comunicará contigo pronto.
@@ -173,7 +173,7 @@ export default function ContactSection() {
                     <option value="">Selecciona una opción</option>
                     <option>Empresa Comercial</option>
                     <option>Banco / Financiera</option>
-                    <option>Fintech</option>
+                    <option>FinTech</option>
                     <option>Otro</option>
                   </select>
                 </div>
@@ -203,7 +203,7 @@ export default function ContactSection() {
                     </>
                   ) : (
                     <>
-                      Enviar Mensaje
+                      Enviar mensaje
                       <Send className="w-5 h-5" />
                     </>
                   )}
@@ -219,7 +219,7 @@ export default function ContactSection() {
           >
             <div>
               <h2 className="text-2xl font-bold text-neutral-900 mb-2">
-                Información de Contacto
+                Información de contacto
               </h2>
               <p className="text-neutral-500">
                 Estamos disponibles para atenderte.

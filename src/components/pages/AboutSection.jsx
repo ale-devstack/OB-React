@@ -42,10 +42,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "15+", label: "Años de Experiencia" },
-  { value: "200+", label: "Empresas Atendidas" },
-  { value: "$100M+", label: "Recuperados" },
-  { value: "98%", label: "Efectividad" },
+  { value: "24h", label: "Inicio de gestión" },
+  { value: "3", label: "Fases de recuperación" },
+  { value: "0", label: "Costos iniciales" },
+  { value: "100%", label: "Cumplimiento normativo" },
 ];
 
 export default function AboutSection() {
@@ -76,8 +76,8 @@ export default function AboutSection() {
               Conoce a OrangeBee
             </h1>
             <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Despacho de cobranza profesional especializado en empresas,
-              financieras y fintechs en México.
+              Gestión de cobranza profesional especializada en empresas, banca digital y FinTech.
+              Recuperación efectiva con ética y transparencia.
             </p>
           </div>
         </div>
@@ -116,23 +116,22 @@ export default function AboutSection() {
               Nuestra Historia
             </span>
             <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
-              Innovación en la Gestión de Cobranza
+              Gestión estructurada para una nueva etapa de cobranza
             </h3>
 
             <div className="space-y-4 text-neutral-600 leading-relaxed">
               <p>
-                OrangeBee surge de la necesidad de transformar la industria de
-                la cobranza en México. Fundada por profesionales con amplia
-                experiencia en el sector financiero.
+                OrangeBee nace con un enfoque claro: 
+                profesionalizar la recuperación de cartera a través de procesos 
+                estructurados, métricas claras y gestión ética.
               </p>
               <p>
-                Atendemos empresas, financieras y fintechs que buscan un socio
-                estratégico para la recuperación de su cartera vencida,
-                manteniendo la integridad de las relaciones comerciales.
+                Fundada por especialistas con experiencia en el sector financiero, 
+                la firma fue creada para ofrecer a las empresas un modelo de cobranza más estratégico, 
+                medible y alineado a normativas vigentes.
               </p>
               <p>
-                Nuestra metodología cumple con normativas CONDUSEF y mejores
-                prácticas internacionales.
+                Operamos bajo estándares regulatorios y mejores prácticas del sector, priorizando el control, la trazabilidad y la protección reputacional de nuestros clientes.
               </p>
             </div>
           </div>
@@ -190,9 +189,7 @@ export default function AboutSection() {
               Nuestra Misión
             </h3>
             <p className="text-neutral-300 leading-relaxed">
-              Proporcionar soluciones de cobranza efectivas y éticas que
-              maximicen la recuperación de cartera utilizando tecnología y
-              procesos transparentes.
+              Estructurar y profesionalizar la gestión de cobranza en México mediante un modelo basado en control, trazabilidad y ejecución estratégica.
             </p>
           </div>
 
@@ -204,8 +201,7 @@ export default function AboutSection() {
               Nuestra Visión
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              Ser el despacho de cobranza más innovador y confiable de México,
-              reconocido por nuestra efectividad y compromiso ético.
+              Ser referente en recuperación empresarial por nuestro enfoque estructurado, cumplimiento regulatorio y capacidad de ejecución.
             </p>
           </div>
         </div>
@@ -270,7 +266,7 @@ export default function AboutSection() {
           )}
         >
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            ¿Listo para Trabajar con Nosotros?
+            ¿Listo para trabajar con nosotros?
           </h3>
           <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
             Descubre cómo OrangeBee puede ayudarte a recuperar tu cartera
@@ -280,7 +276,7 @@ export default function AboutSection() {
             to="/contacto"
             className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
           >
-            Contáctanos Hoy
+            Contáctanos hoy
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>

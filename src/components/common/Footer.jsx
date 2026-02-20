@@ -26,7 +26,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-neutral-300/90 text-sm leading-relaxed mb-6">
-              Despacho de cobranza profesional especializado en empresas, financieras y fintechs.
+              Gestión de cobranza profesional especializada en empresas, banca digital y FinTech.
               Recuperación efectiva con ética y transparencia.
             </p>
             <div className="flex items-center gap-3">
@@ -108,7 +108,7 @@ export default function Footer() {
             © {new Date().getFullYear()} OrangeBee. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/nosotros" className="text-neutral-400 hover:text-white transition-colors">
+            <Link to="/aviso-de-privacidad" className="text-neutral-400 hover:text-white transition-colors">
               Aviso de Privacidad
             </Link>
             <Link to="/nosotros" className="text-neutral-400 hover:text-white transition-colors">

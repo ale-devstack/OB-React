@@ -27,11 +27,11 @@ export default function CTASection() {
           ref={sectionRef}
           className={cn("ob-anim ob-fade-up", sectionInView && "visible")}
         >
-          {/* Badge */}
+          {/* Badge 
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
             <span className="text-orange-400 text-sm font-medium">Consulta 100% gratuita</span>
-          </div>
+          </div> */}
 
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -41,7 +41,7 @@ export default function CTASection() {
 
           {/* Subtitle */}
           <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Agenda una consulta gratuita con nuestros especialistas y descubre
+            Agenda una llamada con nuestros especialistas y descubre
             cómo OrangeBee puede mejorar tu flujo de efectivo desde el primer día.
           </p>
 
@@ -51,7 +51,7 @@ export default function CTASection() {
               to="/contacto"
               className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold px-10 py-5 text-lg rounded-xl shadow-[0_16px_40px_rgba(255,85,0,0.40)] transition-all duration-200 hover:shadow-[0_20px_50px_rgba(255,85,0,0.50)] hover:-translate-y-0.5"
             >
-              Solicitar Consulta Gratis
+              Iniciar conversación
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function CTASection() {
             </a>
           </div>
 
-          {/* Trust stats */}
+          {/* Trust stats 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-white/[0.07] pt-10">
             {stats.map(({ value, label }) => (
               <div key={label} className="text-center">
@@ -88,7 +88,7 @@ export default function CTASection() {
                 <div className="text-white/40 text-xs uppercase tracking-widest">{label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

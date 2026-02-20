@@ -12,25 +12,25 @@ import { cn } from "../../utils/cn";
 const process = [
   {
     step: "01",
-    title: "Análisis de Cartera",
+    title: "Análisis de cartera",
     description: "Evaluamos detalladamente tu cartera vencida para diseñar la estrategia óptima de recuperación.",
     icon: FileSearch,
   },
   {
     step: "02",
-    title: "Diseño de Estrategia",
+    title: "Diseño de estrategia",
     description: "Creamos un plan de acción personalizado basado en el perfil de deudores y tipo de adeudo.",
     icon: TrendingUp,
   },
   {
     step: "03",
-    title: "Gestión Activa",
+    title: "Gestión activa",
     description: "Implementamos la estrategia con nuestro equipo especializado utilizando múltiples canales.",
     icon: Users,
   },
   {
     step: "04",
-    title: "Seguimiento Legal",
+    title: "Seguimiento legal",
     description: "En casos necesarios, procedemos con acciones legales para garantizar la recuperación.",
     icon: Gavel,
   },
@@ -68,7 +68,7 @@ function ServiceRow({ service, isEven }) {
           to="/contacto"
           className="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white rounded-xl px-6 py-3 font-medium transition-colors"
         >
-          Solicitar Información
+          Solicitar información
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
@@ -108,9 +108,9 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <div className="hero-fade-up">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones Integrales de Cobranza</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones integrales de cobranza</h1>
             <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Portafolio completo de servicios de recuperación de cartera para empresas, financieras y fintechs en México.
+              Portafolio completo de servicios de recuperación de cartera para empresas, banca digital y FinTechs en México.
             </p>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
             )}
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestro Proceso</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-4">Metodología de Trabajo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-4">Metodología de trabajo</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
               Proceso estructurado que garantiza la máxima efectividad en la recuperación de tu cartera vencida.
             </p>
@@ -172,16 +172,16 @@ export default function ServicesPage() {
             ref={ctaRef}
             className={cn("ob-anim ob-fade-up", ctaInView && "visible")}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas Recuperar tu Cartera Vencida?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas recuperar tu cartera vencida?</h2>
             <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
-              Contáctanos hoy y recibe una evaluación gratuita de tu cartera.
+              Solicita un análisis inicial de tu cartera y recibe una propuesta de gestión personalizada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contacto"
                 className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
               >
-                Solicitar Consulta <ArrowRight className="h-5 w-5" />
+                Agendar llamada <ArrowRight className="h-5 w-5" />
               </Link>
               <a
                 href={CONTACT.phoneHref}

@@ -39,23 +39,23 @@ function Hero() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="hero-fade-left">
-            <div className="inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8">
+            {/* <div className="inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8">
               <Hexagon className="w-4 h-4 text-orange-500 fill-orange-500" />
               <span className="text-white/80 text-sm font-medium">Cobranza inteligente y efectiva</span>
-            </div>
+            </div> **/}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Recuperamos tu
+              Impulsamos la recuperación de tu
               <span className="block text-orange-500">cartera vencida</span>
             </h1>
             <p className="text-lg text-neutral-300 mb-10 max-w-xl leading-relaxed">
-              Soluciones profesionales de cobranza para empresas, financieras y fintechs. Maximizamos la recuperación con ética, transparencia y tecnología de punta.
+              Gestión profesional con procesos definidos, métricas claras y enfoque ético en cada etapa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contacto"
                 className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-lg shadow-orange-500/25 transition-all hover:shadow-xl hover:shadow-orange-500/30"
               >
-                Solicitar Consulta <ArrowRight className="h-5 w-5" />
+                Iniciar conversación <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 to="/servicios"
@@ -72,9 +72,9 @@ function Hero() {
               <div className="bg-white/10 border border-white/15 rounded-3xl p-8 shadow-2xl">
                 <div className="space-y-6">
                   {[
-                    { icon: Shield,     title: 'Cobranza Ética',       desc: 'Procesos respetuosos que preservan relaciones comerciales' },
-                    { icon: TrendingUp, title: 'Alta Recuperación',    desc: 'Metodologías probadas para maximizar resultados' },
-                    { icon: Users,      title: 'Equipo Especializado', desc: 'Profesionales certificados en gestión de cobranza' },
+                    { icon: Shield,     title: 'Cobranza ética',       desc: 'Procesos respetuosos que preservan relaciones comerciales' },
+                    { icon: TrendingUp, title: 'Alta recuperación',    desc: 'Metodologías probadas para maximizar resultados' },
+                    { icon: Users,      title: 'Equipo especializado', desc: 'Profesionales certificados en gestión de cobranza' },
                   ].map((item) => (
                     <div key={item.title} className="flex gap-4 items-start p-4 rounded-2xl hover:bg-white/10 transition-colors">
                       <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
@@ -88,9 +88,9 @@ function Hero() {
                   ))}
                 </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-orange-500 rounded-2xl px-8 py-4 shadow-xl shadow-orange-500/25 flex items-center gap-3">
-                <div className="text-white font-bold text-lg">15+</div>
-                <div className="text-white/80 text-xs">Años</div>
+              <div className="absolute -bottom-9 -left-6 bg-orange-500 rounded-2xl px-4 py-6 shadow-xl shadow-orange-500/30 flex items-center gap-3">
+                <div className="text-white font-bold text-lg">Covertura nacional</div>
+                {/*<div className="text-white/80 text-xs">Años</div>*/}
               </div>
             </div>
           </div>

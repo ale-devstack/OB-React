@@ -5,12 +5,36 @@ import { useInView } from "../../hooks/useInView";
 import { cn } from "../../utils/cn"; // Importamos la utilidad
 
 const reasons = [
-  { icon: Award,        title: "Experiencia Comprobada", description: "Más de 15 años gestionando cobranza para financieras y fintechs." },
-  { icon: BarChart3,    title: "Resultados Medibles",    description: "Dashboard en tiempo real con métricas claras de recuperación." },
-  { icon: Lock,         title: "Confidencialidad Total", description: "Protección de datos conforme a LFPDPPP y estándares internacionales." },
-  { icon: Headphones,   title: "Atención Dedicada",      description: "Ejecutivo de cuenta asignado para seguimiento personalizado." },
-  { icon: Clock,        title: "Respuesta Inmediata",    description: "Inicio de gestión en menos de 24 horas desde la asignación." },
-  { icon: CheckCircle2, title: "Cobranza Ética",         description: "Cumplimiento total de normativas CONDUSEF y mejores prácticas." },
+  { 
+    icon: Award,        
+    title: "Equipo Especializado", 
+    description: "Profesionales con experiencia en recuperación para financieras y fintechs." 
+  },
+  { 
+    icon: BarChart3,    
+    title: "Resultados Medibles",    
+    description: "Dashboard con métricas claras y seguimiento continuo de recuperación." 
+  },
+  { 
+    icon: Lock,         
+    title: "Confidencialidad y Cumplimiento", 
+    description: "Protección de datos conforme a LFPDPPP y lineamientos regulatorios." 
+  },
+  { 
+    icon: Headphones,   
+    title: "Atención Dedicada",      
+    description: "Ejecutivo de cuenta asignado y seguimiento estructurado." 
+  },
+  { 
+    icon: Clock,        
+    title: "Inicio Ágil de Gestión",    
+    description: "Activación operativa en menos de 24 horas tras la asignación." 
+  },
+  { 
+    icon: CheckCircle2, 
+    title: "Gestión Ética y Profesional",         
+    description: "Comunicación responsable alineada a normativas y mejores prácticas." 
+  },
 ];
 
 export default function WhyOrangeBee() {
@@ -37,16 +61,16 @@ export default function WhyOrangeBee() {
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-8">
-                  <div className="text-7xl font-bold mb-2 text-orange-500">98%</div>
-                  <div className="text-xl text-white/70">Tasa de Recuperación</div>
+                  <div className="text-7xl font-bold mb-2 text-orange-500">100%</div>
+                  <div className="text-xl text-white/70">Gestión multicanal</div>
                   <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
                     <div>
-                      <div className="text-3xl font-bold text-orange-500">+200</div>
-                      <div className="text-white/50 text-sm mt-1">Clientes Activos</div>
+                      <div className="text-3xl font-bold text-orange-500">$0</div>
+                      <div className="text-white/50 text-sm mt-1">Costos iniciales</div>
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-orange-500">24h</div>
-                      <div className="text-white/50 text-sm mt-1">Tiempo de Respuesta</div>
+                      <div className="text-white/50 text-sm mt-1">Inicio de gestión</div>
                     </div>
                   </div>
                 </div>
@@ -74,7 +98,7 @@ export default function WhyOrangeBee() {
           >
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">¿Por Qué OrangeBee?</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
-              La Diferencia de Trabajar con Profesionales
+              La diferencia de trabajar con profesionales
             </h2>
             <p className="text-neutral-600 mb-10 leading-relaxed">
               En OrangeBee combinamos tecnología, experiencia y ética para ofrecer soluciones de cobranza

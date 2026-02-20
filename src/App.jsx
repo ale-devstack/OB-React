@@ -9,6 +9,7 @@ const ServicesPage   = lazy(() => import('./components/pages/ServicesPage'));
 const AboutSection   = lazy(() => import('./components/pages/AboutSection'));
 const ContactSection = lazy(() => import('./components/pages/ContactSection'));
 const PageNotFound   = lazy(() => import('./components/lib/PageNotFound'));
+const PrivacyPolicy = lazy(() => import("./components/pages/PrivacyPolicy"));
 
 // Corrección: Componente para hacer scroll al inicio al cambiar de ruta
 function ScrollToTop() {
@@ -114,6 +115,7 @@ function App() {
                 <Route path="/nosotros" element={<AboutSection />} />
                 <Route path="/contacto" element={<ContactSection />} />
                 <Route path="*" element={<PageNotFound />} />
+                <Route path="/aviso-de-privacidad" element={<PrivacyPolicy />} />
               </Routes>
             </Layout>
           </Suspense>

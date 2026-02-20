@@ -18,6 +18,6 @@ export const CONTACT = {
 export const CONTACT_ITEMS = [
   { icon: MapPin, title: 'Ubicación',          lines: [CONTACT.address] },
   { icon: Phone,  title: 'Teléfono',           lines: [CONTACT.phone] },
-  { icon: Mail,   title: 'Correo Electrónico', lines: [CONTACT.email] },
+  { icon: Mail,   title: 'Correo electrónico', lines: [CONTACT.email] },
   { icon: Clock,  title: 'Horario',            lines: [CONTACT.hours] },
 ];
