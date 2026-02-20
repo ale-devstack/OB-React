@@ -2,6 +2,7 @@ import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInView } from "../../hooks/useInView";
 import { CONTACT } from "../../data/contact";
+import { cn } from "../../utils/cn"; // Importamos cn
 
 const stats = [
   { value: '15+',    label: 'Años de experiencia' },
@@ -11,7 +12,7 @@ const stats = [
 ];
 
 export default function CTASection() {
-  const [sectionRef, sectionInView] = useInView();
+  const [sectionRef, sectionInView] = useInView(); // Aquí sí va sectionRef
 
   return (
     <section className="py-28 bg-[#0b0b0c] relative overflow-hidden border-t border-orange-500/15">
@@ -22,7 +23,10 @@ export default function CTASection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div ref={sectionRef} className={cn("ob-anim ob-fade-up", sectionInView && "visible")}>
+        <div
+          ref={sectionRef}
+          className={cn("ob-anim ob-fade-up", sectionInView && "visible")}
+        >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
