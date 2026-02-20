@@ -34,7 +34,7 @@ export default function ContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Reemplaza con tu Access Key gratuita de Web3Forms
+          access_key: "c72b0bbc-b9b9-40aa-b477-ca08a91a8956", // Reemplaza con tu Access Key gratuita de Web3Forms
           subject: `Nuevo Lead: ${formData.company || 'Sin Empresa'} - ${formData.serviceType || 'General'}`,
           name: formData.name,
           email: formData.email,
