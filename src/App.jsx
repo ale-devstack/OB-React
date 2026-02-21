@@ -26,21 +26,19 @@ function ScrollToTop() {
 // NUEVO: Fallback visual suave para las transiciones de rutas en lazy load
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
+    <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full" />
   </div>
 );
 
 function App() {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
-  const [isLoaderFading, setIsLoaderFading] = useState(false);
 
   // 1. Manejo del Loader Inicial (Sincronizado con Home.jsx)
   useEffect(() => {
     const isHomePath = /^\/OB-React\/?$/.test(window.location.pathname) || /^\/$/.test(window.location.pathname);
 
     const closeLoader = () => {
-      setIsLoaderFading(true);
-      setTimeout(() => setIsLoaderVisible(false), 220);
+      setIsLoaderVisible(false);
     };
 
     let homeReadyTimeout;
@@ -98,7 +96,7 @@ function App() {
   return (
     <>
       {isLoaderVisible && (
-        <div id="app-loader" className={isLoaderFading ? 'fade-out' : ''}>
+        <div id="app-loader">
           <div className="spinner" />
         </div>
       )}

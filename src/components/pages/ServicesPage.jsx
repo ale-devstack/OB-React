@@ -3,11 +3,10 @@ import {
   ArrowRight, CheckCircle2, Phone,
   TrendingUp, Users, FileSearch, Gavel,
 } from "lucide-react";
-import { useInView } from "../../hooks/useInView";
+import { cn } from "../../utils/cn";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { SERVICES } from "../../data/services";
 import { CONTACT } from "../../data/contact";
-import { cn } from "../../utils/cn";
 
 const process = [
   {
@@ -37,16 +36,8 @@ const process = [
 ];
 
 function ServiceRow({ service, isEven }) {
-  const [ref, inView] = useInView();
-  
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "ob-anim ob-fade-up grid lg:grid-cols-2 gap-16 items-center",
-        inView && "visible"
-      )}
-    >
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
       {/* TEXT */}
       <div className={cn("order-1", isEven ? "lg:order-1" : "lg:order-2")}>
         <div className="flex items-center gap-4 mb-6">
@@ -96,23 +87,17 @@ function ServiceRow({ service, isEven }) {
 export default function ServicesPage() {
   usePageTitle('Servicios');
 
-  const [processHeaderRef, processHeaderInView] = useInView();
-  const [processGridRef, processGridInView] = useInView();
-  const [ctaRef, ctaInView] = useInView();
-
   return (
     <main>
       {/* HERO */}
       <section className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
         <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <div className="hero-fade-up">
-            <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones integrales de cobranza</h1>
-            <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Portafolio completo de servicios de recuperación de cartera para empresas, banca digital y FinTechs en México.
-            </p>
-          </div>
+          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones integrales de cobranza</h1>
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
+            Portafolio completo de servicios de recuperación de cartera para empresas, banca digital y FinTechs en México.
+          </p>
         </div>
       </section>
 
@@ -128,13 +113,7 @@ export default function ServicesPage() {
       {/* PROCESS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div
-            ref={processHeaderRef}
-            className={cn(
-              "ob-anim ob-fade-up text-center mb-16",
-              processHeaderInView && "visible"
-            )}
-          >
+          <div className="text-center mb-16">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestro Proceso</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-4">Metodología de trabajo</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
@@ -142,13 +121,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div
-            ref={processGridRef}
-            className={cn(
-              "ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-8",
-              processGridInView && "visible"
-            )}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step) => (
               <div key={step.step} className="bg-neutral-100 rounded-2xl p-8 relative border border-neutral-200">
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
@@ -168,28 +141,23 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="py-24 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <div
-            ref={ctaRef}
-            className={cn("ob-anim ob-fade-up", ctaInView && "visible")}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas recuperar tu cartera vencida?</h2>
-            <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
-              Solicita un análisis inicial de tu cartera y recibe una propuesta de gestión personalizada.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contacto"
-                className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-              >
-                Agendar llamada <ArrowRight className="h-5 w-5" />
-              </Link>
-              <a
-                href={CONTACT.phoneHref}
-                className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/5 px-8 py-4 rounded-xl font-medium transition-colors"
-              >
-                <Phone className="h-5 w-5" /> Llamar Ahora
-              </a>
-            </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas recuperar tu cartera vencida?</h2>
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
+            Solicita un análisis inicial de tu cartera y recibe una propuesta de gestión personalizada.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contacto"
+              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
+            >
+              Agendar llamada <ArrowRight className="h-5 w-5" />
+            </Link>
+            <a
+              href={CONTACT.phoneHref}
+              className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/5 px-8 py-4 rounded-xl font-medium transition-colors"
+            >
+              <Phone className="h-5 w-5" /> Llamar Ahora
+            </a>
           </div>
         </div>
       </section>

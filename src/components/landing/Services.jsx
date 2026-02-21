@@ -1,22 +1,13 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useInView } from '../../hooks/useInView';
 import { SERVICES } from '../../data/services';
-import { cn } from '../../utils/cn'; // Importamos utilidad
 
 export default function ServicesPreview() {
-  const [headerRef, headerInView] = useInView();
-  const [gridRef, gridInView] = useInView();
-  const [ctaRef, ctaInView] = useInView();
-
   return (
     <section className="py-24 ob-section-soft">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div
-          ref={headerRef}
-          className={cn("ob-anim ob-fade-up text-center mb-16", headerInView && "visible")}
-        >
+        <div className="text-center mb-16">
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
             Nuestros servicios
           </span>
@@ -29,22 +20,19 @@ export default function ServicesPreview() {
         </div>
 
         {/* Services Grid */}
-        <div
-          ref={gridRef}
-          className={cn("ob-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12", gridInView && "visible")}
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-200/70 hover:border-orange-200"
+              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-neutral-200/70 hover:border-orange-200"
             >
               <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200">
                 <img
-                  src={service.imageUrl} // <-- Limpio, la URL viene directamente de la data
+                  src={service.imageUrl}
                   alt={service.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
@@ -72,10 +60,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* CTA */}
-        <div
-          ref={ctaRef}
-          className={cn("ob-anim ob-fade-up text-center", ctaInView && "visible")}
-        >
+        <div className="text-center">
           <Link
             to="/servicios"
             className="inline-flex items-center gap-2 bg-black hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
