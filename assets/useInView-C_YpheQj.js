@@ -1,1 +1,0 @@
-import{r as t}from"./router-C3Vmew7Z.js";function f(s={}){const n=t.useRef(null),[o,c]=t.useState(!1);return t.useEffect(()=>{const r=n.current;if(!r)return;const e=new IntersectionObserver(([i])=>{i.isIntersecting&&(c(!0),e.disconnect())},{threshold:.05,rootMargin:"0px 0px 150px 0px",...s});return e.observe(r),()=>e.disconnect()},[]),[n,o]}export{f as u};
