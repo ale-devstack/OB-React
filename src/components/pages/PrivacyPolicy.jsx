@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function PrivacyPolicy() {
   return (
     <div className="bg-white text-gray-800 py-16 px-6 md:px-12 lg:px-24">

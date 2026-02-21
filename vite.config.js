@@ -13,8 +13,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('react-router-dom')) return 'router'
-          if (id.includes('lucide-react')) return 'icons'
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) return 'vendor-react'
+          if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router/')) return 'router'
+          if (id.includes('node_modules/lucide-react')) return 'icons'
         },
       },
     },

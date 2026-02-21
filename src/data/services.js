@@ -23,7 +23,7 @@ export const SERVICES = [
     'Indicadores claros de desempeño'
   ],
   stat: { value: '-35%', label: 'Reducción de mora temprana' },
-  imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=75',
 },
 {
   id: 'administrativa',
@@ -47,7 +47,7 @@ export const SERVICES = [
     'Escalamiento previo a fase judicial'
   ],
   stat: { value: '24h', label: 'Inicio de gestión' },
-  imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=75',
 },
 {
   id: 'judicial',
@@ -71,7 +71,7 @@ export const SERVICES = [
     'Seguimiento procesal continuo'
   ],
   stat: { value: 'Alto índice', label: 'Efectividad procesal' },
-  imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75',
 },
   {
   id: 'consultoria',
@@ -95,6 +95,6 @@ export const SERVICES = [
     'Mejores prácticas sectoriales'
   ],
   stat: { value: '+15', label: 'Años de experiencia en cobranza' },
-  imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
+  imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=75',
 },
 ];

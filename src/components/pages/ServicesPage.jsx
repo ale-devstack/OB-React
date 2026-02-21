@@ -8,7 +8,7 @@ import { usePageTitle } from "../../hooks/usePageTitle";
 import { SERVICES } from "../../data/services";
 import { CONTACT } from "../../data/contact";
 
-const process = [
+const workProcess = [
   {
     step: "01",
     title: "Análisis de cartera",
@@ -122,7 +122,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step) => (
+            {workProcess.map((step) => (
               <div key={step.step} className="bg-neutral-100 rounded-2xl p-8 relative border border-neutral-200">
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}

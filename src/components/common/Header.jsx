@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoAbeja from '/logo-abeja.webp';
-import { cn } from "../../utils/cn"; // Importamos nuestra nueva utilidad
+import { cn } from "../../utils/cn";
 
 const navLinks = [
   { name: "Inicio",    to: "/",          chunk: null },
@@ -20,8 +20,8 @@ export default function Header() {
   useEffect(() => {
     let lastCall = 0;
     const handleScroll = () => {
-      const now = new Date().getTime();
-      if (now - lastCall < 100) return; // Se ejecuta máximo cada 100ms
+      const now = Date.now();
+      if (now - lastCall < 100) return;
       lastCall = now;
       setIsScrolled(window.scrollY > 20);
     };
