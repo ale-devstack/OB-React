@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
-import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
-import { cn } from "../../utils/cn";
 import logoAbeja from '/logo-abeja.webp';
 
 const inputClass = "w-full rounded-xl border border-neutral-300 p-3 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:border-orange-500 transition-all";
@@ -18,10 +16,6 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [formRef, formInView] = useInView();
-  const [infoRef, infoInView] = useInView();
-  const [cardsRef, cardsInView] = useInView();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -34,7 +28,7 @@ export default function ContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "c72b0bbc-b9b9-40aa-b477-ca08a91a8956", // Reemplaza con tu Access Key gratuita de Web3Forms
+          access_key: "c72b0bbc-b9b9-40aa-b477-ca08a91a8956",
           subject: `Nuevo Lead: ${formData.company || 'Sin Empresa'} - ${formData.serviceType || 'General'}`,
           name: formData.name,
           email: formData.email,
@@ -66,18 +60,16 @@ export default function ContactSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <div className="hero-fade-up">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
-              Contacto
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-              Hablemos de tu cartera
-            </h1>
-            <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Agenda una llamada y descubre cómo OrangeBee puede
-              ayudarte a recuperar tu cartera vencida.
-            </p>
-          </div>
+          <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+            Contacto
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Hablemos de tu cartera
+          </h1>
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
+            Agenda una llamada y descubre cómo OrangeBee puede
+            ayudarte a recuperar tu cartera vencida.
+          </p>
         </div>
       </div>
 
@@ -85,13 +77,7 @@ export default function ContactSection() {
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           {/* Form */}
-          <div
-            ref={formRef}
-            className={cn(
-              "ob-anim ob-fade-left bg-white rounded-3xl p-8 shadow-sm border border-neutral-200",
-              formInView && "visible"
-            )}
-          >
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-neutral-200">
             <h2 className="text-2xl font-bold text-neutral-900 mb-2">
               Envíanos un mensaje
             </h2>
@@ -197,10 +183,7 @@ export default function ContactSection() {
                   className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-70 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
                   {isSubmitting ? (
-                    <>
-                      <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Enviando...
-                    </>
+                    <>Enviando...</>
                   ) : (
                     <>
                       Enviar mensaje
@@ -213,10 +196,7 @@ export default function ContactSection() {
           </div>
 
           {/* Info */}
-          <div
-            ref={infoRef}
-            className={cn("ob-anim ob-fade-right space-y-8", infoInView && "visible")}
-          >
+          <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold text-neutral-900 mb-2">
                 Información de contacto
@@ -226,10 +206,7 @@ export default function ContactSection() {
               </p>
             </div>
 
-            <div
-              ref={cardsRef}
-              className={cn("ob-stagger grid sm:grid-cols-2 gap-6", cardsInView && "visible")}
-            >
+            <div className="grid sm:grid-cols-2 gap-6">
               {CONTACT_ITEMS.map((item) => (
                 <div
                   key={item.title}

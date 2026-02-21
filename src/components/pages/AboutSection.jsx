@@ -9,9 +9,7 @@ import {
   Shield,
   CheckCircle2,
 } from "lucide-react";
-import { useInView } from "../../hooks/useInView";
 import { usePageTitle } from "../../hooks/usePageTitle";
-import { cn } from "../../utils/cn";
 import logoAbeja from '/logo-abeja.webp';
 
 const values = [
@@ -51,14 +49,6 @@ const stats = [
 export default function AboutSection() {
   usePageTitle('Nosotros');
 
-  const [statsRef, statsInView] = useInView();
-  const [historyLeftRef, historyLeftInView] = useInView();
-  const [historyRightRef, historyRightInView] = useInView();
-  const [missionRef, missionInView] = useInView();
-  const [valuesHeaderRef, valuesHeaderInView] = useInView();
-  const [valuesGridRef, valuesGridInView] = useInView();
-  const [ctaRef, ctaInView] = useInView();
-
   return (
     <section id="nosotros">
       {/* Hero */}
@@ -68,30 +58,22 @@ export default function AboutSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <div className="hero-fade-up">
-            <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
-              Sobre Nosotros
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-              Conoce a OrangeBee
-            </h1>
-            <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
-              Gestión de cobranza profesional especializada en empresas, banca digital y FinTech.
-              Recuperación efectiva con ética y transparencia.
-            </p>
-          </div>
+          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
+            Sobre Nosotros
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Conoce a OrangeBee
+          </h1>
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
+            Gestión de cobranza profesional especializada en empresas, banca digital y FinTech.
+            Recuperación efectiva con ética y transparencia.
+          </p>
         </div>
       </div>
 
       {/* Stats */}
       <div className="py-12 bg-white border-b border-neutral-200">
-        <div
-          ref={statsRef}
-          className={cn(
-            "ob-stagger max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center",
-            statsInView && "visible"
-          )}
-        >
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className="text-3xl md:text-4xl font-bold text-neutral-900">
@@ -108,10 +90,7 @@ export default function AboutSection() {
       {/* History */}
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div
-            ref={historyLeftRef}
-            className={cn("ob-anim ob-fade-left", historyLeftInView && "visible")}
-          >
+          <div>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestra Historia
             </span>
@@ -121,13 +100,13 @@ export default function AboutSection() {
 
             <div className="space-y-4 text-neutral-600 leading-relaxed">
               <p>
-                OrangeBee nace con un enfoque claro: 
-                profesionalizar la recuperación de cartera a través de procesos 
+                OrangeBee nace con un enfoque claro:
+                profesionalizar la recuperación de cartera a través de procesos
                 estructurados, métricas claras y gestión ética.
               </p>
               <p>
-                Fundada por especialistas con experiencia en el sector financiero, 
-                la firma fue creada para ofrecer a las empresas un modelo de cobranza más estratégico, 
+                Fundada por especialistas con experiencia en el sector financiero,
+                la firma fue creada para ofrecer a las empresas un modelo de cobranza más estratégico,
                 medible y alineado a normativas vigentes.
               </p>
               <p>
@@ -136,13 +115,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div
-            ref={historyRightRef}
-            className={cn(
-              "ob-anim ob-fade-right relative",
-              historyRightInView && "visible"
-            )}
-          >
+          <div className="relative">
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
                 <img
@@ -174,13 +147,7 @@ export default function AboutSection() {
 
       {/* Mission & Vision */}
       <div className="py-24 bg-white">
-        <div
-          ref={missionRef}
-          className={cn(
-            "ob-stagger max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12",
-            missionInView && "visible"
-          )}
-        >
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
           <div className="bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06]">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
@@ -210,13 +177,7 @@ export default function AboutSection() {
       {/* Values */}
       <div className="py-24 ob-section-soft">
         <div className="max-w-7xl mx-auto px-6">
-          <div
-            ref={valuesHeaderRef}
-            className={cn(
-              "ob-anim ob-fade-up text-center mb-16",
-              valuesHeaderInView && "visible"
-            )}
-          >
+          <div className="text-center mb-16">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestros Valores
             </span>
@@ -225,13 +186,7 @@ export default function AboutSection() {
             </h3>
           </div>
 
-          <div
-            ref={valuesGridRef}
-            className={cn(
-              "ob-stagger grid sm:grid-cols-2 lg:grid-cols-4 gap-8",
-              valuesGridInView && "visible"
-            )}
-          >
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
               <div
                 key={value.title}
@@ -258,13 +213,7 @@ export default function AboutSection() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[120px]" />
         </div>
 
-        <div
-          ref={ctaRef}
-          className={cn(
-            "ob-anim ob-fade-up relative z-10",
-            ctaInView && "visible"
-          )}
-        >
+        <div className="relative z-10">
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para trabajar con nosotros?
           </h3>

@@ -1,57 +1,47 @@
 import {
   CheckCircle2, Award, Clock, Headphones, BarChart3, Lock,
 } from "lucide-react";
-import { useInView } from "../../hooks/useInView";
-import { cn } from "../../utils/cn"; // Importamos la utilidad
 
 const reasons = [
-  { 
-    icon: Award,        
-    title: "Equipo especializado", 
-    description: "Profesionales con más de 10 años de experiencia en recuperación." 
+  {
+    icon: Award,
+    title: "Equipo especializado",
+    description: "Profesionales con más de 10 años de experiencia en recuperación."
   },
-  { 
-    icon: BarChart3,    
-    title: "Resultados medibles",    
-    description: "Dashboards con métricas claras y seguimiento continuo de recuperación." 
+  {
+    icon: BarChart3,
+    title: "Resultados medibles",
+    description: "Dashboards con métricas claras y seguimiento continuo de recuperación."
   },
-  { 
-    icon: Lock,         
-    title: "Confidencialidad y cumplimiento", 
-    description: "Protección de datos conforme a LFPDPPP y lineamientos regulatorios." 
+  {
+    icon: Lock,
+    title: "Confidencialidad y cumplimiento",
+    description: "Protección de datos conforme a LFPDPPP y lineamientos regulatorios."
   },
-  { 
-    icon: Headphones,   
-    title: "Atención dedicada",      
-    description: "Ejecutivo de cuenta asignado y seguimiento estructurado." 
+  {
+    icon: Headphones,
+    title: "Atención dedicada",
+    description: "Ejecutivo de cuenta asignado y seguimiento estructurado."
   },
-  { 
-    icon: Clock,        
-    title: "Inicio ágil de gestión",    
-    description: "Activación operativa en menos de 24 horas tras la asignación." 
+  {
+    icon: Clock,
+    title: "Inicio ágil de gestión",
+    description: "Activación operativa en menos de 24 horas tras la asignación."
   },
-  { 
-    icon: CheckCircle2, 
-    title: "Gestión ética y profesional",         
-    description: "Comunicación responsable alineada a normativas y mejores prácticas." 
+  {
+    icon: CheckCircle2,
+    title: "Gestión ética y profesional",
+    description: "Comunicación responsable alineada a normativas y mejores prácticas."
   },
 ];
 
 export default function WhyOrangeBee() {
-  // Aquí están las referencias correctas para este archivo
-  const [leftRef, leftInView] = useInView();
-  const [rightRef, rightInView] = useInView();
-  const [reasonsRef, reasonsInView] = useInView();
-
   return (
     <section id="nosotros" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
-          <div
-            ref={leftRef}
-            className={cn("ob-anim ob-fade-left relative", leftInView && "visible")}
-          >
+          <div className="relative">
             <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-orange-500/20">
               {/* Orange top accent line */}
               <div className="absolute inset-x-0 top-0 h-1 bg-orange-500" />
@@ -92,10 +82,7 @@ export default function WhyOrangeBee() {
           </div>
 
           {/* Right content */}
-          <div
-            ref={rightRef}
-            className={cn("ob-anim ob-fade-right", rightInView && "visible")}
-          >
+          <div>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">¿Por Qué OrangeBee?</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
               La diferencia de trabajar con profesionales
@@ -104,10 +91,7 @@ export default function WhyOrangeBee() {
               En OrangeBee combinamos tecnología, experiencia y ética para ofrecer soluciones de cobranza
               que generan resultados reales y protegen la reputación de tu empresa.
             </p>
-            <div
-              ref={reasonsRef}
-              className={cn("ob-stagger grid sm:grid-cols-2 gap-6", reasonsInView && "visible")}
-            >
+            <div className="grid sm:grid-cols-2 gap-6">
               {reasons.map((reason) => (
                 <div key={reason.title} className="flex gap-4">
                   <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
