@@ -111,6 +111,9 @@ export default function Footer() {
             <Link to="/aviso-de-privacidad" className="text-neutral-400 hover:text-white transition-colors">
               Aviso de Privacidad
             </Link>
+            <Link to="/nosotros" className="text-neutral-400 hover:text-white transition-colors">
+              Términos y Condiciones
+            </Link>
           </div>
         </div>
       </div>
