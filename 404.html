@@ -25,15 +25,13 @@
     <meta name="twitter:description" content="Despacho de cobranza profesional en México para empresas, financieras y fintechs." />
     <meta name="twitter:image" content="https://ale-devstack.github.io/OB-React/logo-abeja.png" />
 
-    <!-- Critical images: preload based on viewport
-    <link rel="preload" as="image" href="/hero-desktop.webp" media="(min-width: 768px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
+    <!-- Preload LCP images — le dice al browser que las descargue lo antes posible -->
+    <link rel="preload" as="image" href="/OB-React/hero-desktop.webp" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/OB-React/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
 
-    DNS prefetch for external resources 
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
-
-    -->
+    <!-- DNS prefetch para recursos externos — resuelve el DNS antes de que se necesiten -->
+    <link rel="dns-prefetch" href="https://api.web3forms.com" />
+    <link rel="preconnect" href="https://api.web3forms.com" />
     <title>OrangeBee | Cobranza Inteligente y Recuperación de Cartera</title>
 
     <script type="application/ld+json">
@@ -57,9 +55,9 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       body { background: #0b0b0c; overflow-x: hidden; }
     </style>
-    <script type="module" crossorigin src="/OB-React/assets/index-BK2Qu2yU.js"></script>
-    <link rel="modulepreload" crossorigin href="/OB-React/assets/router-C3Vmew7Z.js">
-    <link rel="modulepreload" crossorigin href="/OB-React/assets/icons-Dcjxb_hQ.js">
+    <script type="module" crossorigin src="/OB-React/assets/index-DKg68uAy.js"></script>
+    <link rel="modulepreload" crossorigin href="/OB-React/assets/react-vendor-Bl6jAG7G.js">
+    <link rel="modulepreload" crossorigin href="/OB-React/assets/router-BnDkuGtX.js">
     <link rel="stylesheet" crossorigin href="/OB-React/assets/index-BdcAz6Sh.css">
   </head>
   <body>

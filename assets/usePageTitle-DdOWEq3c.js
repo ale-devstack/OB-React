@@ -1,1 +1,0 @@
-import{r as a}from"./router-C3Vmew7Z.js";const r="OrangeBee";function n(e){a.useEffect(()=>{document.title=e?`${e} | ${r}`:`${r} | Cobranza Inteligente y Recuperación de Cartera`},[e])}export{n as u};
