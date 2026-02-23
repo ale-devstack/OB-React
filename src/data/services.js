@@ -23,7 +23,7 @@ export const SERVICES = [
     'Indicadores claros de desempeño'
   ],
   stat: { value: '-35%', label: 'Reducción de mora temprana' },
-  imageUrl: '/cobranza-preventiva.avif',
+  imageUrl: 'cobranza-preventiva.avif',
 },
 {
   id: 'administrativa',
@@ -47,7 +47,7 @@ export const SERVICES = [
     'Escalamiento previo a fase judicial'
   ],
   stat: { value: '24h', label: 'Inicio de gestión' },
-  imageUrl: '/cobranza-administrativa.avif',
+  imageUrl: 'cobranza-administrativa.avif',
 },
 {
   id: 'judicial',
