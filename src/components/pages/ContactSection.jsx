@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import { usePageTitle } from "../../hooks/usePageTitle";
 import { CONTACT_ITEMS } from "../../data/contact";
@@ -15,6 +15,13 @@ export default function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Handler unificado — evita crear un nuevo objeto en cada keystroke
+  // y re-renderizar todos los campos al mismo tiempo
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,23 +111,25 @@ export default function ContactSection() {
                     <label htmlFor="contact-name" className={labelClass}>Nombre completo</label>
                     <input
                       id="contact-name"
+                      name="name"
                       required
                       placeholder="Juan García"
                       className={inputClass}
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
                     <label htmlFor="contact-email" className={labelClass}>Correo electrónico</label>
                     <input
                       id="contact-email"
+                      name="email"
                       required
                       type="email"
                       placeholder="juan@empresa.com"
                       className={inputClass}
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -130,20 +139,22 @@ export default function ContactSection() {
                     <label htmlFor="contact-phone" className={labelClass}>Teléfono</label>
                     <input
                       id="contact-phone"
+                      name="phone"
                       placeholder="+52 55 1234 5678"
                       className={inputClass}
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
                     <label htmlFor="contact-company" className={labelClass}>Empresa</label>
                     <input
                       id="contact-company"
+                      name="company"
                       placeholder="Mi Empresa S.A."
                       className={inputClass}
                       value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -152,9 +163,10 @@ export default function ContactSection() {
                   <label htmlFor="contact-service" className={labelClass}>Tipo de empresa</label>
                   <select
                     id="contact-service"
+                    name="serviceType"
                     className={inputClass}
                     value={formData.serviceType}
-                    onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                    onChange={handleChange}
                   >
                     <option value="">Selecciona una opción</option>
                     <option>Empresa Comercial</option>
@@ -168,12 +180,13 @@ export default function ContactSection() {
                   <label htmlFor="contact-message" className={labelClass}>Mensaje</label>
                   <textarea
                     id="contact-message"
+                    name="message"
                     required
                     rows={5}
                     placeholder="Cuéntanos sobre tu cartera..."
                     className={`${inputClass} resize-none`}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={handleChange}
                   />
                 </div>
 

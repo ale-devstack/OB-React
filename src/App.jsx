@@ -55,7 +55,7 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter basename="/OB-React">
         <ScrollToTop />
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="fixed inset-0" style={{ background: '#0b0b0c' }} aria-hidden="true" />}>
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />

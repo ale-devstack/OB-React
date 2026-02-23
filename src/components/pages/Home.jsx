@@ -18,12 +18,16 @@ function Hero() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
         
         <picture>
-          <source media="(min-width: 768px)" srcSet={heroDesktop} />
+          <source media="(min-width: 768px)" srcSet={heroDesktop} width={1440} height={900} />
           <img
             src={heroMobile}
-            alt="Hero Background"
+            alt=""
+            aria-hidden="true"
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
+            loading="eager"
+            width={390}
+            height={844}
             className="absolute inset-0 w-full h-full object-cover opacity-25"
           />
         </picture>
@@ -69,17 +73,20 @@ function Hero() {
                     { icon: Shield,     title: 'Cobranza ética',       desc: 'Procesos respetuosos que preservan relaciones comerciales' },
                     { icon: TrendingUp, title: 'Alta recuperación',    desc: 'Metodologías probadas para maximizar resultados' },
                     { icon: Users,      title: 'Equipo especializado', desc: 'Profesionales certificados en gestión de cobranza' },
-                  ].map((item) => (
+                  ].map((item) => {
+                    const Icon = item.icon;
+                    return (
                     <div key={item.title} className="flex gap-4 items-start p-4 rounded-2xl hover:bg-white/10 transition-colors">
                       <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-orange-500" />
+                        <Icon className="w-6 h-6 text-orange-500" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold mb-1">{item.title}</h3>
                         <p className="text-neutral-300 text-sm">{item.desc}</p>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
               <div className="absolute -bottom-9 -left-6 bg-orange-500 rounded-2xl px-4 py-6 shadow-xl shadow-orange-500/30 flex items-center gap-3">
