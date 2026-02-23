@@ -1,106 +1,77 @@
-import { Building2, Landmark, Scale, FileText } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { SERVICES } from '../../data/services';
 
-// import.meta.env.BASE_URL resuelve correctamente en cualquier entorno:
-// - dev:          '/'
-// - GitHub Pages: '/OB-React/'
-// Evita que las imágenes se rompan al navegar entre rutas.
-const base = import.meta.env.BASE_URL;
+export default function ServicesPreview() {
+  return (
+    <section className="py-24 ob-section-soft">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
+            Nuestros servicios
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-950 mt-3 mb-4">
+            Recuperación profesional orientada a resultados
+          </h2>
+          <p className="text-neutral-600 max-w-2xl mx-auto">
+            Gestionamos la recuperación de cartera bajo un esquema integral que cubre todas las etapas del proceso, desde la recuperación temprana y extrajudicial hasta la ejecución de acciones legales, con seguimiento medible y control operativo continuo.
+          </p>
+        </div>
 
-export const SERVICES = [
-{
-  id: 'preventiva',
-  icon: Building2,
-  title: 'Cobranza Preventiva',
-  descriptionShort:
-    'Seguimiento estructurado y comunicación estratégica antes del vencimiento.',
-  description:
-    'Aplicamos un esquema de gestión preventiva previo al vencimiento que combina recordatorios automatizados, comunicación multicanal y monitoreo continuo para reducir el riesgo de mora y preservar la salud de la cartera.',
-  featuresPreview: [
-    'Recordatorios automatizados',
-    'Comunicación multicanal',
-    'Alertas tempranas de riesgo'
-  ],
-  features: [
-    'Recordatorios automatizados programados',
-    'Supervisión de pagos próximos a vencer',
-    'Comunicación multicanal estructurada',
-    'Monitoreo de comportamiento de pago',
-    'Alertas tempranas de posibles incumplimientos',
-    'Indicadores claros de desempeño'
-  ],
-  stat: { value: '-35%', label: 'Reducción de mora temprana' },
-  imageUrl: `${base}cobranza-preventiva.avif`,
-},
-{
-  id: 'administrativa',
-  icon: Landmark,
-  title: 'Cobranza Administrativa',
-  descriptionShort:
-    'Gestión de adeudos mediante estrategia multicanal y seguimiento estructurado previo a la vía judicial.',
-  description:
-    'Gestionamos adeudos por la vía administrativa a través de una estrategia multicanal que integra contacto telefónico, WhatsApp, correo electrónico y SMS, complementada con visitas domiciliarias cuando el caso lo requiere. Mantenemos seguimiento continuo hasta la negociación formal de acuerdos y la recuperación efectiva del pago, asegurando control y trazabilidad en cada gestión.',
-  featuresPreview: [
-    'Segmentación de cartera',
-    'Recordatorios automatizados',
-    'Negociación de acuerdos'
-  ],
-  features: [
-    'Segmentación estratégica por perfil y riesgo',
-    'Recordatorios automatizados multicanal',
-    'Gestión telefónica estructurada',
-    'Negociación formal de convenios de pago',
-    'Visitas domiciliarias programadas',
-    'Escalamiento previo a fase judicial'
-  ],
-  stat: { value: '24h', label: 'Inicio de gestión' },
-  imageUrl: `${base}cobranza-administrativa.avif`,
-},
-{
-  id: 'judicial',
-  icon: Scale,
-  title: 'Cobranza Judicial',
-  descriptionShort:
-    'Acciones legales estratégicas para la recuperación formal de adeudos.',
-  description:
-    'Ejecutamos la recuperación de adeudos mediante procesos judiciales estructurados, análisis de viabilidad legal y ejecución de garantías cuando el caso lo requiere, asegurando seguimiento procesal y control en cada etapa.',
-  featuresPreview: [
-    'Demandas mercantiles',
-    'Embargos',
-    'Ejecución de garantías'
-  ],
-  features: [
-    'Análisis de viabilidad legal',
-    'Presentación de demandas mercantiles',
-    'Juicios ejecutivos',
-    'Embargo y aseguramiento de bienes',
-    'Ejecución de garantías',
-    'Seguimiento procesal continuo'
-  ],
-  stat: { value: 'Alto índice', label: 'Efectividad procesal' },
-  imageUrl: `${base}cobranza-judicial.avif`,
-},
-{
-  id: 'consultoria',
-  icon: FileText,
-  title: 'Consultoría',
-  descriptionShort:
-    'Estrategia y optimización de crédito y cobranza para fortalecer control y recuperación.',
-  description:
-    'Desarrollamos estrategias para fortalecer las políticas de crédito y optimizar los procesos internos de cobranza, mejorando control, eficiencia operativa y desempeño de recuperación en tu empresa.',
-  featuresPreview: [
-    'Diagnóstico de cartera',
-    'Capacitación especializada',
-    'Mejora de procesos'
-  ],
-  features: [
-    'Diagnóstico de cartera',
-    'Diseño de políticas de crédito',
-    'Capacitación de equipos',
-    'Optimización operativa',
-    'Implementación de controles',
-    'Mejores prácticas sectoriales'
-  ],
-  stat: { value: '+15', label: 'Años de experiencia en cobranza' },
-  imageUrl: `${base}consultoria-cobranza.avif`,
-},
-];
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {SERVICES.map((service) => (
+            <div
+              key={service.id}
+              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-neutral-200/70 hover:border-orange-200"
+            >
+              <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200">
+                <img
+                  src={service.imageUrl}
+                  alt={service.title}
+                  loading="lazy"
+                  decoding="async"
+                  width={400}
+                  height={160}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
+                {service.title}
+              </h3>
+
+              <p className="text-neutral-600 text-sm mb-5 leading-relaxed">
+                {service.descriptionShort}
+              </p>
+
+              <ul className="space-y-2">
+                {service.featuresPreview.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-center gap-2 text-sm text-neutral-500"
+                  >
+                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <Link
+            to="/servicios"
+            className="inline-flex items-center gap-2 bg-black hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+          >
+            Ver más
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
