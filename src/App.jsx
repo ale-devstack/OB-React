@@ -52,32 +52,23 @@ function App() {
   }, []);
 
   return (
-    <>
-      {isLoaderVisible && (
-        <div id="app-loader" className={isLoaderFading ? 'fade-out' : ''}>
-          <div className="spinner" />
-        </div>
-      )}
-
-      <ErrorBoundary>
-        <BrowserRouter basename="/OB-React">
-          <ScrollToTop />
-          {/* Corrección: Se agregó el fallback visual para evitar pantallas en blanco */}
-          <Suspense fallback={<PageLoader />}>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/servicios" element={<ServicesPage />} />
-                <Route path="/nosotros" element={<AboutSection />} />
-                <Route path="/contacto" element={<ContactSection />} />
-                <Route path="*" element={<PageNotFound />} />
-                <Route path="/aviso-de-privacidad" element={<PrivacyPolicy />} />
-              </Routes>
-            </Layout>
-          </Suspense>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </>
+    <ErrorBoundary>
+      <BrowserRouter basename="/OB-React">
+        <ScrollToTop />
+        <Suspense fallback={null}>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/servicios" element={<ServicesPage />} />
+              <Route path="/nosotros" element={<AboutSection />} />
+              <Route path="/contacto" element={<ContactSection />} />
+              <Route path="*" element={<PageNotFound />} />
+              <Route path="/aviso-de-privacidad" element={<PrivacyPolicy />} />
+            </Routes>
+          </Layout>
+        </Suspense>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 
