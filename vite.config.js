@@ -10,6 +10,7 @@ export default defineConfig({
     minify: 'esbuild',
     // Desactiva el cálculo de tamaño comprimido — acelera el build
     reportCompressedSize: false,
+    chunkSizeWarningLimit: 500,
     modulePreload: {
       polyfill: true,
     },

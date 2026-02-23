@@ -20,7 +20,7 @@ export default function Header() {
   useEffect(() => {
     let lastCall = 0;
     const handleScroll = () => {
-      const now = new Date().getTime();
+      const now = performance.now();
       if (now - lastCall < 100) return; // Se ejecuta máximo cada 100ms
       lastCall = now;
       setIsScrolled(window.scrollY > 20);

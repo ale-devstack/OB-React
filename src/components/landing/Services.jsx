@@ -32,6 +32,8 @@ export default function ServicesPreview() {
                   alt={service.title}
                   loading="lazy"
                   decoding="async"
+                  width={400}
+                  height={160}
                   className="w-full h-full object-cover"
                 />
               </div>

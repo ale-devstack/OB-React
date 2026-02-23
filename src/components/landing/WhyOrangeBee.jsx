@@ -92,17 +92,20 @@ export default function WhyOrangeBee() {
               que generan resultados reales y protegen la reputación de tu empresa.
             </p>
             <div className="grid sm:grid-cols-2 gap-6">
-              {reasons.map((reason) => (
+              {reasons.map((reason) => {
+                const Icon = reason.icon;
+                return (
                 <div key={reason.title} className="flex gap-4">
                   <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
-                    <reason.icon className="w-5 h-5 text-orange-500" />
+                    <Icon className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-neutral-900 mb-1">{reason.title}</h4>
                     <p className="text-neutral-500 text-sm leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
